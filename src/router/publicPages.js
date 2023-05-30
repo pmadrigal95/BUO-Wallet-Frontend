@@ -2,6 +2,7 @@ const publicPages = [
     '404',
     '403',
     'LoginViewComponent',
+    'SignUpViewComponent',
     'ResetPasswordViewComponent',
 ];
 

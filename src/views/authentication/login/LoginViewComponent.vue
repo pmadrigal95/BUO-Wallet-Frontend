@@ -10,9 +10,9 @@ import googleSDK from '@/services/socialMedia/google-SDK';
 
 import facebookSDK from '@/services/socialMedia/facebook-SDK';
 
-import baseLocalHelper from '@/helpers/baseLocalHelper.js';
+import baseLocalHelper from '@/helpers/baseLocalHelper';
 
-import baseArrayHelper from '@/helpers/baseArrayHelper.js';
+import baseArrayHelper from '@/helpers/baseArrayHelper';
 
 import baseSecurityHelper from '@/helpers/baseSecurityHelper';
 
@@ -60,7 +60,6 @@ export default {
     },
 
     mounted() {
-        //TODO: Update to on tap
         setTimeout(function () {
             if (window.google) {
                 googleSDK.$_googleRenderButton('googleAccess');
@@ -108,7 +107,7 @@ export default {
 </script>
 
 <template>
-    <TheAuthentication :isImg="false">
+    <TheAuthentication>
         <div slot="RenderBody">
             <v-row class="neutral--text">
                 <v-col cols="12">
@@ -133,7 +132,7 @@ export default {
                                         : 'BUO-Paragraph-Large',
                                 ]"
                             >
-                                Iniciar sesión - Backoffice
+                                Iniciar sesión
                             </div>
                         </v-col>
                         <v-row align-content="center" justify="center">
@@ -197,24 +196,38 @@ export default {
                                         </v-row>
                                     </div>
                                     <div slot="btns">
-                                        <h5
-                                            class="text-center neutral--text mt-4 mb-3 BUO-Paragraph-Medium"
+                                        <div class="mb-5">
+                                            <h5
+                                                class="text-center neutral--text mt-4 mb-3 BUO-Paragraph-Medium"
+                                            >
+                                                o inicia sesión con
+                                            </h5>
+                                            <br />
+                                            <v-row
+                                                justify="center"
+                                                align-content="center"
+                                            >
+                                                <div
+                                                    class="ma-1"
+                                                    id="googleAccess"
+                                                ></div>
+                                                <BaseCustomIconButton
+                                                    :fn="$_facebookAuth"
+                                                />
+                                            </v-row>
+                                        </div>
+                                        <div
+                                            class="BUO-Paragraph-Medium text-center"
+                                            @click="
+                                                $_goToRoute(
+                                                    'SignUpViewComponent'
+                                                )
+                                            "
+                                            @click.stop
                                         >
-                                            o inicia sesión con
-                                        </h5>
-                                        <br />
-                                        <v-row
-                                            justify="center"
-                                            align-content="center"
-                                        >
-                                            <div
-                                                class="ma-1"
-                                                id="googleAccess"
-                                            ></div>
-                                            <BaseCustomIconButton
-                                                :fn="$_facebookAuth"
-                                            />
-                                        </v-row>
+                                            ¿Nuevo en BUO?
+                                            <a> ¡Crea tu cuenta! </a>
+                                        </div>
                                     </div>
                                 </BaseForm>
                             </v-col>

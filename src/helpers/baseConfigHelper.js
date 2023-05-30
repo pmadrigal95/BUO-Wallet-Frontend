@@ -65,17 +65,17 @@ export default {
 
     // Configuración Vuex - sessionStorage
 
-    $_jwtToken: 'jwtTokenBackOffice',
+    $_jwtToken: 'jwtTokenWallet',
 
-    $_alert: 'alertBackOffice',
+    $_alert: 'alertWallet',
 
-    $_status: 'statusBackOffice',
+    $_status: 'statusWallet',
 
-    $_app: 'appBackOffice',
+    $_app: 'appWallet',
 
-    $_permissionList: 'permissionListBackOffice',
+    $_permissionList: 'permissionListWallet',
 
-    $_encryptKey: '$_buoAppBackOffice',
+    $_encryptKey: '$_buoAppWallet',
 
     $_security: 1,
 };

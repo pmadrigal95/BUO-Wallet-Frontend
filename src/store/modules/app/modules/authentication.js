@@ -40,13 +40,18 @@ const $_setStateValue = (state, decoded, data) => {
 
     state.user = {
         email: decoded?.sub,
-        userId: decoded?.userId,
         name: decoded?.name,
-        photoUrl: undefined, //decoded?.photoUrl,
-        colorAvatar: baseDataVisualizationColorsHelper.$_randomColor().main,
+        userId: decoded?.userId,
+        tokens: decoded?.tokens,
+        photoUrl: decoded?.photoUrl,
         companyId: decoded?.companyId,
+        isNewUser: decoded?.isNewUser,
         companyName: decoded?.companyName,
         companyLogo: decoded?.companyLogo,
+        pdaCompleted: decoded?.pdaCompleted,
+        companyDateAdded: decoded?.dateAdded,
+        shareableLinkURL: decoded?.shareableLinkURL,
+        colorAvatar: baseDataVisualizationColorsHelper.$_randomColor().main,
     };
 
     baseSecurityHelper.$_security($_redirect.bind(null, state.module));

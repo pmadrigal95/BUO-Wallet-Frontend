@@ -4,7 +4,7 @@
  * @displayName baseSecurityHelper
  */
 
-import store from '@/store/index.js';
+import store from '@/store/index';
 
 import baseLocalHelper from '@/helpers/baseLocalHelper';
 

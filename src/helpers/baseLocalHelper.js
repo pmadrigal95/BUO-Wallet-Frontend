@@ -324,20 +324,4 @@ export default {
     $_itemsPerPage: {
         'items-per-page-options': [5, 10, 15, 20],
     },
-
-    // Configuración Vuex - sessionStorage
-
-    $_jwtToken: 'jwtTokenBackOffice',
-
-    $_alert: 'alertBackOffice',
-
-    $_status: 'statusBackOffice',
-
-    $_app: 'appBackOffice',
-
-    $_permissionList: 'permissionListBackOffice',
-
-    $_encryptKey: '$_buoAppBackOffice',
-
-    $_security: 1,
 };
