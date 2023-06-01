@@ -49,7 +49,7 @@ export default {
                         <v-layout justify-center align-center>
                             <BaseProgressLinear
                                 :value="50"
-                                color="green900"
+                                color="greenB900"
                                 title="Completa tu registro"
                                 subtitle="1/2"
                                 bottom
@@ -79,11 +79,7 @@ export default {
                         Ingresa tu nombre
                     </v-card-subtitle>
                 </v-card>
-                <BaseForm
-                    :method="$_sendToApi"
-                    labelBtn="Siguiente"
-                    :login="true"
-                >
+                <BaseForm :method="$_sendToApi" labelBtn="Siguiente" block>
                     <div slot="body">
                         <v-row>
                             <v-col cols="12">

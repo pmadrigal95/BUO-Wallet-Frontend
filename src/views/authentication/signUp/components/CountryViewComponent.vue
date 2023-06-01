@@ -55,7 +55,7 @@ export default {
                             username: this.value.username,
                             password: this.value.password,
                         },
-                        url: 'TestTakingViewComponent',
+                        isNewUser: true,
                     });
                 }
                 this.loading = false;
@@ -74,7 +74,7 @@ export default {
                     <v-layout justify-center align-center>
                         <BaseProgressLinear
                             :value="90"
-                            color="green900"
+                            color="greenB900"
                             title="Completa tu registro"
                             subtitle="2/2"
                             bottom
@@ -106,7 +106,7 @@ export default {
             </v-card>
         </div>
         <div slot="card-text">
-            <BaseForm :method="$_sendToApi" labelBtn="Siguiente" :login="true">
+            <BaseForm :method="$_sendToApi" labelBtn="Siguiente" block>
                 <div slot="body">
                     <v-row>
                         <v-col cols="12">

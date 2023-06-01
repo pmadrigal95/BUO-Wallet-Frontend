@@ -7,6 +7,8 @@
 
 import googleSDK from '@/services/socialMedia/google-SDK.js';
 
+import baseSecurityHelper from '@/helpers/baseSecurityHelper';
+
 const AccountViewComponent = () =>
     import('@/views/authentication/signUp/components/AccountViewComponent');
 
@@ -44,6 +46,7 @@ export default {
     },
 
     created() {
+        baseSecurityHelper.$_logout();
         this.$_getObject();
     },
 

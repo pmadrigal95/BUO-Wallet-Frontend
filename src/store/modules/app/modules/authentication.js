@@ -20,9 +20,23 @@ import facebookSDK from '@/services/socialMedia/facebook-SDK.js';
 
 import baseDataVisualizationColorsHelper from '@/helpers/baseDataVisualizationColorsHelper';
 
-const $_redirect = (module) => {
-    if (router.currentRoute.name === 'LoginViewComponent') {
-        const result = baseSecurityHelper.$_getFirstItem();
+const $_newUserRedirect = () => {
+    const pdaTest = 'TestTakingViewComponent';
+
+    return baseSecurityHelper.$_ReadPermission(pdaTest)
+        ? pdaTest
+        : baseSecurityHelper.$_getFirstItem();
+};
+
+const $_redirect = (module, isNewUser) => {
+    if (
+        router.currentRoute.name === 'LoginViewComponent' ||
+        router.currentRoute.name === 'SignUpViewComponent'
+    ) {
+        const result = isNewUser
+            ? $_newUserRedirect()
+            : baseSecurityHelper.$_getFirstItem();
+
         router.push({
             name: result ? result : module.name,
             params: module.params,
@@ -30,22 +44,15 @@ const $_redirect = (module) => {
     }
 };
 
-const $_setStateValue = (state, decoded, data) => {
-    state.jwtToken = data;
-
-    sessionStorage.setItem(
-        baseConfigHelper.$_jwtToken,
-        AES.encrypt(data, baseConfigHelper.$_encryptKey).toString()
-    );
-
-    state.user = {
+const $_setUserStatus = (decoded, isNewUser) => {
+    return {
         email: decoded?.sub,
         name: decoded?.name,
         userId: decoded?.userId,
         tokens: decoded?.tokens,
-        photoUrl: decoded?.photoUrl,
+        photoUrl: undefined, //decoded?.photoUrl,
         companyId: decoded?.companyId,
-        isNewUser: decoded?.isNewUser,
+        isNewUser: isNewUser ? isNewUser : decoded?.isNewUser,
         companyName: decoded?.companyName,
         companyLogo: decoded?.companyLogo,
         pdaCompleted: decoded?.pdaCompleted,
@@ -53,8 +60,47 @@ const $_setStateValue = (state, decoded, data) => {
         shareableLinkURL: decoded?.shareableLinkURL,
         colorAvatar: baseDataVisualizationColorsHelper.$_randomColor().main,
     };
+};
 
-    baseSecurityHelper.$_security($_redirect.bind(null, state.module));
+const $_setFullFlow = (state, decoded, data) => {
+    state.jwtToken = data.jwtToken;
+
+    sessionStorage.setItem(
+        baseConfigHelper.$_jwtToken,
+        AES.encrypt(state.jwtToken, baseConfigHelper.$_encryptKey).toString()
+    );
+
+    state.user = $_setUserStatus(decoded, data.isNewUser);
+
+    baseSecurityHelper.$_security(
+        $_redirect.bind(null, state.module, state.user.isNewUser)
+    );
+};
+
+const $_requestFullFlow = (decoded, credentials) => {
+    if (decoded)
+        router.push({
+            name: 'SignUpViewComponent',
+            params: {
+                data: {
+                    username: credentials.username,
+                    password: credentials.password,
+                    aceptaTerminos: true,
+                    id: decoded.userId,
+                    correo: decoded.username,
+                    nombre: undefined,
+                    apellidos: undefined,
+                    paisId: 0,
+                    step: 2,
+                },
+            },
+        });
+};
+
+const $_setStateValue = (state, decoded, data) => {
+    decoded?.flujoCompleto
+        ? $_setFullFlow(state, decoded, data)
+        : $_requestFullFlow(decoded, data.credentials);
 };
 
 export const namespaced = true;
@@ -70,8 +116,6 @@ export const state = {
 export const getters = {
     user: (state) => state.user,
 
-    buoId: () => 1,
-
     /**
      * Loanding Process
      */
@@ -80,7 +124,7 @@ export const getters = {
 
 export const mutations = {
     SET_USER_DATA(state, data) {
-        let decoded = jwt_decode(data);
+        let decoded = jwt_decode(data.jwtToken);
         $_setStateValue(state, decoded, data);
     },
 
@@ -121,7 +165,11 @@ export const actions = {
             .post('/user/authenticate', credentials.credentials)
             .then((response) => {
                 if (response != undefined) {
-                    commit('SET_USER_DATA', response.data.jwtToken);
+                    commit('SET_USER_DATA', {
+                        jwtToken: response.data.jwtToken,
+                        credentials: credentials.credentials,
+                        isNewUser: credentials.isNewUser,
+                    });
                 }
                 commit('$_SET_LOADING', false);
             });
@@ -133,7 +181,11 @@ export const actions = {
             .post('/user/authenticate_federated', credentials)
             .then((response) => {
                 if (response != undefined) {
-                    commit('SET_USER_DATA', response.data.jwtToken);
+                    commit('SET_USER_DATA', {
+                        jwtToken: response.data.jwtToken,
+                        credentials: credentials.credentials,
+                        isNewUser: credentials.isNewUser,
+                    });
                 }
                 commit('$_SET_LOADING', false);
             });

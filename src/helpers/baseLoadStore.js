@@ -27,10 +27,26 @@ function returnObject(key, value, type) {
     }
 }
 
+function buildStoreJwtToken(key, method, value, type) {
+    if (value != null && value != undefined) {
+        store.commit(
+            method,
+            { jwtToken: returnObject(key, value, type) },
+            {
+                root: true,
+            }
+        );
+    }
+}
+
 function buildStore(key, method, type, defaultValue) {
     const value = sessionStorage.getItem(key);
 
-    value != null && value != undefined
+    if (key === baseConfigHelper.$_jwtToken) {
+        return buildStoreJwtToken(key, method, value, type);
+    }
+
+    return value != null && value != undefined
         ? store.commit(method, returnObject(key, value, type), {
               root: true,
           })

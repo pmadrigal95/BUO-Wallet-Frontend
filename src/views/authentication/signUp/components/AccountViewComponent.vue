@@ -139,7 +139,6 @@ export default {
                                     block
                                     :method="$_sendToApi"
                                     labelBtn="Crear Cuenta"
-                                    :login="true"
                                     v-else
                                 >
                                     <div slot="body">

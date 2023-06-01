@@ -28,12 +28,12 @@ export default {
         <v-row justify="center" align-content="center">
             <v-col cols="12">
                 <br />
-                <!-- <v-img
+                <v-img
                     contain
                     height="350"
-                    :src="require('@/assets/errors/403.png')"
-                    :lazy-src="require('@/assets/errors/403.png')"
-                ></v-img> -->
+                    src="https://buo-resources.s3.us-east-2.amazonaws.com/compartidos/403.png"
+                    lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/compartidos/403.png"
+                ></v-img>
             </v-col>
 
             <div>

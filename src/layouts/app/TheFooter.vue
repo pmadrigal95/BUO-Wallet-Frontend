@@ -31,12 +31,12 @@ export default {
             </v-col>
             <v-col cols="1" v-if="$vuetify.breakpoint.mdAndUp">
                 <v-layout align-end justify-end>
-                    <!-- <v-img
+                    <v-img
                         contain
                         max-width="25%"
                         width="100%"
-                        :src="require('@/assets/app/common/buoLogo.svg')"
-                    ></v-img> -->
+                        src="https://buo-resources.s3.us-east-2.amazonaws.com/compartidos/buoLogo.svg"
+                    ></v-img>
                 </v-layout>
             </v-col>
         </v-row>

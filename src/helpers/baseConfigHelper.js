@@ -77,5 +77,5 @@ export default {
 
     $_encryptKey: '$_buoAppWallet',
 
-    $_security: 1,
+    $_security: 2,
 };
