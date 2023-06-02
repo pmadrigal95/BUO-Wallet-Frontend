@@ -87,7 +87,7 @@ export default {
 <template>
     <v-card flat max-width="100%" max-height="100%" class="rounded-t-xl">
         <v-card-title class="BUO-Paragraph-Large">
-            Mis habilidades
+            Mis Indicadores
             <v-layout justify-end>
                 <v-btn
                     v-if="$route.name == 'HomeViewComponent'"
@@ -159,17 +159,17 @@ export default {
                     <v-tab
                         class="BUO-Paragraph-Small rounded-pill no-uppercase"
                     >
-                        Validadas
+                        Aprobadas
                     </v-tab>
                     <v-tab
                         class="BUO-Paragraph-Small rounded-pill no-uppercase"
                     >
-                        En Progreso
+                        Pendientes
                     </v-tab>
                     <v-tab
                         class="BUO-Paragraph-Small rounded-pill no-uppercase"
                     >
-                        Por Validar
+                        Asignadas
                     </v-tab>
                 </v-tabs>
 

@@ -7,8 +7,8 @@
 
 import { mapActions } from 'vuex';
 
-// const MenuCardViewComponent = () =>
-//     import('@/views/buoWallet/home/components/MenuCardViewComponent');
+const MenuCardViewComponent = () =>
+    import('@/views/home/components/MenuCardViewComponent');
 
 const BaseMyAbilities = () =>
     import('@/components/wallet/common/myAbilities/BaseMyAbilities');
@@ -22,7 +22,7 @@ export default {
     metaInfo: { title: 'BUO Wallet' },
 
     components: {
-        // MenuCardViewComponent,
+        MenuCardViewComponent,
         BaseMyAbilities,
         ExploreBUOViewComponent,
     },
@@ -36,11 +36,6 @@ export default {
         //TODO: How to implement on vue router the background config
         this.$vuetify.theme.themes.light.background =
             this.$vuetify.theme.themes.light.clouds;
-    },
-
-    destroyed() {
-        this.$vuetify.theme.themes.light.background =
-            this.$vuetify.theme.themes.light.white;
     },
 
     methods: {
@@ -73,7 +68,7 @@ export default {
             </v-layout>
         </v-col>
         <v-col cols="12" md="9" offset-md="1">
-            <!-- <MenuCardViewComponent /> -->
+            <MenuCardViewComponent />
         </v-col>
 
         <v-col cols="12" md="9" offset-md="1">
