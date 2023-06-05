@@ -61,7 +61,7 @@ export default {
 <template>
     <BaseCardViewComponent
         :btnAction="$_returnToWallet"
-        title="Mis Indicadores"
+        title="Mis indicadores"
         subtitle="Aquí puedes visualizar, agregar y validar todos tus
                     indicadores."
     >

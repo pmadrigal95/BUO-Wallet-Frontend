@@ -84,7 +84,7 @@ export default {
         <BaseActionPopUp
             ref="popUp"
             action="delete"
-            item="habilidad"
+            item="Indicador"
             inset
             :fn="$_Delete"
         />
@@ -140,7 +140,7 @@ export default {
                         <v-icon>mdi-delete-outline</v-icon>
                     </v-list-item-avatar>
                     <v-list-item-title class="buo-word-break buo-white-space"
-                        >Eliminar habilidad</v-list-item-title
+                        >Eliminar indicador</v-list-item-title
                     >
                 </v-list-item>
             </v-list>

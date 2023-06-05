@@ -92,8 +92,8 @@ export default {
         <br />
         <BaseNotificationCardTemplate
             title="¡Felicidades!"
-            subtitle="Tu habilidad está en camino..."
-            comment="Tu solicitud ha sido enviada. Una vez que sea aprobada, tu habilidad aparecerá validada en tu Buo Wallet. ¡Sigue validando más habilidades!"
+            subtitle="Tu indicador está en camino..."
+            comment="Tu solicitud ha sido enviada. Una vez que sea aprobada, tu indicador aparecerá validada en tu Buo Wallet. ¡Sigue validando más indicadores!"
         >
             <div slot="btns">
                 <v-row>

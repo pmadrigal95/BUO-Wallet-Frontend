@@ -77,7 +77,7 @@ export default {
         $_share() {
             html2canvas.$_share(
                 this.$refs.result,
-                `${this.entity.name} - Habilidades`,
+                `${this.entity.name} - Indicadores`,
                 this.$_open
             );
         },
@@ -85,7 +85,7 @@ export default {
         $_download() {
             html2canvas.$_download(
                 this.$refs.result,
-                `${this.entity.name} - Habilidades.png`
+                `${this.entity.name} - Indicadores.png`
             );
         },
 
@@ -175,7 +175,7 @@ export default {
                                             : 'BUO-Display-XSmall',
                                     ]"
                                 >
-                                    Habilidades de {{ entity.name }}
+                                    Indicadores de {{ entity.name }}
                                 </v-card-subtitle>
                                 <v-card-text>
                                     <PDARadarChart
@@ -191,7 +191,7 @@ export default {
                                                 : 'BUO-Paragraph-Large',
                                         ]"
                                     >
-                                        Habilidades principales
+                                        Indicadores principales
                                     </v-card-subtitle>
                                     <PDAProgressCircular
                                         :data="validatedAbilities"
@@ -199,7 +199,7 @@ export default {
                                 </v-card-text>
                                 <br />
                                 <BaseShareableBrand
-                                    copy="Descubre tus habilidades"
+                                    copy="Descubre tus Indicadores"
                                 />
                                 <br />
                             </v-card>

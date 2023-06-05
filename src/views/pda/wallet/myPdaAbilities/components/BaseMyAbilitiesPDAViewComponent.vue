@@ -102,7 +102,7 @@ export default {
                             : 'BUO-Heading-Medium',
                     ]"
                 >
-                    Mis habilidades PDA
+                    Mis indicadores PDA
                 </v-card-title>
                 <v-card-subtitle
                     :class="[
@@ -112,7 +112,7 @@ export default {
                     ]"
                 >
                     <div>
-                        Creamos tu radiografía más completa de habilidades con
+                        Creamos tu radiografía más completa de indicadores con
                         base en tus resultados.
                     </div>
                     <div>
@@ -134,7 +134,7 @@ export default {
                             : 'BUO-Heading-XSmall',
                     ]"
                 >
-                    Gráfico de habilidades
+                    Gráfico de indicadores
                     <v-layout justify-end>
                         <v-btn icon @click="$_changeMode">
                             <v-icon>{{

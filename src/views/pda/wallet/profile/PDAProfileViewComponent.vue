@@ -23,9 +23,10 @@ export default {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet', 'premium']),
     },
 
-    mounted() {
+    created() {
+        //TODO: How to implement on vue router the background config
         this.$vuetify.theme.themes.light.background =
-            this.$vuetify.theme.themes.light.buoBackground;
+            this.$vuetify.theme.themes.light.clouds;
 
         if (!this.pdaWallet) {
             this.$_request_pda_wallet();

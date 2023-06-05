@@ -41,7 +41,7 @@ export default {
                 },
                 { divider: true, inset: true },
                 {
-                    text: 'Conoce tus 5 habilidades más desarrolladas y el estado exacto de 16 habilidades que puedes desarrollar más',
+                    text: 'Conoce tus 5 indicadores más desarrolladas y el estado exacto de 16 indicadores que puedes desarrollar más',
                 },
                 { divider: true, inset: true },
                 {
@@ -88,8 +88,8 @@ export default {
                                 ]"
                                 v-if="item.header"
                                 :key="item.header"
-                                v-text="item.header"
-                            ></v-subheader>
+                                >{{ item.header }}</v-subheader
+                            >
 
                             <v-divider
                                 v-else-if="item.divider"
@@ -109,8 +109,8 @@ export default {
                                 <v-list-item-content>
                                     <v-list-item-title
                                         class="buo-white-space"
-                                        v-html="item.text"
-                                    ></v-list-item-title>
+                                        >{{ item.text }}</v-list-item-title
+                                    >
                                 </v-list-item-content>
                             </v-list-item>
                         </template>

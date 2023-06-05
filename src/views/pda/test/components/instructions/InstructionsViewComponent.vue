@@ -34,15 +34,16 @@ export default {
         ...mapGetters('authentication', ['user']),
     },
 
-    mounted() {
+    created() {
+        //TODO: How to implement on vue router the background config
         this.$vuetify.theme.themes.light.background =
-            this.$vuetify.theme.themes.light.buoBackground;
+            this.$vuetify.theme.themes.light.clouds;
     },
 
     methods: {
         $_goBack() {
             this.$router.push({
-                name: 'BUOWalletHomeViewComponent',
+                name: 'HomeViewComponent',
             });
         },
 

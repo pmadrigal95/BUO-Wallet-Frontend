@@ -47,7 +47,7 @@ export default {
     methods: {
         $_goBack() {
             this.$router.push({
-                name: 'BUOWalletHomeViewComponent',
+                name: 'HomeViewComponent',
             });
         },
 

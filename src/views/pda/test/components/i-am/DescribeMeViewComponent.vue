@@ -59,7 +59,7 @@ export default {
         },
 
         $_cancel() {
-            this.$router.push({ name: 'BUOWalletHomeViewComponent' });
+            this.$router.push({ name: 'HomeViewComponent' });
         },
 
         $_sendTestPDA() {

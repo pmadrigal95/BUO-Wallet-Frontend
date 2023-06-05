@@ -174,7 +174,7 @@ export default {
 
 <template>
     <BaseCardViewComponent
-        title="Explora tus habilidades"
+        title="Explora tus indicadores"
         subtitle="Cuéntanos qué sabes hacer"
         :btnAction="$_goBack"
     >

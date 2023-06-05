@@ -53,7 +53,7 @@ export default {
                     divider: true,
                 },
                 {
-                    title: 'Radiografía de tus habilidades',
+                    title: 'Radiografía de tus indicadores',
                 },
                 {
                     divider: true,

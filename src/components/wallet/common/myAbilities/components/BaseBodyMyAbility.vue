@@ -87,7 +87,7 @@ export default {
                 <span
                     class="BUO-Paragraph-Medium"
                     v-if="ability.estadoId === notValidatedCode"
-                    >Tienes {{ ability.totalDisponibles }} habilidades
+                    >Tienes {{ ability.totalDisponibles }} indicadores
                     disponibles</span
                 >
                 <span
@@ -129,7 +129,7 @@ export default {
                     {{
                         ability.estadoId === notValidatedCode
                             ? 'Validar'
-                            : 'Ver habilidad'
+                            : 'Ver indicador'
                     }}
                 </v-btn>
             </v-layout>

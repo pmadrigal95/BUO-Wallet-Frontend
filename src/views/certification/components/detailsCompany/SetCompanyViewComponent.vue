@@ -62,7 +62,7 @@ export default {
 
 <template>
     <BaseCardViewComponent
-        title="¿Con quién quieres validar tu habilidad?"
+        title="¿Con quién quieres validar tu indicador?"
         :btnAction="$_goBack"
     >
         <div slot="card-text">

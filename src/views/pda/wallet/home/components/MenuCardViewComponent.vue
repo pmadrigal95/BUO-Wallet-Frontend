@@ -22,7 +22,7 @@ export default {
                 },
                 {
                     icon: 'shield-star',
-                    subtitle: 'Habilidades',
+                    subtitle: 'Indicadores',
                     module: 'MyAbilitiesPDAViewComponent',
                 },
             ];

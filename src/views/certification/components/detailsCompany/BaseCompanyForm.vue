@@ -410,7 +410,7 @@ export default {
                             <v-col cols="12" md="12">
                                 <BaseTextArea
                                     v-model.trim="entityForm.comentario"
-                                    placeholder="Redacta un mensaje para la persona que validará tu habilidad."
+                                    placeholder="Redacta un mensaje para la persona que validará tu indicador."
                                     :counter="300"
                                     :max="300"
                                     rows="3"

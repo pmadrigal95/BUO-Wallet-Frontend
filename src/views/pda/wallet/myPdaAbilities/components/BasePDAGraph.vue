@@ -57,9 +57,9 @@ export default {
                 >
                     <div class="Buo-Black"><b>Importante</b></div>
                     <div class="Buo-Black">
-                        El porcentaje en cada habilidad no indica la falta o
+                        El porcentaje en cada indicador no indica la falta o
                         presencia de la misma, sino cuanto esfuerzo toma
-                        desempeñar esa habilidad.
+                        desempeñar ese indicador.
                     </div>
                 </v-alert>
             </v-card-text>

@@ -71,8 +71,9 @@ export default {
         ...mapActions('pda', ['$_request_pda_wallet']),
 
         $_setColor() {
+            //TODO: How to implement on vue router the background config
             this.$vuetify.theme.themes.light.background =
-                this.$vuetify.theme.themes.light.buoBackground;
+                this.$vuetify.theme.themes.light.clouds;
         },
 
         /**
@@ -80,7 +81,7 @@ export default {
          */
         $_returnToWallet() {
             this.$router.push({
-                name: 'BUOWalletHomeViewComponent',
+                name: 'HomeViewComponent',
             });
         },
 

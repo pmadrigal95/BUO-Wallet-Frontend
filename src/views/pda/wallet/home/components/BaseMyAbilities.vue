@@ -56,7 +56,7 @@ export default {
                         : 'BUO-Heading-XSmall',
                 ]"
             >
-                Mis habilidades
+                Mis indicadores
                 <v-layout justify-end>
                     <v-btn
                         class="no-uppercase rounded-lg"
@@ -86,7 +86,7 @@ export default {
                                         ? 'BUO-Paragraph-Medium Buo-Black'
                                         : 'BUO-Paragraph-Large Buo-Black',
                                 ]"
-                                >Conoce tus habilidades
+                                >Conoce tus indicadores
                                 principales:</v-card-title
                             >
 
@@ -97,7 +97,7 @@ export default {
                                         ? 'BUO-Label-Small'
                                         : 'BUO-Paragraph-Small',
                                 ]"
-                                >Tus habilidades más fuertes están validadas en
+                                >Tus indicadores más fuertes están validadas en
                                 tu Buo Wallet.</v-card-text
                             >
                         </div>
@@ -124,7 +124,7 @@ export default {
             <v-card-actions>
                 <v-layout justify-center align-content-center>
                     <BaseCustomsButtonsGrid
-                        label="Ver todas las habilidades"
+                        label="Ver todas los indicadores"
                         icon="mdi-chevron-right"
                         :isSmall="false"
                         :fnMethod="$_goToAbilities"

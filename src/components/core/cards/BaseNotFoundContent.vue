@@ -21,7 +21,8 @@ export default {
 
         img: {
             type: String,
-            default: 'https://buo-resources.s3.us-east-2.amazonaws.com/b2b/search.svg',
+            default:
+                'https://buo-resources.s3.us-east-2.amazonaws.com/b2b/search.svg',
         },
     },
 };

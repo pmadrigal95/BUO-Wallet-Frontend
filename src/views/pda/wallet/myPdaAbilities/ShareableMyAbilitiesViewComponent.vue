@@ -17,7 +17,7 @@ const BaseShareableMyAbilitiesViewComponent = () =>
 export default {
     name: 'ShareableMyAbilitiesViewComponent',
 
-    metaInfo: { title: 'Mis Habilidades' },
+    metaInfo: { title: 'Mis indicadores' },
 
     components: {
         BaseShareableMyAbilitiesViewComponent,
@@ -27,9 +27,10 @@ export default {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet']),
     },
 
-    mounted() {
+    created() {
+        //TODO: How to implement on vue router the background config
         this.$vuetify.theme.themes.light.background =
-            this.$vuetify.theme.themes.light.buoBackground;
+            this.$vuetify.theme.themes.light.clouds;
 
         if (!this.pdaWallet) {
             this.$_request_pda_wallet();

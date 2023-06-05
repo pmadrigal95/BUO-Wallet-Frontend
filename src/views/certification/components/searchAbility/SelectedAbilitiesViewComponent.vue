@@ -70,8 +70,8 @@ export default {
 
 <template>
     <BaseCardViewComponent
-        title="Valida tu primera habilidad"
-        subtitle="¡Te regalamos tus primeros 20 tokens para que puedas empezar a validar tus habilidades! Selecciona que habilidad quieres validar primero."
+        title="Valida tu primera indicador"
+        subtitle="¡Te regalamos tus primeros 20 tokens para que puedas empezar a validar tus indicadores! Selecciona que indicador quieres validar primero."
         :btnAction="$_goBack"
     >
         <div slot="card-text">
@@ -81,7 +81,7 @@ export default {
         <div slot="body">
             <v-card flat class="rounded-lg">
                 <v-card-title class="BUO-Paragraph-Large buo-word-break">
-                    Habilidades
+                    Indicadores
                     <v-layout justify-end>
                         <v-btn
                             @click="$_selectAll"
