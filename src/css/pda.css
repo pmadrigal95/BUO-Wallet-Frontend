@@ -1,0 +1,306 @@
+/*
+* PDA COLOR GUIDE
+*/
+
+/**
+ * Test taking random gradients
+*/
+.pda-gradient-1 {
+    background: linear-gradient(102.96deg, #9CE074 12.53%, #83CDAD 80.92%) !important;  
+}
+
+.pda-gradient-2 {
+    background: linear-gradient(102.96deg, #F9997D 12.53%, #FA7DC6 80.92%) !important;  
+}
+
+.pda-gradient-3 {
+    background: linear-gradient(102.96deg, #FEB452 12.53%, #EF7637 80.92%) !important; 
+}
+
+.pda-gradient-4 {
+    background: linear-gradient(102.96deg, #CC699B 12.53%, #6FA5ED 80.92%) !important; 
+}
+
+.pda-gradient-5 {
+    background: linear-gradient(102.96deg, #63B6F2 12.53%, #92DC87 80.92%) !important;
+}
+
+.pda-gradient-6 {
+    background: linear-gradient(102.96deg, #8AE394 12.53%, #8FD4FC 80.92%) !important; 
+}
+
+.pda-gradient-7 {
+    background: linear-gradient(102.96deg, #E58B99 12.53%, #A9A865 80.92%) !important;  
+}
+
+/**
+ * PDA GRADIENTS
+*/
+
+.pda-gradient-amable {
+    background: linear-gradient(135deg, #96E57B 43.23%, #4EAC3E 100%) !important;
+}
+
+.pda-gradient-amigable {
+    background: linear-gradient(135deg, #C9F31A 43.23%, #ABD500 100%) !important;
+}
+
+.pda-gradient-audaz {
+    background: linear-gradient(135deg, #F56C60 43.23%, #CF6358 100%) !important;
+}
+
+.pda-gradient-cautivadora {
+    background: linear-gradient(135deg, #FFFA55 43.23%, #FEE577 100%) !important;
+}
+
+.pda-gradient-colaboradora {
+    background: linear-gradient(135deg, #68CB57 43.23%, #589F55 100%) !important;
+}
+
+.pda-gradient-concreta {
+    background: linear-gradient(135deg, #59A4CF 43.23%, #5787AB 100%) !important;
+}
+
+.pda-gradient-convincente {
+    background: linear-gradient(135deg, #FE9889 43.23%, #F56C60 100%) !important;
+}
+
+.pda-gradient-creativa {
+    background: linear-gradient(135deg, #FDB8D9 43.23%, #FFB9B3 100%) !important;
+}
+
+.pda-gradient-detallista {
+    background: linear-gradient(135deg, #CF6358 43.23%, #8E2B21 100%) !important; 
+}
+
+.pda-gradient-determinada {
+    background: linear-gradient(135deg, #FFB9B3 43.23%, #FE9889 100%) !important;
+}
+
+.pda-gradient-dinamica {
+    background: linear-gradient(135deg, #BC5E8F 43.23%, #FF87C3 100%) !important;
+}
+
+.pda-gradient-diplomatica {
+    background: linear-gradient(135deg, #589F55 43.23%, #569D97 100%) !important;
+}
+
+.pda-gradient-encantadora { 
+    background: linear-gradient(135deg, #FEE577 43.23%, #FFC759 100%) !important;
+}
+
+.pda-gradient-indagadora {
+    background: linear-gradient(135deg, #B9A7DF 43.23%, #8D77BA 100%) !important;
+}
+
+.pda-gradient-influyente {
+    background: linear-gradient(135deg, #FFC759 43.23%, #F6A05C 100%) !important;
+}
+
+.pda-gradient-intuitiva {
+    background: linear-gradient(135deg, #FF81C1 43.23%, #FFC8E2 100%) !important;
+}
+
+.pda-gradient-investigadora {
+    background: linear-gradient(135deg, #569D97 43.23%, #58C6B4 100%) !important;
+}
+
+.pda-gradient-logica {
+    background: linear-gradient(135deg, #A4FFF2 43.23%, #6BDACA 100%) !important;
+}
+
+.pda-gradient-paciente {
+    background: linear-gradient(135deg, #9D75DE 43.23%, #B9A7DF 100%) !important;
+}
+
+.pda-gradient-precisa {
+    background: linear-gradient(135deg, #8ED6FE 43.23%, #56BEFF 100%) !important;
+}
+
+.pda-gradient-proactiva {
+    background: linear-gradient(135deg, #F6A05C 43.23%, #C6702C 100%) !important;
+}
+
+.pda-gradient-promotora {
+    background: linear-gradient(135deg, #E066A3 43.23%, #FFACD6 100%) !important;
+}
+
+.pda-gradient-receptiva {
+    background: linear-gradient(135deg, #58C6B4 43.23%, #62ECDD 100%) !important;
+}
+
+.pda-gradient-resolutiva {
+    background: linear-gradient(135deg, #56BEFF 43.23%, #59A4CF 100%) !important;
+}
+
+.pda-gradient-sensata {
+    background: linear-gradient(135deg, #62ECDD 43.23%, #A4FFF2 100%) !important;
+}
+
+.pda-gradient-tenaz {
+    background: linear-gradient(135deg, #5787AB 43.23%, #81AFD2 100%) !important;
+}
+
+/**
+* Solids
+*/
+
+.pda-solid-amable {
+    background: #C9F31A !important;
+}
+
+.pda-solid-amigable {
+    background: #96E57B !important;
+}
+
+.pda-solid-audaz {
+    background: #F56C60 !important;
+}
+
+.pda-solid-cautivadora {
+    background: #FFFA55 !important;
+}
+
+.pda-solid-colaboradora {
+    background: #68CB57 !important;
+}
+
+.pda-solid-concreta {
+    background: #59A4CF !important;
+}
+
+.pda-solid-convincente {
+    background: #FE9889 !important;
+}
+
+.pda-solid-creativa {
+    background: #FDB8D9 !important;
+}
+
+.pda-solid-detallista {
+    background: #CF6358 !important; 
+}
+
+.pda-solid-determinada {
+    background: #FFB9B3 !important;
+}
+
+.pda-solid-dinamica {
+    background: #BC5E8F !important;
+}
+
+.pda-solid-diplomatica {
+    background: #589F55 !important;
+}
+
+.pda-solid-encantadora { 
+    background: #FEE577 !important;
+}
+
+.pda-solid-indagadora {
+    background: #B9A7DF !important;
+}
+
+.pda-solid-influyente {
+    background: #FFC759 !important;
+}
+
+.pda-solid-intuitiva {
+    background: #FF81C1 !important;
+}
+
+.pda-solid-investigadora {
+    background: #569D97 !important;
+}
+
+.pda-solid-logica {
+    background: #A4FFF2 !important;
+}
+
+.pda-solid-paciente {
+    background: #9F75DE !important;
+}
+
+.pda-solid-precisa {
+    background: #8ED6FE !important;
+}
+
+.pda-solid-proactiva {
+    background: #F6A05C !important;
+}
+
+.pda-solid-promotora {
+    background: #E066A3 !important;
+}
+
+.pda-solid-receptiva {
+    background: #58C6B4 !important;
+}
+
+.pda-solid-resolutiva {
+    background: #56BEFF !important;
+}
+
+.pda-solid-sensata {
+    background: #62ECDD !important;
+}
+
+.pda-solid-tenaz {
+    background: #5787AB !important;
+}
+
+/*
+* Ejes de comportamiento
+*/
+
+/**
+* Gradients
+*/
+.pda-gradient-riesgo {
+    background: linear-gradient(#ed8000, #ffcc9d, #ed8000) !important;
+}
+
+.pda-gradient-extroversion {
+    background: linear-gradient(#edd500, #fff59d, #edd500) !important;
+}
+
+.pda-gradient-paciencia {
+    background: linear-gradient(#3ca1c7, #a8e8ff, #3ca1c7) !important;
+}
+
+.pda-gradient-normas {
+    background: linear-gradient(#02aa72, #66ff9a, #02aa72) !important;
+}
+
+.pda-gradient-autocontrol {
+    background: linear-gradient(#ad00ff, #f587ff, #ad00ff) !important;
+}
+
+/**
+* Solids
+*/
+
+.pda-solid-riesgo {
+    background: #ED8000 !important;
+}
+
+.pda-solid-extroversion {
+    background: #EDD500 !important;
+}
+
+.pda-solid-paciencia {
+    background: #3CA1C7 !important;
+}
+
+.pda-solid-normas {
+    background: #02AA72 !important;
+}
+
+.pda-solid-autocontrol {
+    background: #AD00FF !important;
+}
+
+.pda-gradient-base {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    mix-blend-mode: luminosity;
+}
