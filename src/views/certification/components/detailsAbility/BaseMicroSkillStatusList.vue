@@ -227,7 +227,7 @@ export default {
                         >
                             <v-card-title>
                                 <v-layout justify-start align-start>
-                                    <!-- <v-img
+                                    <v-img
                                         style="
                                             top: -21px;
                                             position: relative !important;
@@ -238,14 +238,17 @@ export default {
                                                 ? '30%'
                                                 : '8%'
                                         "
-                                        :src="
-                                            require(`@/assets/app/buoWallet/${
-                                                type === inProgressCode
-                                                    ? 'progress'
-                                                    : 'validated'
-                                            }.svg`)
-                                        "
-                                    /> -->
+                                        :src="`https://buo-resources.s3.us-east-2.amazonaws.com/wallet/${
+                                            type === inProgressCode
+                                                ? 'progress'
+                                                : 'validated'
+                                        }.svg`"
+                                        :lazy-src="`https://buo-resources.s3.us-east-2.amazonaws.com/wallet/${
+                                            type === inProgressCode
+                                                ? 'progress'
+                                                : 'validated'
+                                        }.svg`"
+                                    />
                                 </v-layout>
                                 <v-layout justify-end>
                                     <v-btn

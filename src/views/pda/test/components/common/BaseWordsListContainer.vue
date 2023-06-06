@@ -191,13 +191,14 @@ export default {
             <v-col cols="12" :order="position == 'top' ? 3 : 1">
                 <v-card-title>
                     <v-layout justify-center>
-                        <!-- <v-img
+                        <v-img
                             contain
                             width="51px"
                             height="35px"
-                            :src="require(`@/assets/app/pda/${icon}.svg`)"
+                            :src="`https://buo-resources.s3.us-east-2.amazonaws.com/pda/${icon}.svg`"
+                            :lazy-src="`https://buo-resources.s3.us-east-2.amazonaws.com/pda/${icon}.svg`"
                         >
-                        </v-img> -->
+                        </v-img>
                     </v-layout>
                 </v-card-title>
             </v-col>
