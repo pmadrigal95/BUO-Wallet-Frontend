@@ -83,30 +83,37 @@ export default {
                 <v-divider></v-divider>
                 <v-card-text>
                     <br />
-                    <v-row justify="center">
-                        <v-btn
-                            class="ma-2"
-                            fab
-                            x-small
-                            outlined
-                            color="primary"
-                            @click="show = !show"
-                        >
-                            <v-icon>
-                                {{ show ? 'mdi-link-off' : 'mdi-link' }}
-                            </v-icon>
-                        </v-btn>
-                        <v-text-field
-                            @click="$_copy"
-                            v-if="show"
-                            :value="sharing.title"
-                            append-icon="mdi-link-variant"
-                            @click:append="$_copy"
-                            single-line
-                            solo
-                            readonly
-                        ></v-text-field>
-                    </v-row>
+
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-row justify="center" v-bind="attrs" v-on="on">
+                                <v-btn
+                                    class="ma-2"
+                                    fab
+                                    x-small
+                                    outlined
+                                    color="primary"
+                                    @click="show = !show"
+                                >
+                                    <v-icon>
+                                        {{ show ? 'mdi-link-off' : 'mdi-link' }}
+                                    </v-icon>
+                                </v-btn>
+                                <v-text-field
+                                    @click="$_copy"
+                                    v-if="show"
+                                    :value="sharing.title"
+                                    append-icon="mdi-link-variant"
+                                    @click:append="$_copy"
+                                    single-line
+                                    solo
+                                    readonly
+                                    flat
+                                ></v-text-field>
+                            </v-row>
+                        </template>
+                        <span>Copiar Link</span>
+                    </v-tooltip>
                 </v-card-text>
             </v-card>
         </div>

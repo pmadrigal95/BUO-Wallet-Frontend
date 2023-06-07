@@ -8,6 +8,8 @@ import homeRoutes from '@/views/home/router';
 
 import abilityRoutes from '@/views/ability/router';
 
+import shareablesRoutes from '@/views/shareables/router';
+
 import certificationRoutes from '@/views/certification/router';
 
 const routes = [
@@ -20,6 +22,7 @@ const routes = [
             ...pdaRoutes,
             ...homeRoutes,
             ...abilityRoutes,
+            ...shareablesRoutes,
             ...certificationRoutes,
         ],
     },
