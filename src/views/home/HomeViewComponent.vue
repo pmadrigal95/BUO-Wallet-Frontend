@@ -5,7 +5,7 @@
  * @displayName BUOWalletHomeViewComponent Test
  */
 
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 const MenuCardViewComponent = () =>
     import('@/views/home/components/MenuCardViewComponent');
@@ -27,6 +27,16 @@ export default {
         ExploreBUOViewComponent,
     },
 
+    computed: {
+        ...mapGetters('security', ['permissionList', 'loadingSecurity']),
+
+        $_shareables() {
+            return this.permissionList.find(
+                (x) => x.nombre === 'ShareablesView'
+            ).subMenu;
+        },
+    },
+
     created() {
         /**
          * Obtener BUO Wallet Object
@@ -40,12 +50,6 @@ export default {
 
     methods: {
         ...mapActions('wallet', ['$_wallet_getbyuserid']),
-
-        // $_BuoShareableLink() {
-        //     this.$router.push({
-        //         name: 'BUOWalletShareableLinkViewComponent',
-        //     });
-        // },
     },
 };
 </script>
@@ -53,18 +57,38 @@ export default {
 <template>
     <v-row>
         <v-col cols="12" md="9" offset-md="1">
-            <v-layout justify-end>
-                <!-- <v-btn
-                    class="ma-1 no-uppercase rounded-lg"
-                    depressed
-                    color="white"
-                    @click="$_BuoShareableLink"
-                >
-                    <span class="BUO-Primary"> Compartir Wallet </span>
-                    <v-icon small right dark color="primary">
-                        mdi-share-variant-outline
-                    </v-icon>
-                </v-btn> -->
+            <v-layout justify-end v-if="!loadingSecurity">
+                <div class="text-center">
+                    <v-menu offset-y rounded>
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-btn
+                                class="ma-1 no-uppercase rounded-lg Buo-White-Background"
+                                depressed
+                                outlined
+                                color="primary"
+                                v-bind="attrs"
+                                v-on="on"
+                            >
+                                <span> Compartir </span>
+                                <v-icon small right dark>
+                                    mdi-share-variant-outline
+                                </v-icon>
+                            </v-btn>
+                        </template>
+                        <v-list v-if="$_shareables && $_shareables.length > 0">
+                            <section
+                                v-for="(item, index) in $_shareables"
+                                :key="index"
+                            >
+                                <v-list-item :to="{ name: item.rutaURL }">
+                                    <v-list-item-title>{{
+                                        item.nombreUI
+                                    }}</v-list-item-title>
+                                </v-list-item>
+                            </section>
+                        </v-list>
+                    </v-menu>
+                </div>
             </v-layout>
         </v-col>
         <v-col cols="12" md="9" offset-md="1">

@@ -271,6 +271,11 @@ html {
 }
 
 
+.Buo-White-Background {
+    background: white !important;
+}
+
+
 
 /*
 * Custom Vuetify Components
