@@ -1,6 +1,14 @@
 <script>
+import baseSharedFnHelper from '@/helpers/baseSharedFnHelper';
+
 export default {
     name: 'TheToolbar',
+
+    methods: {
+        $_landing() {
+            baseSharedFnHelper.$_redirect('');
+        },
+    },
 };
 </script>
 
@@ -14,6 +22,8 @@ export default {
             contain
             max-width="150"
             width="100%"
+            @click="$_landing"
+            style="cursor: pointer"
         />
     </v-toolbar>
 </template>
