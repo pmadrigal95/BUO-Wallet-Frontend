@@ -105,6 +105,7 @@ export default {
                 <v-btn
                     v-if="pdaWallet && pdaWallet.tipoMembrecia == freemium"
                     class="no-uppercase rounded-lg"
+                    elevation="0"
                     text
                     @click="$_returnToShareables"
                 >

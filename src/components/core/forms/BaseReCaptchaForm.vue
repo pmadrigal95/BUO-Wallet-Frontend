@@ -281,6 +281,7 @@ export default {
                 </vue-recaptcha>
                 <v-btn
                     class="no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                    elevation="0"
                     :color="color"
                     dark
                     :large="isLarge"
@@ -300,6 +301,7 @@ export default {
                 <v-btn
                     class="mt-3 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
                     color="primary"
+                    elevation="0"
                     outlined
                     :large="isLarge"
                     :small="isSmall"
@@ -334,6 +336,7 @@ export default {
             </vue-recaptcha>
             <v-btn
                 class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                elevation="0"
                 :color="color"
                 dark
                 :large="isLarge"
@@ -352,6 +355,7 @@ export default {
 
             <v-btn
                 class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                elevation="0"
                 outlined
                 :large="isLarge"
                 :small="isSmall"

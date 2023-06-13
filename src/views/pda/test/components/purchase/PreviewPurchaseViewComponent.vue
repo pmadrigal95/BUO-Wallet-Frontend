@@ -135,6 +135,7 @@ export default {
                         color="black"
                         @click="$_nextStep"
                         class="ma-2 no-uppercase rounded-lg"
+                        elevation="0"
                         v-if="pdaWallet.tipoMembrecia === freemium"
                     >
                         ¡Quiero mi perfil completo!
@@ -143,6 +144,7 @@ export default {
                     <v-btn
                         outlined
                         class="ma-2 no-uppercase rounded-lg"
+                        elevation="0"
                         @click="$_buoWallet"
                     >
                         Ir a mi perfil Buo

@@ -62,6 +62,7 @@ export default {
                         class="no-uppercase rounded-lg"
                         text
                         color="blue800"
+                        elevation="0"
                         :disabled="pdaWallet.tipoMembrecia != premium"
                         @click="$_goToAbilities"
                     >

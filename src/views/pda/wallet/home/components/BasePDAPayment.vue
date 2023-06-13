@@ -40,6 +40,7 @@ export default {
     <BasePopUp
         ref="popUp"
         :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '792'"
+        :isDrawer="false"
         scrollable
         persistent
     >
@@ -49,6 +50,7 @@ export default {
                     class="no-uppercase rounded-lg"
                     text
                     color="blue800"
+                    elevation="0"
                     @click="$_open()"
                 >
                     Cerrar

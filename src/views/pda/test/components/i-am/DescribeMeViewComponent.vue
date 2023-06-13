@@ -135,6 +135,7 @@ export default {
         <BasePopUp
             ref="popUp"
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
+            :isDrawer="false"
             scrollable
             persistent
             dark
@@ -159,6 +160,7 @@ export default {
                                         block
                                         @click="$_retry"
                                         class="no-uppercase rounded-lg"
+                                        elevation="0"
                                         >Continuar</v-btn
                                     >
                                 </v-layout>
@@ -170,6 +172,7 @@ export default {
                                         outlined
                                         @click="$_cancel"
                                         class="no-uppercase rounded-lg"
+                                        elevation="0"
                                         >Intentarlo más tarde</v-btn
                                     >
                                 </v-layout>

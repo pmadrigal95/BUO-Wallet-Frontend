@@ -71,6 +71,7 @@ export default {
                         class="no-uppercase rounded-lg"
                         text
                         color="blue800"
+                        elevation="0"
                         @click="$_goToBehaviors"
                     >
                         Ver más

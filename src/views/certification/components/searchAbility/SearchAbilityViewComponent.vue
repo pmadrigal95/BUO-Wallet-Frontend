@@ -273,6 +273,7 @@ export default {
                                 : 'grey500'
                         "
                         class="no-uppercase rounded-lg"
+                        elevation="0"
                         >Agregar
                         {{
                             entity.qualifications &&

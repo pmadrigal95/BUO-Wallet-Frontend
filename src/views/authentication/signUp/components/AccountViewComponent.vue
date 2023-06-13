@@ -82,10 +82,8 @@ export default {
         },
 
         open() {
-            const routeData = this.$router.resolve({
-                name: 'TermsAndConditionsViewComponent',
-            });
-            window.open(routeData.href, '_blank');
+            const url = `${window.location.origin}/TermsAndConditions`;
+            window.open(url, '_blank');
         },
 
         $_facebookAuth() {

@@ -87,6 +87,7 @@ export default {
                             @click="$_selectAll"
                             class="no-uppercase rounded-lg"
                             text
+                            elevation="0"
                             color="blue800"
                             :block="$vuetify.breakpoint.mobile"
                         >

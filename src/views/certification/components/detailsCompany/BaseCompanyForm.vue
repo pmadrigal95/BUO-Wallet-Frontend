@@ -275,11 +275,7 @@ export default {
             </v-layout>
 
             <v-flex xs12 sm12 md12>
-                <BaseForm
-                    :method="$_sendToApi"
-                    :labelBtn="labelBtn"
-                    :login="true"
-                >
+                <BaseForm :method="$_sendToApi" :labelBtn="labelBtn" block>
                     <div slot="body">
                         <v-row>
                             <v-col

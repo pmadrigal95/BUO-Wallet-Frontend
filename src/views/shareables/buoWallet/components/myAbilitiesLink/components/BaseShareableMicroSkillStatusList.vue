@@ -93,6 +93,7 @@ export default {
         <BasePopUp
             ref="popUp"
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
+            :isDrawer="false"
             scrollable
         >
             <div slot="Content">

@@ -107,6 +107,7 @@ export default {
                         v-on="on"
                         class="no-uppercase rounded-lg"
                         :color="btnLabel ? 'blue800' : 'black'"
+                        elevation="0"
                     >
                         {{ btnLabel ? btnLabel : '' }}
                         <v-icon color="black"> mdi-dots-vertical </v-icon>
@@ -120,6 +121,7 @@ export default {
                     v-on="on"
                     class="no-uppercase rounded-lg"
                     :color="btnLabel ? 'blue800' : 'black'"
+                    elevation="0"
                 >
                     {{ btnLabel ? btnLabel : '' }}
                     <v-icon color="black"> mdi-dots-vertical </v-icon>

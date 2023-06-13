@@ -118,6 +118,7 @@ export default {
                     />
                     <v-btn
                         class="ma-1 no-uppercase rounded-lg Buo-White-Background"
+                        elevation="0"
                         depressed
                         outlined
                         color="primary"

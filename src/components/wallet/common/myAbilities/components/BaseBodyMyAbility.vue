@@ -122,6 +122,7 @@ export default {
             <v-layout justify-end>
                 <v-btn
                     class="no-uppercase rounded-lg"
+                    elevation="0"
                     color="primary"
                     outlined
                     @click="$_goToAbility(ability.cualificacionId)"

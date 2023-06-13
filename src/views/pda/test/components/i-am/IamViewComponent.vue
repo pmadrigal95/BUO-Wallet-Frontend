@@ -71,6 +71,7 @@ export default {
                     block
                     dark
                     class="no-uppercase rounded-lg"
+                    elevation="0"
                     >Continuar <v-icon right>mdi-arrow-right</v-icon></v-btn
                 >
             </div>

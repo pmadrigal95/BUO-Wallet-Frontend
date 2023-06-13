@@ -54,6 +54,7 @@ export default {
                 <v-col cols="12">
                     <v-btn
                         class="no-uppercase rounded-lg"
+                        elevation="0"
                         color="primary"
                         dark
                         block

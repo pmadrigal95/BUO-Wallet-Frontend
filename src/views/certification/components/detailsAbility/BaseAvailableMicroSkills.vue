@@ -160,6 +160,7 @@ export default {
                 dark
                 block
                 class="no-uppercase rounded-lg"
+                elevation="0"
                 >Validar
                 {{
                     microSkills.length > 0 ? '(' + microSkills.length + ')' : ''

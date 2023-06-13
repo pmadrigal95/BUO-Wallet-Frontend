@@ -97,6 +97,7 @@ export default {
     <div>
         <BasePopUp
             ref="popUp"
+            :isDrawer="false"
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
             scrollable
         >

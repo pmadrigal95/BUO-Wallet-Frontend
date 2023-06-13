@@ -168,6 +168,7 @@ export default {
                     <v-row justify="center" v-if="list.length > 6">
                         <v-btn
                             class="no-uppercase rounded-lg"
+                            elevation="0"
                             text
                             small
                             @click="show = !show"

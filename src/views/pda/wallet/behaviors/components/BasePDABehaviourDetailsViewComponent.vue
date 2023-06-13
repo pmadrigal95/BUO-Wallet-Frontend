@@ -76,6 +76,7 @@ export default {
                 <v-btn
                     v-if="entity"
                     class="no-uppercase rounded-lg"
+                    elevation="0"
                     text
                     @click="$_goToDetails"
                 >

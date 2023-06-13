@@ -14,6 +14,8 @@ import baseLocalHelper from '@/helpers/baseLocalHelper';
 
 import baseArrayHelper from '@/helpers/baseArrayHelper';
 
+import baseSharedFnHelper from '@/helpers/baseSharedFnHelper';
+
 import baseSecurityHelper from '@/helpers/baseSecurityHelper';
 
 const TheAuthentication = () =>
@@ -95,7 +97,11 @@ export default {
             this.showPassword = !this.showPassword;
         },
 
-        $_goToRoute(route) {
+        $_goToRoute() {
+            baseSharedFnHelper.$_redirect('common/#/ResetPassword');
+        },
+
+        $_redirect(route) {
             this.$router.push({ name: route });
         },
 
@@ -182,11 +188,7 @@ export default {
                                                 >
                                                     ¿Olvidaste tu contraseña?
                                                     <a
-                                                        @click="
-                                                            $_goToRoute(
-                                                                'ResetPasswordViewComponent'
-                                                            )
-                                                        "
+                                                        @click="$_goToRoute"
                                                         @click.stop
                                                     >
                                                         Ingresa aquí
@@ -219,7 +221,7 @@ export default {
                                         <div
                                             class="BUO-Paragraph-Medium text-center"
                                             @click="
-                                                $_goToRoute(
+                                                $_redirect(
                                                     'SignUpViewComponent'
                                                 )
                                             "

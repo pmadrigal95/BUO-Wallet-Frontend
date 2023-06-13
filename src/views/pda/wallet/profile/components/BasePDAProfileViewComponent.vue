@@ -56,6 +56,7 @@ export default {
             <v-layout justify-end align-end>
                 <v-btn
                     class="no-uppercase rounded-lg"
+                    elevation="0"
                     text
                     @click="$_shareableLink"
                 >

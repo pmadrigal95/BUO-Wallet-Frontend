@@ -84,6 +84,7 @@ export default {
                 <v-btn
                     color="primary"
                     class="ma-2 no-uppercase rounded-lg"
+                    elevation="0"
                     @click="next"
                 >
                     Comprar</v-btn

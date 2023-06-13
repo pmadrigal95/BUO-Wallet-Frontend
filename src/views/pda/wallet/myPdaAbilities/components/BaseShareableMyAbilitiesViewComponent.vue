@@ -61,6 +61,7 @@ export default {
             <v-btn
                 color="blue800"
                 class="no-uppercase rounded-lg"
+                elevation="0"
                 text
                 @click="$_returnToWallet"
             >

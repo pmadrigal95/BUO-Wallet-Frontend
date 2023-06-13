@@ -202,6 +202,7 @@ export default {
                 </v-tooltip>
                 <v-btn
                     class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                    elevation="0"
                     :color="app ? 'clouds' : 'blue900'"
                     v-if="items[2]"
                     @click="$_Filter"
@@ -213,6 +214,7 @@ export default {
                 </v-btn>
                 <v-btn
                     class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                    elevation="0"
                     :color="app ? 'clouds' : 'blue900'"
                     v-if="items[3]"
                     @click="$_New"
@@ -224,6 +226,7 @@ export default {
                 </v-btn>
                 <v-btn
                     class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                    elevation="0"
                     :color="app ? 'clouds' : 'blue900'"
                     v-if="items[4]"
                     @click="$_Edit"
@@ -236,6 +239,7 @@ export default {
 
                 <v-btn
                     class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                    elevation="0"
                     :color="app ? 'clouds' : 'blue900'"
                     v-if="items[5]"
                     @click="$_Delete"

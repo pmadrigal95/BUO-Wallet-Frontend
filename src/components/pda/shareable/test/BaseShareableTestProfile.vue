@@ -96,6 +96,7 @@ export default {
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
             scrollable
             dark
+            :isDrawer="false"
         >
             <div slot="Content">
                 <v-card flat>
@@ -110,6 +111,7 @@ export default {
                                 <v-layout align-center justify-center>
                                     <v-btn
                                         color="primary"
+                                        elevation="0"
                                         block
                                         class="no-uppercase rounded-lg"
                                         @click="$_downloadPopUp"

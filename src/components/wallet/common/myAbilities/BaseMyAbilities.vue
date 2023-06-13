@@ -92,6 +92,7 @@ export default {
                 <v-btn
                     v-if="$route.name == 'HomeViewComponent'"
                     class="no-uppercase rounded-lg"
+                    elevation="0"
                     text
                     color="blue900"
                     @click="$_goToModule('MyAbilitiesViewComponent')"
@@ -111,6 +112,7 @@ export default {
 
                 <v-btn
                     class="ma-1 no-uppercase rounded-lg"
+                    elevation="0"
                     depressed
                     small
                     color="primary"

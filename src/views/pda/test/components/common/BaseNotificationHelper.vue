@@ -99,6 +99,7 @@ export default {
         :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
         scrollable
         dark
+        :isDrawer="false"
         v-if="entity.peopleList && entity.iamList"
     >
         <div slot="Content">
@@ -129,6 +130,7 @@ export default {
                             <v-layout align-center justify-center>
                                 <v-btn
                                     color="primary"
+                                    elevation="0"
                                     block
                                     @click="$_open"
                                     class="no-uppercase rounded-lg"
@@ -143,6 +145,7 @@ export default {
                                     block
                                     @click="$_continue"
                                     class="no-uppercase rounded-lg"
+                                    elevation="0"
                                     >Continuar</v-btn
                                 >
                             </v-layout>

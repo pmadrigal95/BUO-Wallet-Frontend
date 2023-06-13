@@ -62,6 +62,7 @@ export default {
                         class="no-uppercase rounded-lg BUO-Label-XSmall-SemiBold"
                         text
                         color="blue800"
+                        elevation="0"
                     >
                         Ver más
                         <v-icon right>mdi-chevron-right</v-icon>
@@ -100,6 +101,7 @@ export default {
                                 class="no-uppercase rounded-lg BUO-Label-XSmall-SemiBold"
                                 text
                                 color="blue800"
+                                elevation="0"
                             >
                                 Ver más
                                 <v-icon right>mdi-chevron-right</v-icon>

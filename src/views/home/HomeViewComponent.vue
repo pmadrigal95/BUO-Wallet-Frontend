@@ -63,6 +63,7 @@ export default {
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn
                                 class="ma-1 no-uppercase rounded-lg Buo-White-Background"
+                                elevation="0"
                                 depressed
                                 outlined
                                 color="primary"

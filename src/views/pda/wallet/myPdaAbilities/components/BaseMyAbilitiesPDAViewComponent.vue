@@ -84,7 +84,12 @@ export default {
     <BaseCardViewComponent :btnAction="$_returnToWallet" v-if="pdaWallet">
         <div slot="top-actions">
             <v-layout justify-end align-end>
-                <v-btn class="no-uppercase rounded-lg" text @click="$_shared">
+                <v-btn
+                    elevation="0"
+                    class="no-uppercase rounded-lg"
+                    text
+                    @click="$_shared"
+                >
                     Compartir
                     <v-icon right dark>
                         mdi-share-variant-outline
@@ -136,7 +141,7 @@ export default {
                 >
                     Gráfico de indicadores
                     <v-layout justify-end>
-                        <v-btn icon @click="$_changeMode">
+                        <v-btn elevation="0" icon @click="$_changeMode">
                             <v-icon>{{
                                 entity.complete
                                     ? 'mdi-magnify-plus-outline'

@@ -89,6 +89,7 @@ export default {
                             <v-row justify="center" v-bind="attrs" v-on="on">
                                 <v-btn
                                     class="ma-2"
+                                    elevation="0"
                                     fab
                                     x-small
                                     outlined

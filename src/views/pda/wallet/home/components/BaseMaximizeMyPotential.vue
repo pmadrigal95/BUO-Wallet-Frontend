@@ -112,6 +112,7 @@ export default {
                                 block
                                 @click="$_open"
                                 class="ma-2 rounded-lg"
+                                elevation="0"
                             >
                                 Accede a tu perfil completo
                             </v-btn>

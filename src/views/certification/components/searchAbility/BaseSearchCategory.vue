@@ -251,6 +251,7 @@ export default {
 
                     <div slot="body">
                         <v-btn
+                            elevation="0"
                             block
                             dark
                             :color="
@@ -271,7 +272,7 @@ export default {
                 </BaseCardViewComponent>
             </div>
         </BasePopUp>
-        <v-btn outlined x-large @click="$_openModal" right>
+        <v-btn outlined x-large @click="$_openModal" right elevation="0">
             <v-icon>mdi-tune</v-icon>
         </v-btn>
     </div>

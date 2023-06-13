@@ -110,6 +110,7 @@ export default {
                                 @click="$_continueCetification"
                                 class="no-uppercase rounded-lg"
                                 color="primary"
+                                elevation="0"
                                 dark
                                 :block="
                                     $vuetify.breakpoint.smAndDown ? false : true
@@ -123,6 +124,7 @@ export default {
                             <v-btn
                                 @click="$_goToMyAbilities"
                                 color="primary"
+                                elevation="0"
                                 text
                                 :block="
                                     $vuetify.breakpoint.smAndDown ? false : true

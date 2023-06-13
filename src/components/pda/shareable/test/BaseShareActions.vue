@@ -75,6 +75,7 @@ export default {
                         color="black"
                         v-bind="attrs"
                         v-on="on"
+                        elevation="0"
                         class="ma-2 no-uppercase rounded-lg"
                     >
                         Compartir
@@ -104,6 +105,7 @@ export default {
                 outlined
                 class="ma-2 no-uppercase rounded-lg"
                 @click="nextStep"
+                elevation="0"
             >
                 Continuar
                 <v-icon right>mdi-arrow-right</v-icon>

@@ -105,6 +105,7 @@ export default {
                     @click="$_createRequestBody"
                     color="blue800"
                     class="no-uppercase rounded-lg"
+                    elevation="0"
                     text
                 >
                     Añadir a mis objetivos<v-icon dark>

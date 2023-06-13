@@ -48,6 +48,7 @@ export default {
                     <v-btn
                         class="no-uppercase rounded-lg"
                         color="primary"
+                        elevation="0"
                         text
                         @click="$_open"
                     >

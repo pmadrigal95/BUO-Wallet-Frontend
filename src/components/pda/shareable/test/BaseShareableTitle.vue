@@ -50,6 +50,7 @@ export default {
                 <div>{{ title }}</div>
                 <div>
                     <v-btn
+                        elevation="0"
                         class="no-uppercase rounded-lg"
                         text
                         color="blue800"
@@ -60,6 +61,7 @@ export default {
                     </v-btn>
                     <v-btn
                         class="no-uppercase rounded-lg"
+                        elevation="0"
                         text
                         color="blue800"
                         @click="share"
@@ -93,6 +95,7 @@ export default {
                 <v-row justify="center" align-content="center">
                     <v-btn
                         class="no-uppercase rounded-lg"
+                        elevation="0"
                         text
                         color="blue800"
                         @click="download"
@@ -102,6 +105,7 @@ export default {
                     </v-btn>
                     <v-btn
                         class="no-uppercase rounded-lg"
+                        elevation="0"
                         text
                         color="blue800"
                         @click="share"

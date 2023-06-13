@@ -101,6 +101,7 @@ export default {
     <div>
         <BasePopUp
             ref="popUp"
+            :isDrawer="false"
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
             scrollable
             dark
@@ -120,6 +121,7 @@ export default {
                                         color="primary"
                                         block
                                         class="no-uppercase rounded-lg"
+                                        elevation="0"
                                         @click="$_downloadPopUp"
                                         >Descargar resultado</v-btn
                                     >
@@ -146,6 +148,7 @@ export default {
                                 v-bind="attrs"
                                 v-on="on"
                                 class="ma-2 no-uppercase rounded-lg"
+                                elevation="0"
                             >
                                 Compartir
                                 <v-icon right>mdi-share-variant-outline</v-icon>

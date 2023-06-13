@@ -70,6 +70,7 @@ export default {
                     text
                     block
                     class="no-uppercase rounded-lg"
+                    elevation="0"
                     >Volver al inicio</v-btn
                 >
             </center>

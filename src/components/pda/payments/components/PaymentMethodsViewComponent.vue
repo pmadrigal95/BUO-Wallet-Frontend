@@ -207,6 +207,7 @@ export default {
             <v-btn
                 v-if="showBtn"
                 class="no-uppercase rounded-lg"
+                elevation="0"
                 color="primary"
                 dark
                 block
