@@ -104,25 +104,11 @@ export default {
                 <v-col cols="12">
                     <v-card-text>
                         <v-col cols="12" sm="12" offset-md="1">
-                            <h1
-                                class="neutral--text"
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Display-Small'
-                                        : 'BUO-Display-Medium',
-                                ]"
-                            >
+                            <h1 class="neutral--text BUO-Display-small">
                                 ¡Hola!
                             </h1>
 
-                            <div
-                                class="neutral--text"
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Paragraph-Medium'
-                                        : 'BUO-Paragraph-Large',
-                                ]"
-                            >
+                            <div class="neutral--text BUO-Paragraph-Large pt-3">
                                 Crea tu cuenta aquí
                             </div>
                         </v-col>
@@ -139,7 +125,10 @@ export default {
                                     labelBtn="Crear Cuenta"
                                     v-else
                                 >
-                                    <div slot="body">
+                                    <div
+                                        slot="body"
+                                        class="BUO-Paragraph-Medium"
+                                    >
                                         <v-row>
                                             <v-col cols="12">
                                                 <BaseInput
@@ -169,19 +158,22 @@ export default {
                                                     ]"
                                                 >
                                                     <template v-slot:label>
-                                                        <div>
+                                                        <section
+                                                            class="BUO-Paragraph-Medium grey-700-text"
+                                                        >
                                                             Estoy de Acuerdo con
                                                             los
                                                             <a
                                                                 @click="open"
                                                                 @click.stop
+                                                                class="BUO-Paragraph-Medium-SemiBold"
                                                             >
                                                                 Términos,
                                                                 Condiciones y
                                                                 Política de
                                                                 Privacidad
                                                             </a>
-                                                        </div>
+                                                        </section>
                                                     </template>
                                                 </v-checkbox>
                                             </v-col>
@@ -195,10 +187,10 @@ export default {
                                             >
                                                 o crea tu cuenta con
                                             </h5>
-                                            <br />
                                             <v-row
                                                 justify="center"
                                                 align-content="center"
+                                                class="pt-1"
                                             >
                                                 <div
                                                     class="ma-1"
@@ -219,7 +211,11 @@ export default {
                                             @click.stop
                                         >
                                             ¿Ya tienes cuenta?
-                                            <a> Ingresa aquí </a>
+                                            <a
+                                                class="BUO-Paragraph-Medium-SemiBold"
+                                            >
+                                                Ingresa aquí
+                                            </a>
                                         </div>
                                     </div>
                                 </BaseReCaptchaForm>

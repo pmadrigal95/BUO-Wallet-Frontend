@@ -119,25 +119,11 @@ export default {
                 <v-col cols="12">
                     <v-card-text>
                         <v-col cols="12" sm="12" offset-md="1">
-                            <h1
-                                class="neutral--text"
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Display-Medium'
-                                        : 'BUO-Display-Large',
-                                ]"
-                            >
+                            <h1 class="neutral--text BUO-Display-small">
                                 ¡Hola!
                             </h1>
 
-                            <div
-                                class="neutral--text"
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Heading-Small'
-                                        : 'BUO-Paragraph-Large',
-                                ]"
-                            >
+                            <div class="neutral--text BUO-Paragraph-Large pt-3">
                                 Iniciar sesión
                             </div>
                         </v-col>
@@ -190,6 +176,7 @@ export default {
                                                     <a
                                                         @click="$_goToRoute"
                                                         @click.stop
+                                                        class="BUO-Paragraph-Medium-SemiBold"
                                                     >
                                                         Ingresa aquí
                                                     </a>
@@ -204,10 +191,10 @@ export default {
                                             >
                                                 o inicia sesión con
                                             </h5>
-                                            <br />
                                             <v-row
                                                 justify="center"
                                                 align-content="center"
+                                                class="pt-1"
                                             >
                                                 <div
                                                     class="ma-1"
@@ -228,7 +215,11 @@ export default {
                                             @click.stop
                                         >
                                             ¿Nuevo en BUO?
-                                            <a> ¡Crea tu cuenta! </a>
+                                            <a
+                                                class="BUO-Paragraph-Medium-SemiBold"
+                                            >
+                                                ¡Crea tu cuenta!
+                                            </a>
                                         </div>
                                     </div>
                                 </BaseForm>

@@ -223,7 +223,7 @@ export default {
             v-if="title"
             align-end
             justify-start
-            class="BUO-Paragraph-Large neutral--text"
+            class="BUO-Label-XSmall-Semibold neutral--text"
         >
             {{ title }}
         </v-layout>
@@ -231,7 +231,7 @@ export default {
             v-if="subtitle"
             align-end
             justify-end
-            class="BUO-Paragraph-Large neutral--text"
+            class="BUO-Label-XSmall-Semibold neutral--text"
         >
             {{ subtitle }}
         </v-layout>

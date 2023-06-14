@@ -83,23 +83,13 @@ export default {
                 </v-card-text>
 
                 <v-card-title
-                    class="buo-word-break"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Heading-Small'
-                            : 'BUO-Heading-Medium',
-                    ]"
+                    class="buo-word-break BUO-Heading-Medium black--text pl-2"
                 >
                     ¿Dónde vives?
                 </v-card-title>
 
                 <v-card-subtitle
-                    class="buo-word-break"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Medium'
-                            : 'BUO-Paragraph-Large',
-                    ]"
+                    class="buo-word-break BUO-Paragraph-Medium grey700--text"
                 >
                     Ingresa tu país de residencia
                 </v-card-subtitle>
@@ -107,11 +97,12 @@ export default {
         </div>
         <div slot="card-text">
             <BaseForm :method="$_sendToApi" labelBtn="Siguiente" block>
-                <div slot="body">
+                <div slot="body" class="BUO-Paragraph-Medium">
                     <v-row>
                         <v-col cols="12">
                             <!-- @BaseSelect -->
                             <BaseSelect
+                                class="BUO-Paragraph-Small"
                                 label="País"
                                 endpoint="pais/list"
                                 itemText="nombre"
