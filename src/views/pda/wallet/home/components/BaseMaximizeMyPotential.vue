@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <BasePDAPayment ref="popUp" />
         <v-card flat max-width="100%" max-height="100%">
             <BaseSkeletonLoader v-if="loadingPdaWallet" type="image" />
@@ -48,12 +48,7 @@ export default {
             >
                 <v-card-title
                     v-if="pdaWallet && pdaWallet.tipoMembrecia == premium"
-                    class="buo-word-break Buo-Black"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Large'
-                            : 'BUO-Heading-XSmall',
-                    ]"
+                    class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
                 >
                     ¿Cómo maximizar mi potencial?
                 </v-card-title>
@@ -94,12 +89,7 @@ export default {
                         />
                     </v-card-text>
                     <v-card-subtitle
-                        class="buo-word-break text-center"
-                        :class="[
-                            $vuetify.breakpoint.smAndDown
-                                ? 'BUO-Paragraph-Medium'
-                                : 'BUO-Paragraph-Large',
-                        ]"
+                        class="buo-word-break text-center BUO-Paragraph-Medium white--text"
                     >
                         <b>¡MAXIMIZA TU POTENCIAL!</b>
                     </v-card-subtitle>
@@ -111,7 +101,7 @@ export default {
                                 depressed
                                 block
                                 @click="$_open"
-                                class="ma-2 rounded-lg"
+                                class="ma-2 rounded-lg BUO-Paragraph-Small-SemiBold"
                                 elevation="0"
                             >
                                 Accede a tu perfil completo
@@ -140,8 +130,10 @@ export default {
                             </v-list-item-avatar>
                             <v-list-item-content>
                                 <v-list-item-title
-                                    class="buo-word-break buo-white-space Buo-Black"
-                                    >{{ item }}</v-list-item-title
+                                    ><span
+                                        class="buo-word-break buo-white-space grey700--text BUO-Paragraph-Small"
+                                        >{{ item }}</span
+                                    ></v-list-item-title
                                 >
                                 <v-divider
                                     v-if="$vuetify.breakpoint.smAndDown"
@@ -152,5 +144,5 @@ export default {
                 </v-card-text>
             </v-card>
         </v-card>
-    </div>
+    </section>
 </template>

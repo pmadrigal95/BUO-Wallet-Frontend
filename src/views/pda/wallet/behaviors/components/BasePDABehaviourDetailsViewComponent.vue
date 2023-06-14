@@ -75,7 +75,7 @@ export default {
             <v-layout justify-end align-end>
                 <v-btn
                     v-if="entity"
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     elevation="0"
                     text
                     @click="$_goToDetails"
@@ -88,47 +88,44 @@ export default {
             </v-layout>
         </div>
         <div slot="card-text">
-            <v-card flat class="rounded-lg" v-if="entity">
-                <v-card-text>
-                    <br />
+            <v-card flat class="rounded-t-xl" v-if="entity">
+                <v-card-text class="pt-10">
                     <BasePdaSlider
                         :value="entity.valorEjeFormato"
                         :color="entity.nombre.toLowerCase()"
                     />
-                    <div
+                    <section
                         class="d-flex flex-no-wrap justify-space-between buo-word-break"
-                        :class="[
-                            $vuetify.breakpoint.smAndDown
-                                ? 'BUO-Paragraph-Small'
-                                : 'BUO-Paragraph-Medium',
-                        ]"
                     >
-                        <span>
+                        <span class="BUO-Label-Small grey600--text">
                             {{ entity.etiquetaIzquierda }}
                         </span>
-                        <span>
+                        <span class="BUO-Label-Small grey600--text">
                             {{ entity.etiquetaDerecha }}
                         </span>
-                    </div>
-                    <br />
+                    </section>
                 </v-card-text>
-                <v-card-subtitle
-                    class="BUO-Paragraph-Small buo-word-break text-center Buo-Black"
-                >
-                    <div class="BUO-Heading-XSmall">
+                <v-card-subtitle class="buo-word-break text-center">
+                    <section class="BUO-Heading-XSmall grey700--text pb-2">
                         {{ entity.nombreUI }}
-                    </div>
-                    <br />
-                    <div v-html="entity.fraseEje"></div>
+                    </section>
+                    <section
+                        class="BUO-Label-Small grey600--text"
+                        v-html="entity.fraseEje"
+                    ></section>
                 </v-card-subtitle>
                 <v-spacer></v-spacer>
-                <v-card-text
-                    class="BUO-Paragraph-Small buo-word-break text-justify Buo-Black"
-                >
-                    <b>Principales características</b>
-                    <div>
+                <v-card-text>
+                    <section
+                        class="BUO-Paragraph-Small-SemiBold buo-word-break text-justify black--text"
+                    >
+                        Principales características
+                    </section>
+                    <section
+                        class="BUO-Paragraph-Small buo-word-break text-justify grey600--text"
+                    >
                         {{ entity.descripcionEje }}
-                    </div>
+                    </section>
                 </v-card-text>
                 <v-card-text>
                     <v-layout justify-center>
@@ -138,7 +135,9 @@ export default {
                                 v-for="item in entity.caracteristicas"
                                 :key="item"
                             >
-                                <span>
+                                <span
+                                    class="BUO-Label-Small-SemiBold grey700--text"
+                                >
                                     {{ item }}
                                 </span>
                             </v-chip>
@@ -146,7 +145,7 @@ export default {
                     </v-layout>
                 </v-card-text>
             </v-card>
-            <V-card flat v-else>
+            <V-card flat class="rounded-t-xl" v-else>
                 <v-img
                     contain
                     height="350"

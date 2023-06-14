@@ -56,19 +56,14 @@ export default {
     <v-card flat max-width="100%" max-height="100%">
         <BasePDAPayment ref="popUp" />
         <BaseSkeletonLoader v-if="loadingPdaWallet" type="image" />
-        <div v-else-if="pdaWallet.ejePDADTOSet">
+        <section v-else-if="pdaWallet.ejePDADTOSet">
             <v-card-title
-                class="buo-word-break Buo-Black"
-                :class="[
-                    $vuetify.breakpoint.smAndDown
-                        ? 'BUO-Paragraph-Large'
-                        : 'BUO-Heading-XSmall',
-                ]"
+                class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
             >
                 Ejes de Comportamiento
                 <v-layout justify-end>
                     <v-btn
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         text
                         color="blue800"
                         elevation="0"
@@ -81,38 +76,32 @@ export default {
             </v-card-title>
             <v-card-text>
                 <v-card flat @click="$_goToBehaviors">
-                    <v-card-subtitle
-                        class="text-center Buo-Black"
-                        :class="[
-                            $vuetify.breakpoint.smAndDown
-                                ? 'BUO-Paragraph-Small'
-                                : 'BUO-Paragraph-Medium',
-                        ]"
-                    >
-                        <div>Eje de Riesgo</div>
-
-                        <br />
-                        <div
-                            class="BUO-Heading-XSmall"
+                    <v-card-subtitle class="text-center">
+                        <section class="BUO-Label-XSmall grey600--text pb-2">
+                            Eje de Riesgo
+                        </section>
+                        <section
+                            class="BUO-Heading-XSmall grey700--text"
                             v-html="riskAxis.fraseEje"
-                        ></div>
-                        <br />
-                        <div v-html="riskAxis.descripcionEje"></div>
+                        ></section>
+                        <section
+                            class="BUO-Paragraph-Small grey600--text pb-4"
+                            v-html="riskAxis.descripcionEje"
+                        ></section>
                     </v-card-subtitle>
 
                     <v-card-text>
                         <BasePdaSlider :value="riskAxis.valorEjeFormato" />
-                        <div
-                            class="d-flex flex-no-wrap justify-space-between buo-word-break Buo-Black"
-                            :class="[
-                                $vuetify.breakpoint.smAndDown
-                                    ? 'BUO-Paragraph-Small'
-                                    : 'BUO-Paragraph-Medium',
-                            ]"
+                        <section
+                            class="d-flex flex-no-wrap justify-space-between buo-word-break"
                         >
-                            <span> {{ riskAxis.etiquetaIzquierda }} </span>
-                            <span> {{ riskAxis.etiquetaDerecha }} </span>
-                        </div>
+                            <span class="BUO-Label-Small grey700--text">
+                                {{ riskAxis.etiquetaIzquierda }}
+                            </span>
+                            <span class="BUO-Label-Small grey700--text">
+                                {{ riskAxis.etiquetaDerecha }}
+                            </span>
+                        </section>
                     </v-card-text>
                 </v-card>
             </v-card-text>
@@ -126,9 +115,10 @@ export default {
                         icon="mdi-chevron-right"
                         :isSmall="false"
                         :fnMethod="$_goToBehaviors"
+                        class="BUO-Paragraph-Small-SemiBold"
                     />
                 </v-layout>
             </v-card-actions>
-        </div>
+        </section>
     </v-card>
 </template>

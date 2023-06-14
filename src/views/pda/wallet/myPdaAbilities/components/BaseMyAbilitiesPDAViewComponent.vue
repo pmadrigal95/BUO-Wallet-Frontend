@@ -86,7 +86,7 @@ export default {
             <v-layout justify-end align-end>
                 <v-btn
                     elevation="0"
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     text
                     @click="$_shared"
                 >
@@ -130,14 +130,9 @@ export default {
             </v-card>
         </div>
         <div slot="card-text">
-            <v-card flat class="rounded-lg">
+            <v-card flat class="rounded-t-xl mb-6">
                 <v-card-title
-                    class="buo-word-break Buo-Black"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Large'
-                            : 'BUO-Heading-XSmall',
-                    ]"
+                    class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
                 >
                     Gráfico de indicadores
                     <v-layout justify-end>
@@ -159,8 +154,7 @@ export default {
                     />
                 </v-card-text>
             </v-card>
-            <br />
-            <v-card flat class="rounded-lg" v-if="entity.complete">
+            <v-card flat v-if="entity.complete">
                 <BasePDAProgressLinear :entity="entity"
             /></v-card>
         </div>

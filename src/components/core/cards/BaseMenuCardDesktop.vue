@@ -65,16 +65,16 @@ export default {
                         <v-col>
                             <v-card flat text color="transparent">
                                 <v-card-title
-                                    class="BUO-Paragraph-Large buo-none-word-break"
+                                    class="BUO-Paragraph-Medium-SemiBold buo-none-word-break"
                                     >{{ item.title }}</v-card-title
                                 >
 
                                 <v-card-subtitle
                                     v-if="item.subtitle"
-                                    class="BUO-Label-Large buo-word-break"
+                                    class="BUO-Label-Small buo-word-break"
                                     :class="[
                                         imgSmall
-                                            ? 'Buo-Black text-end'
+                                            ? 'black--text text-end'
                                             : undefined,
                                     ]"
                                     >{{ item.subtitle }}</v-card-subtitle

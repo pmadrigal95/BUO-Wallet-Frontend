@@ -98,7 +98,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <BasePopUp
             ref="popUp"
             :isDrawer="false"
@@ -108,10 +108,14 @@ export default {
         >
             <div slot="Content">
                 <v-card flat>
-                    <v-card-title> Lo sentimos </v-card-title>
+                    <v-card-title class="BUO-Heading-XSmall">
+                        Lo sentimos
+                    </v-card-title>
                     <v-card-text>
-                        La opción de compartir actualmente no es compatible con
-                        este dispositivo.
+                        <span class="BUO-Paragraph-Small">
+                            La opción de compartir actualmente no es compatible
+                            con este dispositivo.
+                        </span>
                     </v-card-text>
                     <v-card-actions>
                         <v-row>
@@ -120,7 +124,7 @@ export default {
                                     <v-btn
                                         color="primary"
                                         block
-                                        class="no-uppercase rounded-lg"
+                                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                         elevation="0"
                                         @click="$_downloadPopUp"
                                         >Descargar resultado</v-btn
@@ -147,7 +151,7 @@ export default {
                                 text
                                 v-bind="attrs"
                                 v-on="on"
-                                class="ma-2 no-uppercase rounded-lg"
+                                class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                 elevation="0"
                             >
                                 Compartir
@@ -155,7 +159,7 @@ export default {
                             </v-btn>
                         </template>
                         <v-list
-                            class="BUO-Paragraph-Small"
+                            class="BUO-Paragraph-Medium-SemiBold"
                             v-for="(item, i) in options"
                             :key="i"
                         >
@@ -176,14 +180,9 @@ export default {
                 </v-layout>
             </div>
             <div slot="card-text">
-                <v-card flat class="rounded-lg">
+                <v-card flat class="rounded-t-xl">
                     <v-card-title
-                        class="buo-word-break Buo-Black"
-                        :class="[
-                            $vuetify.breakpoint.smAndDown
-                                ? 'BUO-Paragraph-Large'
-                                : 'BUO-Heading-XSmall',
-                        ]"
+                        class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
                     >
                         Ejes de comportamiento
                     </v-card-title>
@@ -196,47 +195,35 @@ export default {
                             >
                                 <v-card flat @click="$_goToDetails(item.id)">
                                     <v-card-title
-                                        class="buo-word-break Buo-Black"
-                                        :class="[
-                                            $vuetify.breakpoint.smAndDown
-                                                ? 'BUO-Paragraph-Medium'
-                                                : 'BUO-Paragraph-Large',
-                                        ]"
+                                        class="buo-word-break black--text BUO-Paragraph-Small-SemiBold pb-5"
                                     >
                                         {{ item.nombreUI }}
                                     </v-card-title>
                                     <v-card-subtitle
-                                        class="buo-word-break"
-                                        :class="[
-                                            $vuetify.breakpoint.smAndDown
-                                                ? 'BUO-Paragraph-Small'
-                                                : 'BUO-Paragraph-Medium',
-                                        ]"
+                                        class="buo-word-break grey600--text BUO-Paragraph-Small"
                                     >
                                         {{ item.descripcionEje }}
                                     </v-card-subtitle>
 
-                                    <v-card-text>
-                                        <br />
+                                    <v-card-text class="pt-3">
                                         <BasePdaSlider
                                             :value="item.valorEjeFormato"
                                             :color="item.nombre.toLowerCase()"
                                         />
-                                        <div
+                                        <section
                                             class="d-flex flex-no-wrap justify-space-between buo-word-break"
-                                            :class="[
-                                                $vuetify.breakpoint.smAndDown
-                                                    ? 'BUO-Paragraph-Small'
-                                                    : 'BUO-Paragraph-Medium',
-                                            ]"
                                         >
-                                            <span>
+                                            <span
+                                                class="BUO-Label-Small grey600--text"
+                                            >
                                                 {{ item.etiquetaIzquierda }}
                                             </span>
-                                            <span>
+                                            <span
+                                                class="BUO-Label-Small grey600--text"
+                                            >
                                                 {{ item.etiquetaDerecha }}
                                             </span>
-                                        </div>
+                                        </section>
                                         <br />
                                     </v-card-text>
                                 </v-card>
@@ -251,5 +238,5 @@ export default {
                 <ExploreBUOViewComponent v-if="$vuetify.breakpoint.mobile" />
             </div>
         </BaseCardViewComponent>
-    </div>
+    </section>
 </template>

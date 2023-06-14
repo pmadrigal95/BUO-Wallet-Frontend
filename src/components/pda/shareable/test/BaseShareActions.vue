@@ -115,7 +115,7 @@ export default {
         <v-layout v-if="key > 0" justify-center>
             <v-alert
                 dismissible
-                color="green800"
+                color="greenB800"
                 border="left"
                 elevation="2"
                 colored-border

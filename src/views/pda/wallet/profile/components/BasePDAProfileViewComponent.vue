@@ -55,7 +55,7 @@ export default {
         <div slot="top-actions">
             <v-layout justify-end align-end>
                 <v-btn
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     elevation="0"
                     text
                     @click="$_shareableLink"
@@ -68,7 +68,7 @@ export default {
             </v-layout>
         </div>
         <div slot="card-text">
-            <v-card flat class="rounded-lg">
+            <v-card flat class="rounded-t-xl mb-6">
                 <v-layout justify-center>
                     <v-img
                         v-if="pdaWallet.hotcakeURL"
@@ -78,52 +78,42 @@ export default {
                         :src="pdaWallet.hotcakeURL"
                         :lazy-src="pdaWallet.hotcakeURL"
                     />
-                    <br />
                 </v-layout>
                 <v-card-subtitle
-                    class="BUO-Paragraph-Small buo-word-break text-center Buo-Black"
+                    class="BUO-Paragraph-Small buo-word-break text-center grey700--text"
                 >
                     Tu Perfil:
-                    <div class="BUO-Heading-XSmall">
+                    <section class="BUO-Heading-XSmall grey700--text">
                         {{ pdaWallet.perfilPDAVisual }}
-                    </div>
+                    </section>
                 </v-card-subtitle>
 
                 <v-card-subtitle
-                    class="BUO-Paragraph-Large buo-word-break text-center Buo-Black"
+                    class="BUO-Paragraph-Small buo-word-break text-center black--text pt-0"
                 >
                     Tu superpoder es
                     <b>{{ pdaWallet.superpoder }}</b
                     >.
                 </v-card-subtitle>
-            </v-card>
-            <br />
-            <v-card flat class="rounded-lg">
-                <v-card-title
-                    class="buo-word-break Buo-Black"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Large'
-                            : 'BUO-Heading-XSmall',
-                    ]"
-                >
-                    Descripción del perfil
-                </v-card-title>
-                <v-card-text
-                    class="BUO-Paragraph-Small buo-word-break Buo-Black"
-                >
-                    {{ pdaWallet.descripcion }}
+
+                <v-card-text>
+                    <v-card flat class="pt-2">
+                        <v-card-title
+                            class="BUO-Paragraph-Small-SemiBold buo-word-break black--text"
+                        >
+                            Descripción del perfil
+                        </v-card-title>
+                        <v-card-text
+                            class="BUO-Paragraph-Small buo-word-break black--text"
+                        >
+                            {{ pdaWallet.descripcion }}
+                        </v-card-text>
+                    </v-card>
                 </v-card-text>
             </v-card>
-            <br />
-            <v-card flat class="rounded-lg" v-if="pdaWallet.caracteristicas">
+            <v-card flat class="mb-6" v-if="pdaWallet.caracteristicas">
                 <v-card-title
-                    class="buo-word-break Buo-Black"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Large'
-                            : 'BUO-Heading-XSmall',
-                    ]"
+                    class="buo-word-break BUO-Paragraph-Large-SemiBold grey700--text"
                 >
                     Características del perfil
                 </v-card-title>
@@ -144,8 +134,10 @@ export default {
                         </v-list-item-avatar>
                         <v-list-item-content>
                             <v-list-item-title
-                                class="BUO-Paragraph-Small buo-word-break buo-white-space Buo-Black"
-                                >{{ item }}</v-list-item-title
+                                ><span
+                                    class="BUO-Paragraph-Small buo-word-break buo-white-space grey600--text"
+                                    >{{ item }}</span
+                                ></v-list-item-title
                             >
                             <v-divider
                                 v-if="$vuetify.breakpoint.smAndDown"
@@ -154,15 +146,9 @@ export default {
                     </v-list-item>
                 </v-list>
             </v-card>
-            <br />
-            <v-card flat class="rounded-lg" v-if="pdaWallet.caracteristicas">
+            <v-card flat class="mb-6" v-if="pdaWallet.caracteristicas">
                 <v-card-title
-                    class="buo-word-break Buo-Black"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Large'
-                            : 'BUO-Heading-XSmall',
-                    ]"
+                    class="buo-word-break BUO-Paragraph-Large-SemiBold grey700--text"
                 >
                     Motivadores
                 </v-card-title>
@@ -183,8 +169,10 @@ export default {
                         </v-list-item-avatar>
                         <v-list-item-content>
                             <v-list-item-title
-                                class="BUO-Paragraph-Small buo-word-break buo-white-space Buo-Black"
-                                >{{ item }}</v-list-item-title
+                                ><span
+                                    class="BUO-Paragraph-Small buo-word-break buo-white-space grey600--text"
+                                    >{{ item }}</span
+                                ></v-list-item-title
                             >
                         </v-list-item-content>
                     </v-list-item>

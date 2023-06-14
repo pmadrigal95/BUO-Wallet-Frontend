@@ -70,7 +70,9 @@ export default {
                                 v-bind="attrs"
                                 v-on="on"
                             >
-                                <span> Compartir </span>
+                                <span class="BUO-Paragraph-Small-SemiBold">
+                                    Compartir
+                                </span>
                                 <v-icon small right dark>
                                     mdi-share-variant-outline
                                 </v-icon>

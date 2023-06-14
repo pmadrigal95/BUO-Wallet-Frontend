@@ -54,7 +54,7 @@ export default {
                     ></v-card-title
                 >
                 <v-card-subtitle
-                    class="BUO-Paragraph-Small-SemiBold Buo-Black"
+                    class="BUO-Paragraph-Small-SemiBold black--text"
                     >{{ item.subtitle }}</v-card-subtitle
                 >
                 <v-card-actions
@@ -93,7 +93,7 @@ export default {
                             ></v-card-title
                         >
                         <v-card-subtitle
-                            class="BUO-Paragraph-Small-SemiBold Buo-Black"
+                            class="BUO-Paragraph-Small-SemiBold black--text"
                             >{{ item.subtitle }}</v-card-subtitle
                         >
                         <v-card-actions

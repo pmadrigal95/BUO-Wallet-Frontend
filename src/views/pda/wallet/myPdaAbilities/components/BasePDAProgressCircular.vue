@@ -103,7 +103,7 @@ export default {
                     >
                         <v-card flat>
                             <v-card-text
-                                class="BUO-Paragraph-Large text-center buo-word-break Buo-Black"
+                                class="BUO-Paragraph-Large-SemiBold text-center buo-word-break grey700--text"
                             >
                                 {{ item.habilidad }}
                             </v-card-text>
@@ -145,27 +145,26 @@ export default {
                                     outlined
                                     :color="pdaWallet.perfilPDA.toLowerCase()"
                                     class="rounded-lg"
-                                    :class="[
-                                        $vuetify.breakpoint.smAndDown
-                                            ? 'BUO-Paragraph-Small'
-                                            : 'BUO-Paragraph-Medium',
-                                    ]"
                                 >
-                                    <div class="Buo-Black">
+                                    <section
+                                        class="BUO-Label-Small-SemiBold grey700--text"
+                                    >
                                         <b>Sabías que..</b>
-                                    </div>
-                                    <div class="Buo-Black">
+                                    </section>
+                                    <section
+                                        class="BUO-Label-Small grey700--text"
+                                    >
                                         {{ item.descripcion }}
-                                    </div>
+                                    </section>
                                 </v-alert>
                             </v-card-text>
                         </v-card>
                         <br />
                         <v-card flat>
                             <v-card-text
-                                class="BUO-Paragraph-Large text-center buo-word-break Buo-Black"
+                                class="BUO-Heading-XSmall text-center buo-word-break grey700--text"
                             >
-                                <div>
+                                <section class="pb-3">
                                     <v-icon
                                         large
                                         :color="
@@ -173,23 +172,18 @@ export default {
                                         "
                                         >mdi-radiobox-marked</v-icon
                                     >
-                                </div>
+                                </section>
                                 {{ item.habilidad }}
                             </v-card-text>
 
                             <v-card flat class="rounded-lg">
                                 <v-card-title
-                                    class="buo-word-break Buo-Black"
-                                    :class="[
-                                        $vuetify.breakpoint.smAndDown
-                                            ? 'BUO-Paragraph-Large'
-                                            : 'BUO-Paragraph-Medium',
-                                    ]"
+                                    class="buo-word-break black--text BUO-Paragraph-Small-SemiBold"
                                 >
                                     <b>Principales características</b>
                                 </v-card-title>
                                 <v-card-text
-                                    class="BUO-Paragraph-Small buo-word-break Buo-Black"
+                                    class="BUO-Paragraph-Small buo-word-break grey600--text"
                                 >
                                     {{ item.caracteristicas }}
                                 </v-card-text>

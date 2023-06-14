@@ -95,43 +95,36 @@ export default {
 </script>
 
 <template>
-    <div>
-        <BaseCardViewComponent
-            title="Mi PDA"
-            :btnAction="$_returnToWallet"
-            v-if="pdaWallet"
-        >
-            <div slot="top-actions">
-                <v-btn
-                    v-if="pdaWallet && pdaWallet.tipoMembrecia == freemium"
-                    class="no-uppercase rounded-lg"
-                    elevation="0"
-                    text
-                    @click="$_returnToShareables"
-                >
-                    Compartir
-                    <v-icon right dark>
-                        mdi-share-variant-outline
-                    </v-icon></v-btn
-                >
-            </div>
-            <div slot="card-text">
-                <BaseAdGetPremium
-                    v-if="pdaWallet && pdaWallet.tipoMembrecia == freemium"
-                />
-                <BasePDAProfile />
-                <br />
-                <BaseAxesBehavior />
-                <br />
-                <BaseMyAbilities />
-                <br />
-                <BaseMaximizeMyPotential />
-            </div>
+    <BaseCardViewComponent
+        title="Mi PDA"
+        :btnAction="$_returnToWallet"
+        v-if="pdaWallet"
+    >
+        <div slot="top-actions">
+            <v-btn
+                v-if="pdaWallet && pdaWallet.tipoMembrecia == freemium"
+                class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                elevation="0"
+                text
+                @click="$_returnToShareables"
+            >
+                Compartir
+                <v-icon right dark> mdi-share-variant-outline </v-icon></v-btn
+            >
+        </div>
+        <div slot="card-text">
+            <BaseAdGetPremium
+                v-if="pdaWallet && pdaWallet.tipoMembrecia == freemium"
+            />
+            <BasePDAProfile class="mb-6" />
+            <BaseAxesBehavior class="mb-6" />
+            <BaseMyAbilities class="mb-6" />
+            <BaseMaximizeMyPotential class="mb-6" />
+        </div>
 
-            <div slot="body">
-                <ExploreBUOViewComponent v-if="$vuetify.breakpoint.mobile" />
-            </div>
-        </BaseCardViewComponent>
-        <BaseSkeletonLoader v-else type="card, actions" />
-    </div>
+        <div slot="body">
+            <ExploreBUOViewComponent v-if="$vuetify.breakpoint.mobile" />
+        </div>
+    </BaseCardViewComponent>
+    <BaseSkeletonLoader v-else type="card, actions" />
 </template>

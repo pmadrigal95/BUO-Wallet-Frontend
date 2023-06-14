@@ -100,15 +100,15 @@ export default {
 <template>
     <TheAuthentication>
         <div slot="RenderBody">
-            <v-row class="neutral--text">
+            <v-row class="grey700--text">
                 <v-col cols="12">
                     <v-card-text>
                         <v-col cols="12" sm="12" offset-md="1">
-                            <h1 class="neutral--text BUO-Display-small">
+                            <h1 class="grey700--text BUO-Display-small">
                                 ¡Hola!
                             </h1>
 
-                            <div class="neutral--text BUO-Paragraph-Large pt-3">
+                            <div class="grey700--text BUO-Paragraph-Large pt-3">
                                 Crea tu cuenta aquí
                             </div>
                         </v-col>

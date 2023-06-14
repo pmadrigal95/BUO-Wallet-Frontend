@@ -26,19 +26,11 @@ export default {
 <template>
     <div>
         <BasePDAPayment ref="popUp" />
-        <v-alert
-            text
-            outlined
-            color="success"
-            class="rounded-lg"
-            :class="[
-                $vuetify.breakpoint.smAndDown
-                    ? 'BUO-Paragraph-Small'
-                    : 'BUO-Paragraph-Medium',
-            ]"
-        >
-            <div class="Buo-Black">¡Conoce tus resultados completos!</div>
-            <div class="Buo-Black">
+        <v-alert text outlined color="greenA600" class="rounded-lg">
+            <div class="black--text BUO-Label-Small-SemiBold">
+                ¡Conoce tus resultados completos!
+            </div>
+            <div class="black--text BUO-Label-Small">
                 Desbloquea tus resultados completos y descubre como maximizar tu
                 potencial
             </div>

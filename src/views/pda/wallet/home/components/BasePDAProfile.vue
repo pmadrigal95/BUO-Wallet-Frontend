@@ -47,7 +47,7 @@ export default {
     <v-card flat class="rounded-t-xl">
         <BasePDAPayment ref="popUp" />
         <BaseSkeletonLoader v-if="loadingPdaWallet" type="image" />
-        <div v-else>
+        <section v-else>
             <v-card-text>
                 <v-layout justify-center @click="$_returnToProfile">
                     <v-img
@@ -60,21 +60,21 @@ export default {
                         style="cursor: pointer"
                     />
                 </v-layout>
-                <v-card-subtitle
-                    class="BUO-Paragraph-Large buo-word-break text-center"
-                >
-                    <div class="BUO-Heading-XSmall">
+                <v-card-subtitle class="buo-word-break text-center">
+                    <section class="BUO-Heading-XSmall grey700--text">
                         {{ pdaWallet.perfilPDAVisual }}
-                    </div>
-                    Tu superpoder es
-                    <b>{{ pdaWallet.superpoder }}</b
-                    >.
+                    </section>
+                    <section class="BUO-Paragraph-Small black--text">
+                        Tu superpoder es
+                        <b>{{ pdaWallet.superpoder }}</b
+                        >.
+                    </section>
                 </v-card-subtitle>
             </v-card-text>
 
             <v-card-text v-if="pdaWallet && pdaWallet.tipoMembrecia == premium">
                 <MenuCardViewComponent />
             </v-card-text>
-        </div>
+        </section>
     </v-card>
 </template>

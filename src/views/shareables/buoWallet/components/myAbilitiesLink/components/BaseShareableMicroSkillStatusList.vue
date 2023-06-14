@@ -230,8 +230,8 @@ export default {
                             <v-card-text
                                 :class="[
                                     $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Paragraph-Small Buo-Black'
-                                        : 'BUO-Paragraph-Medium Buo-Black',
+                                        ? 'BUO-Paragraph-Small black--text'
+                                        : 'BUO-Paragraph-Medium black--text',
                                 ]"
                                 >{{ item.definicion }}</v-card-text
                             >

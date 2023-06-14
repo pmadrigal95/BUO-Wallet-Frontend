@@ -79,12 +79,12 @@ export default {
                 </v-card-subtitle>
 
                 <v-card-text>
-                    <v-card dark flat color="rounded-lg green800">
+                    <v-card dark flat color="greenB800" class="rounded-lg">
                         <v-card-text>
                             <v-list color="transparent">
                                 <v-list-item class="buo-headerAbility-position"
                                     ><v-list-item-avatar>
-                                        <v-btn color="green700" fab x-small>
+                                        <v-btn color="greenB700" fab x-small>
                                             <v-icon>mdi-check</v-icon>
                                         </v-btn>
                                     </v-list-item-avatar>
@@ -98,7 +98,7 @@ export default {
                                 <v-divider></v-divider>
                                 <v-list-item class="buo-headerAbility-position">
                                     <v-list-item-avatar>
-                                        <v-btn color="green700" fab x-small>
+                                        <v-btn color="greenB700" fab x-small>
                                             <v-icon>mdi-timer-outline</v-icon>
                                         </v-btn>
                                     </v-list-item-avatar>

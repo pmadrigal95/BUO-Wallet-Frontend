@@ -61,13 +61,13 @@ export default {
                     </v-avatar>
 
                     <div>
-                        <v-card-title class="BUO-Paragraph-Large">{{
+                        <v-card-title class="BUO-Paragraph-Medium-SemiBold">{{
                             item.title
                         }}</v-card-title>
 
                         <v-card-subtitle
                             v-if="item.subtitle"
-                            class="BUO-Label-Large"
+                            class="BUO-Label-Small"
                             >{{ item.subtitle }}</v-card-subtitle
                         >
                     </div>

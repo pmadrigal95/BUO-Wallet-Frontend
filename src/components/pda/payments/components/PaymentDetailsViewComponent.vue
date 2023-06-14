@@ -93,7 +93,7 @@ export default {
         </div>
         <div slot="card-text">
             <v-row>
-                <v-col cols="12" md="7" class="Buo-Black">
+                <v-col cols="12" md="7" class="black--text">
                     <v-card-title
                         v-if="$vuetify.breakpoint.mdAndUp"
                         class="BUO-Heading-Small buo-word-break"
@@ -109,7 +109,7 @@ export default {
                             <v-list-item v-if="!item.divider" :key="item.title">
                                 <v-list-item-content>
                                     <v-list-item-title
-                                        class="buo-none-word-break buo-white-space Buo-Black BUO-Paragraph-Medium"
+                                        class="buo-none-word-break buo-white-space black--text BUO-Paragraph-Medium"
                                         >{{ item.title }}</v-list-item-title
                                     >
                                 </v-list-item-content>

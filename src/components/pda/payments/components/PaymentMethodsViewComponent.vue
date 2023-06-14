@@ -125,7 +125,7 @@ export default {
 <template>
     <BaseCardViewComponent :md="md" :offset="offset">
         <div slot="card-text">
-            <div class="BUO-Heading-Small Buo-Black">Reporte completo PDA</div>
+            <div class="BUO-Heading-Small black--text">Reporte completo PDA</div>
         </div>
         <div slot="card-text">
             <v-radio-group v-model="card" @change="forceRerender">
@@ -136,7 +136,7 @@ export default {
                                 <v-radio :value="true">
                                     <template v-slot:label>
                                         <div
-                                            class="Buo-Black"
+                                            class="black--text"
                                             :class="[
                                                 $vuetify.breakpoint.smAndDown
                                                     ? 'BUO-Paragraph-Small-SemiBold'
@@ -168,7 +168,7 @@ export default {
                                 <v-radio :value="false">
                                     <template v-slot:label>
                                         <div
-                                            class="Buo-Black"
+                                            class="black--text"
                                             :class="[
                                                 $vuetify.breakpoint.smAndDown
                                                     ? 'BUO-Paragraph-Small-SemiBold'
@@ -197,7 +197,7 @@ export default {
                 </v-card>
             </v-radio-group>
             <v-layout justify-end v-if="card">
-                <div class="BUO-Paragraph-Medium Buo-Black">
+                <div class="BUO-Paragraph-Medium black--text">
                     Total: <b>$199 MXN</b>
                 </div>
             </v-layout>

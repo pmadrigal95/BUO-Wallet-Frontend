@@ -39,7 +39,7 @@ export default {
 <template>
     <v-card flat color="transparent">
         <v-card-title
-            class="Buo-Black"
+            class="black--text"
             :class="[
                 $vuetify.breakpoint.smAndDown
                     ? 'BUO-Paragraph-Small-SemiBold'

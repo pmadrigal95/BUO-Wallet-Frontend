@@ -24,45 +24,35 @@ export default {
 </script>
 
 <template>
-    <div>
-        <BaseSkeletonLoader
-            v-if="loadingPdaWallet && !pdaWallet"
-            type="image"
+    <BaseSkeletonLoader v-if="loadingPdaWallet && !pdaWallet" type="image" />
+    <v-card flat v-else>
+        <PDARadarChart
+            :data="pdaWallet.habilidadPDADTOSet"
+            :profile="
+                $vuetify.theme.themes.light[pdaWallet.perfilPDA.toLowerCase()]
+            "
+            :dark="false"
+            class="pb-4"
         />
-        <v-card flat v-else>
-            <br />
-            <PDARadarChart
-                :data="pdaWallet.habilidadPDADTOSet"
-                :profile="
-                    $vuetify.theme.themes.light[
-                        pdaWallet.perfilPDA.toLowerCase()
-                    ]
-                "
-                :dark="false"
-            />
 
-            <v-card-text>
-                <v-alert
-                    text
-                    outlined
-                    :color="pdaWallet.perfilPDA.toLowerCase()"
-                    type="warning"
-                    class="rounded-lg"
-                    dismissible
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Small'
-                            : 'BUO-Paragraph-Medium',
-                    ]"
-                >
-                    <div class="Buo-Black"><b>Importante</b></div>
-                    <div class="Buo-Black">
-                        El porcentaje en cada indicador no indica la falta o
-                        presencia de la misma, sino cuanto esfuerzo toma
-                        desempeñar ese indicador.
-                    </div>
-                </v-alert>
-            </v-card-text>
-        </v-card>
-    </div>
+        <v-card-text>
+            <v-alert
+                text
+                outlined
+                :color="pdaWallet.perfilPDA.toLowerCase()"
+                type="warning"
+                class="rounded-lg"
+                dismissible
+            >
+                <section class="grey700--text BUO-Label-Small-SemiBold">
+                    <b>Importante</b>
+                </section>
+                <span class="grey700--text BUO-Label-Small">
+                    El porcentaje en cada indicador no indica la falta o
+                    presencia de la misma, sino cuanto esfuerzo toma desempeñar
+                    ese indicador.
+                </span>
+            </v-alert>
+        </v-card-text>
+    </v-card>
 </template>

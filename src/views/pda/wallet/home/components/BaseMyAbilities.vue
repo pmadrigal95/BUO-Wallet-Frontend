@@ -47,19 +47,14 @@ export default {
     <v-card flat max-width="100%" max-height="100%">
         <BasePDAPayment ref="popUp" />
         <BaseSkeletonLoader v-if="loadingPdaWallet" type="image" />
-        <div v-else>
+        <section v-else>
             <v-card-title
-                class="buo-word-break Buo-Black"
-                :class="[
-                    $vuetify.breakpoint.smAndDown
-                        ? 'BUO-Paragraph-Large'
-                        : 'BUO-Heading-XSmall',
-                ]"
+                class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
             >
                 Mis indicadores
                 <v-layout justify-end>
                     <v-btn
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         text
                         color="blue800"
                         elevation="0"
@@ -79,32 +74,20 @@ export default {
                     @click="$_goToAbilities"
                 >
                     <v-layout align-center justify-space-between>
-                        <div>
+                        <section>
                             <v-card-title
-                                class="buo-word-break Buo-Black"
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Paragraph-Medium Buo-Black'
-                                        : 'BUO-Paragraph-Large Buo-Black',
-                                ]"
+                                class="buo-word-break grey600--text BUO-Paragraph-Large"
                                 >Conoce tus indicadores
                                 principales:</v-card-title
                             >
 
                             <v-card-text
-                                class="buo-word-break Buo-Black"
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Label-Small'
-                                        : 'BUO-Paragraph-Small',
-                                ]"
+                                class="buo-word-break grey700--text BUO-Small-Large"
                                 >Tus indicadores más fuertes están validadas en
                                 tu Buo Wallet.</v-card-text
                             >
-                        </div>
-
-                        <div>
-                            <br />
+                        </section>
+                        <section>
                             <v-img
                                 class="rounded-lg"
                                 contain
@@ -115,7 +98,7 @@ export default {
                                 lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-graphic.svg
                                 "
                             />
-                        </div>
+                        </section>
                     </v-layout>
                 </v-card>
             </v-card-text>
@@ -129,9 +112,10 @@ export default {
                         icon="mdi-chevron-right"
                         :isSmall="false"
                         :fnMethod="$_goToAbilities"
+                        class="BUO-Paragraph-Small-SemiBold"
                     />
                 </v-layout>
             </v-card-actions>
-        </div>
+        </section>
     </v-card>
 </template>

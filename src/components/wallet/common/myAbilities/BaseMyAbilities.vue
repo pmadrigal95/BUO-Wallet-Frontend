@@ -86,12 +86,12 @@ export default {
 
 <template>
     <v-card flat max-width="100%" max-height="100%" class="rounded-t-xl">
-        <v-card-title class="BUO-Paragraph-Large">
+        <v-card-title class="BUO-Paragraph-Large-SemiBold">
             Mis Indicadores
             <v-layout justify-end>
                 <v-btn
                     v-if="$route.name == 'HomeViewComponent'"
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Label-XSmall-SemiBold"
                     elevation="0"
                     text
                     color="blue900"
@@ -111,7 +111,7 @@ export default {
                 </v-btn>
 
                 <v-btn
-                    class="ma-1 no-uppercase rounded-lg"
+                    class="ma-1 no-uppercase rounded-lg BUO-Label-XSmall-SemiBold"
                     elevation="0"
                     depressed
                     small
@@ -159,17 +159,17 @@ export default {
                 >
                     <v-tabs-slider color="transparent"></v-tabs-slider>
                     <v-tab
-                        class="BUO-Paragraph-Small rounded-pill no-uppercase"
+                        class="BUO-Label-Small-SemiBold rounded-pill no-uppercase"
                     >
                         Aprobadas
                     </v-tab>
                     <v-tab
-                        class="BUO-Paragraph-Small rounded-pill no-uppercase"
+                        class="BUO-Label-Small-SemiBold rounded-pill no-uppercase"
                     >
                         Pendientes
                     </v-tab>
                     <v-tab
-                        class="BUO-Paragraph-Small rounded-pill no-uppercase"
+                        class="BUO-Label-Small-SemiBold rounded-pill no-uppercase"
                     >
                         Asignadas
                     </v-tab>
