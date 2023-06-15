@@ -94,7 +94,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <Section>
         <BasePopUp
             ref="popUp"
             :isDrawer="false"
@@ -108,13 +108,7 @@ export default {
                     max-width="100%"
                     max-height="100%"
                 >
-                    <v-card-title
-                        :class="[
-                            $vuetify.breakpoint.smAndDown
-                                ? 'BUO-Heading-Small'
-                                : 'BUO-Paragrap-Large',
-                        ]"
-                    >
+                    <v-card-title class="BUO-Heading-XSmall grey700--text">
                         Detalles de validación
                     </v-card-title>
 
@@ -123,15 +117,15 @@ export default {
                         :key="i"
                     >
                         <v-card flat max-width="100%" max-height="100%">
-                            <v-card-title> Empresa </v-card-title>
-                            <div>
+                            <v-card-title
+                                class="BUO-Label-XSmall-SemiBold grey700--text"
+                            >
+                                Empresa
+                            </v-card-title>
+                            <section>
                                 <v-layout justify-space-between align-center>
                                     <v-card-subtitle
-                                        :class="[
-                                            $vuetify.breakpoint.smAndDown
-                                                ? 'BUO-Paragrap-Medium'
-                                                : 'BUO-Paragrap-Large',
-                                        ]"
+                                        class="BUO-Paragrap-Medium grey700--text"
                                     >
                                         {{ item.nombreOrganizacion }}
                                     </v-card-subtitle>
@@ -158,11 +152,13 @@ export default {
                                         </v-avatar>
                                     </div>
                                 </v-layout>
-                            </div>
+                            </section>
 
                             <v-divider></v-divider>
 
-                            <v-card-title>
+                            <v-card-title
+                                class="BUO-Label-XSmall-SemiBold grey700--text"
+                            >
                                 {{
                                     type === inProgressCode
                                         ? 'Fecha'
@@ -170,18 +166,17 @@ export default {
                                 }}
                             </v-card-title>
                             <v-card-subtitle
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Paragrap-Medium'
-                                        : 'BUO-Paragrap-Large',
-                                ]"
+                                class="BUO-Paragrap-Medium grey700--text"
                             >
                                 {{ item.fechaEstadoFormato }}
                             </v-card-subtitle>
 
                             <v-divider></v-divider>
 
-                            <v-card-title v-if="item.nombreSupervisor">
+                            <v-card-title
+                                v-if="item.nombreSupervisor"
+                                class="BUO-Label-XSmall-SemiBold grey700--text"
+                            >
                                 {{
                                     type === inProgressCode
                                         ? 'En Progreso '
@@ -190,11 +185,7 @@ export default {
                             </v-card-title>
                             <v-card-subtitle
                                 v-if="type != inProgressCode"
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Paragrap-Medium'
-                                        : 'BUO-Paragrap-Large',
-                                ]"
+                                class="BUO-Paragrap-Medium grey700--text"
                             >
                                 {{ item.nombreSupervisor }}
                             </v-card-subtitle>
@@ -205,13 +196,7 @@ export default {
         </BasePopUp>
 
         <v-card color="transparent" flat max-width="100%" max-height="100%">
-            <v-card-title
-                :class="[
-                    $vuetify.breakpoint.smAndDown
-                        ? 'BUO-Paragrap-Large'
-                        : 'BUO-Paragrap-Large',
-                ]"
-            >
+            <v-card-title class="BUO-Paragraph-Large-SemiBold grey700--text">
                 {{ title }}
             </v-card-title>
 
@@ -261,27 +246,22 @@ export default {
                                 </v-layout>
                             </v-card-title>
 
-                            <v-card-subtitle>{{
-                                type === inProgressCode
-                                    ? 'En proceso'
-                                    : 'Validado'
-                            }}</v-card-subtitle>
+                            <v-card-subtitle
+                                class="BUO-Label-XSmall grey500--text"
+                                >{{
+                                    type === inProgressCode
+                                        ? 'En proceso'
+                                        : 'Validado'
+                                }}</v-card-subtitle
+                            >
 
                             <v-card-text
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Paragraph-Small'
-                                        : 'BUO-Paragraph-Medium',
-                                ]"
+                                class="BUO-Paragraph-Small-SemiBold grey700--text"
                                 >{{ item.definicion }}</v-card-text
                             >
                             <div>
                                 <v-card-title
-                                    :class="[
-                                        $vuetify.breakpoint.smAndDown
-                                            ? 'BUO-Label-XSmall'
-                                            : 'BUO-Paragraph-Small',
-                                    ]"
+                                    class="BUO-Label-XSmall-SemiBold grey700--text"
                                 >
                                     {{
                                         type === inProgressCode
@@ -291,11 +271,7 @@ export default {
                                 </v-card-title>
 
                                 <v-card-subtitle
-                                    :class="[
-                                        $vuetify.breakpoint.smAndDown
-                                            ? 'BUO-Label-Medium'
-                                            : 'BUO-Paragraph-Medium',
-                                    ]"
+                                    class="BUO-Paragrap-Medium grey700--text"
                                     ><v-layout
                                         justify-space-between
                                         align-center
@@ -319,7 +295,7 @@ export default {
                 </v-row>
             </v-card-text>
         </v-card>
-    </div>
+    </Section>
 </template>
 
 <style lang="less" scoped>

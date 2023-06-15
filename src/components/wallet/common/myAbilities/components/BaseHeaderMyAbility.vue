@@ -48,12 +48,17 @@ export default {
                 <v-progress-circular
                     v-if="ability.estadoId == inProgressCode"
                     size="45"
-                    width="3"
+                    width="2"
+                    rotate="90"
                     :value="Math.round(ability.porcentajeCertificado * 100)"
                     :color="
                         $_color(Math.round(ability.porcentajeCertificado * 100))
                     "
-                    >{{ Math.round(ability.porcentajeCertificado * 100) }}%
+                    ><span class="BUO-Label-Small"
+                        >{{
+                            Math.round(ability.porcentajeCertificado * 100)
+                        }}%</span
+                    >
                 </v-progress-circular>
 
                 <v-icon
@@ -73,19 +78,26 @@ export default {
                 </v-img>
             </v-list-item-avatar>
             <v-list-item-content class="ms-n3">
-                <v-list-item-title class="BUO-Paragraph-Medium buo-white-space"
-                    >{{ ability.nombreCualificacion }}
+                <v-list-item-title
+                    ><span
+                        class="BUO-Paragraph-Medium-SemiBold buo-white-space grey700--text"
+                        >{{ ability.nombreCualificacion }}</span
+                    >
                 </v-list-item-title>
-                <v-list-item-subtitle
-                    class="BUO-Label-XSmall"
-                    v-if="ability.estadoId != validatedCode"
-                    ><div v-if="ability.estadoId === notValidatedCode">
+                <v-list-item-subtitle v-if="ability.estadoId != validatedCode"
+                    ><section
+                        v-if="ability.estadoId === notValidatedCode"
+                        class="BUO-Label-XSmall grey600--text"
+                    >
                         Pendiente ({{ ability.totalDisponibles }})
-                    </div>
-                    <div v-if="ability.estadoId === inProgressCode">
+                    </section>
+                    <section
+                        v-if="ability.estadoId === inProgressCode"
+                        class="BUO-Label-XSmall grey600--text"
+                    >
                         Por Aprobar ({{ ability.totalPendientes }}) /
                         Disponibles ({{ ability.totalDisponibles }})
-                    </div>
+                    </section>
                 </v-list-item-subtitle>
             </v-list-item-content>
         </v-list-item>

@@ -27,23 +27,21 @@ export default {
 
 <template>
     <v-list-item>
-        <v-list-item-avatar size="60">
+        <v-list-item-avatar size="50">
             <v-progress-circular
-                size="60"
-                width="5"
+                size="50"
+                width="3"
                 :value="Math.round(header.porcentajeCertificado * 100)"
                 :color="$_color(Math.round(header.porcentajeCertificado * 100))"
-                >{{ Math.round(header.porcentajeCertificado * 100) }}%
+                rotate="90"
+                ><span class="BUO-Label-XSmall grey700--text"
+                    >{{ Math.round(header.porcentajeCertificado * 100) }}%</span
+                >
             </v-progress-circular>
         </v-list-item-avatar>
         <v-list-item-content>
             <v-list-item-title
-                class="buo-word-break buo-white-space"
-                :class="[
-                    $vuetify.breakpoint.smAndDown
-                        ? 'BUO-Heading-Small'
-                        : 'BUO-Heading-Medium',
-                ]"
+                class="buo-word-break buo-white-space BUO-Heading-Small"
             >
                 {{ header.nombreCualificacion }}
             </v-list-item-title>

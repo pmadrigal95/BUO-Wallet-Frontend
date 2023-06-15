@@ -78,14 +78,14 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <BaseSkeletonLoader v-if="loading" type="card, article" />
-        <div v-else>
+        <section v-else>
             <span v-show="false"> {{ entity.step }}</span>
             <BaseCardAbilityDetails
                 v-if="this.entity.header"
                 :entity="entity"
             />
-        </div>
-    </div>
+        </section>
+    </section>
 </template>

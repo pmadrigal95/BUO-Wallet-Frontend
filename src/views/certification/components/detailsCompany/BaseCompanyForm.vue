@@ -252,7 +252,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <!-- @ Use Loanding... -->
         <BaseSkeletonLoader v-if="loading && !user" type="image" />
         <v-row v-else>
@@ -261,15 +261,9 @@ export default {
                 align-center
                 v-if="user && user.companyId"
             >
-                <div
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Medium'
-                            : 'BUO-Paragraph-Large',
-                    ]"
-                >
+                <section class="BUO-Paragraph-Medium grey700--text">
                     Validar con mi empresa
-                </div>
+                </section>
 
                 <BaseSwitch v-model="entityForm.myCompany" />
             </v-layout>
@@ -417,5 +411,5 @@ export default {
                 </BaseForm>
             </v-flex>
         </v-row>
-    </div>
+    </section>
 </template>

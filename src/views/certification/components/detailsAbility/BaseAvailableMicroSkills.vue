@@ -94,17 +94,10 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div
-            :class="[
-                $vuetify.breakpoint.smAndDown
-                    ? 'BUO-Paragraph-Large'
-                    : 'BUO-Paragraph-Large',
-            ]"
-        >
+    <section>
+        <section class="BUO-Paragraph-Large-SemiBold grey700--text pb-2">
             Disponible para validar ({{ totalAvailableListClean.length }})
-        </div>
-        <br />
+        </section>
 
         <v-item-group multiple>
             <v-row>
@@ -116,22 +109,18 @@ export default {
                     <v-item v-slot="{ active, toggle }">
                         <v-card
                             flat
-                            color="grey200"
+                            :color="active ? 'clouds' : 'grey200'"
                             class="rounded-lg"
                             @click="toggle"
                         >
-                            <div
+                            <section
                                 class="d-flex flex-no-wrap justify-space-between"
                                 @click="
                                     $_setMicroskill(microskill.competenciaId)
                                 "
                             >
                                 <v-card-title
-                                    :class="[
-                                        $vuetify.breakpoint.smAndDown
-                                            ? 'BUO-Paragraph-Small buo-word-break'
-                                            : 'BUO-Paragraph-Medium buo-word-break',
-                                    ]"
+                                    class="BUO-Paragraph-Small buo-word-break grey700--text"
                                 >
                                     {{ microskill.definicion }}
                                 </v-card-title>
@@ -145,21 +134,20 @@ export default {
                                         mdi-check-circle
                                     </v-icon>
                                 </v-avatar>
-                            </div>
+                            </section>
                         </v-card>
                     </v-item>
                 </v-col>
             </v-row>
         </v-item-group>
 
-        <br />
-        <v-row v-if="totalAvailableListClean.length > 0">
+        <v-row v-if="totalAvailableListClean.length > 0" class="pt-3">
             <v-btn
                 @click="$_createRequestBody"
                 :color="microSkills.length > 0 ? 'primary' : 'grey500'"
                 dark
                 block
-                class="no-uppercase rounded-lg"
+                class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                 elevation="0"
                 >Validar
                 {{
@@ -167,5 +155,5 @@ export default {
                 }}</v-btn
             >
         </v-row>
-    </div>
+    </section>
 </template>

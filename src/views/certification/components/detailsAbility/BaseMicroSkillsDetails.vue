@@ -78,7 +78,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <BaseMicroSkillStatusList
             v-if="totalPendingList.length > 0"
             :title="`En Progreso (${totalPendingList.length})`"
@@ -91,5 +91,5 @@ export default {
             :type="validatedCode"
             :title="`Validado (${totalValidatedList.length})`"
         />
-    </div>
+    </section>
 </template>

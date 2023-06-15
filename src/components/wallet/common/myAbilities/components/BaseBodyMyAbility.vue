@@ -80,18 +80,17 @@ export default {
         max-height="100%"
         color="grey200"
         class="rounded-lg"
-        light
     >
         <div class="d-flex flex-no-wrap justify-space-between">
             <v-card-title class="buo-word-break">
                 <span
-                    class="BUO-Paragraph-Medium"
+                    class="BUO-Label-Small grey600--text"
                     v-if="ability.estadoId === notValidatedCode"
                     >Tienes {{ ability.totalDisponibles }} indicadores
                     disponibles</span
                 >
                 <span
-                    class="BUO-Paragraph-Medium"
+                    class="BUO-Label-Small grey600--text"
                     v-else-if="
                         ability.fechaEstadoFormato != null &&
                         ability.estadoId != notValidatedCode
@@ -111,7 +110,7 @@ export default {
                 ability.listaOrganizacionVerificacion.length > 0
             "
         >
-            <span class="BUO-Paragraph-Medium">Validador: </span>
+            <span class="BUO-Label-XSmall grey600--text">Validador: </span>
             <BaseGroupAvatar
                 borderColor="white"
                 :avatars="$_avatarList(ability.listaOrganizacionVerificacion)"
@@ -121,7 +120,7 @@ export default {
         <v-card-actions>
             <v-layout justify-end>
                 <v-btn
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     elevation="0"
                     color="primary"
                     outlined

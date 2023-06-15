@@ -105,7 +105,7 @@ export default {
                         :icon="btnLabel == undefined"
                         v-bind="attrs"
                         v-on="on"
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         :color="btnLabel ? 'blue800' : 'black'"
                         elevation="0"
                     >
@@ -119,7 +119,7 @@ export default {
                     :icon="btnLabel == undefined"
                     v-bind="attrs"
                     v-on="on"
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     :color="btnLabel ? 'blue800' : 'black'"
                     elevation="0"
                 >
@@ -127,7 +127,7 @@ export default {
                     <v-icon color="black"> mdi-dots-vertical </v-icon>
                 </v-btn>
             </template>
-            <v-list class="BUO-Paragraph-Small">
+            <v-list class="BUO-Paragraph-Medium-SemiBold">
                 <v-list-item @click="$_validateAbility(ability)">
                     <v-list-item-avatar>
                         <v-icon>mdi-checkbox-marked-circle-plus-outline</v-icon>

@@ -182,6 +182,7 @@ export default {
             <v-layout justify-space-between>
                 <v-col align-self="auto" cols="8" md="10">
                     <BaseInput
+                        class="BUO-Paragraph-Medium"
                         label="Buscar"
                         v-model="definition"
                         :max="50"
@@ -210,6 +211,7 @@ export default {
                     <v-col cols="12">
                         <v-card
                             flat
+                            color="transparent"
                             class="overflow-auto"
                             :height="qualificationList.length > 5 ? 350 : 250"
                         >
@@ -238,7 +240,9 @@ export default {
 
                                                 <v-list-item-content>
                                                     <v-list-item-title
-                                                        class="buo-white-space"
+                                                        ><span
+                                                            class="buo-white-space BUO-Paragraph-Medium grey700--text"
+                                                        ></span
                                                         >{{
                                                             item.definicion
                                                         }}</v-list-item-title
@@ -258,7 +262,6 @@ export default {
                     msg="No encontramos resultados."
                 />
             </v-row>
-            <br />
             <v-row>
                 <v-col cols="12">
                     <v-btn
@@ -272,7 +275,7 @@ export default {
                                 ? 'primary'
                                 : 'grey500'
                         "
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         >Agregar
                         {{

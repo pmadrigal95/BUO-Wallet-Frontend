@@ -98,13 +98,12 @@ export default {
             </v-layout>
         </div>
         <div slot="card-title">
-            <br />
             <BaseHeaderAbilityDetails :header="entity.header" />
             <v-layout justify-start v-if="entity.type == 'new'">
                 <v-btn
                     @click="$_createRequestBody"
                     color="blue800"
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     elevation="0"
                     text
                 >

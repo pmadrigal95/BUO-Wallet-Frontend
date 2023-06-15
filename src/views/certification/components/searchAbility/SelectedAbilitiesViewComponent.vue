@@ -79,13 +79,15 @@ export default {
         </div>
 
         <div slot="body">
-            <v-card flat class="rounded-lg">
-                <v-card-title class="BUO-Paragraph-Large buo-word-break">
+            <v-card flat class="rounded-lg" color="transparent">
+                <v-card-title
+                    class="BUO-Paragraph-Large-SemiBold buo-word-break grey700--text"
+                >
                     Indicadores
                     <v-layout justify-end>
                         <v-btn
                             @click="$_selectAll"
-                            class="no-uppercase rounded-lg"
+                            class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                             text
                             elevation="0"
                             color="blue800"
@@ -113,10 +115,12 @@ export default {
                             </v-list-item-avatar>
                             <v-list-item-content>
                                 <v-list-item-title
-                                    class="buo-word-break buo-white-space"
-                                    >{{
-                                        qualification.nombreCualificacion
-                                    }}</v-list-item-title
+                                    ><span
+                                        class="buo-word-break buo-white-space BUO-Paragraph-Medium-SemiBold"
+                                        >{{
+                                            qualification.nombreCualificacion
+                                        }}</span
+                                    ></v-list-item-title
                                 >
                             </v-list-item-content>
                             <v-list-item-icon>

@@ -86,7 +86,7 @@ export default {
 
 <template>
     <v-card flat max-width="100%" max-height="100%" class="rounded-t-xl">
-        <v-card-title class="BUO-Paragraph-Large-SemiBold">
+        <v-card-title class="BUO-Paragraph-Large-SemiBold grey700--text">
             Mis Indicadores
             <v-layout justify-end>
                 <v-btn

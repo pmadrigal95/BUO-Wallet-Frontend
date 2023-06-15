@@ -26,28 +26,18 @@ export default {
         max-height="100%"
         class="rounded-lg"
         color="transparent"
-        elevation="8"
+        elevation="3"
     >
-        <div class="d-flex flex-no-wrap justify-space-between">
-            <div>
-                <v-card-title
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Display-Medium'
-                            : 'BUO-Display-Medium',
-                    ]"
-                    >{{ user.tokens }}</v-card-title
-                >
+        <section class="d-flex flex-no-wrap justify-space-between">
+            <section>
+                <v-card-title class="BUO-Display-Small">{{
+                    user.tokens
+                }}</v-card-title>
 
-                <v-card-subtitle
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Small'
-                            : 'BUO-Paragraph-Large',
-                    ]"
+                <v-card-subtitle class="BUO-Paragraph-Medium"
                     >Balance de Tokens</v-card-subtitle
                 >
-            </div>
+            </section>
 
             <v-avatar
                 class="ma-3"
@@ -59,6 +49,6 @@ export default {
                     src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/tokenCard.svg"
                 />
             </v-avatar>
-        </div>
+        </section>
     </v-card>
 </template>
