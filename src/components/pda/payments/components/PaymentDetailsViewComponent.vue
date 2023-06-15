@@ -96,12 +96,12 @@ export default {
                 <v-col cols="12" md="7" class="black--text">
                     <v-card-title
                         v-if="$vuetify.breakpoint.mdAndUp"
-                        class="BUO-Heading-Small buo-word-break"
+                        class="BUO-Heading-Small buo-word-break grey700--text"
                         >Resumen de Compra</v-card-title
                     >
                     <v-card-subtitle
                         v-if="$vuetify.breakpoint.mdAndUp"
-                        class="BUO-Paragraph-Small buo-word-break"
+                        class="BUO-Paragraph-Small buo-word-break grey700--text"
                         >Resultados Completos de tu PDA:</v-card-subtitle
                     >
                     <v-list>
@@ -109,8 +109,10 @@ export default {
                             <v-list-item v-if="!item.divider" :key="item.title">
                                 <v-list-item-content>
                                     <v-list-item-title
-                                        class="buo-none-word-break buo-white-space black--text BUO-Paragraph-Medium"
-                                        >{{ item.title }}</v-list-item-title
+                                        ><span
+                                            class="buo-none-word-break buo-white-space grey700--text BUO-Paragraph-Medium"
+                                            >{{ item.title }}</span
+                                        ></v-list-item-title
                                     >
                                 </v-list-item-content>
 
@@ -146,25 +148,25 @@ export default {
                                 width="326px"
                                 height="174px"
                             >
-                                <div class="pda-gradient-base rounded-lg">
+                                <section class="pda-gradient-base rounded-lg">
                                     <v-card-subtitle
-                                        class="BUO-Paragraph-Medium text-center buo-word-break"
+                                        class="BUO-Paragraph-Medium text-center buo-word-break white--text"
                                     >
-                                        <div
-                                            class="BUO-Paragraph-Large-SemiBold"
+                                        <section
+                                            class="BUO-Paragraph-Large-SemiBold white--text"
                                         >
                                             <b>{{ user.name }}</b>
-                                        </div>
+                                        </section>
                                         Acceso completo PDA
                                     </v-card-subtitle>
-                                </div>
+                                </section>
                                 <v-layout justify-center align-center>
-                                    <div class="circle">
+                                    <section class="circle">
                                         <img
                                             class="cicleImage"
                                             :src="pdaWallet.hotcakeSimpleURL"
                                         />
-                                    </div>
+                                    </section>
                                 </v-layout>
                             </v-card>
                             <v-card flat dark width="326px" height="174px">
@@ -203,7 +205,7 @@ export default {
 
         <div slot="body">
             <v-btn
-                class="no-uppercase rounded-lg"
+                class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                 color="primary"
                 dark
                 block

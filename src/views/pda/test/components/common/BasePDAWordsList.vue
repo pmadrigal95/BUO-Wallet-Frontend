@@ -59,6 +59,7 @@ export default {
 <template>
     <v-card
         flat
+        color="transparent"
         class="overflow-auto"
         :height="containerSize"
         v-if="list.length > 0"
@@ -72,7 +73,7 @@ export default {
                         :key="item.id"
                         @click="$_insertIntoContainer(item.id)"
                     >
-                        <span>
+                        <span class="BUO-Label-Small grey600--text">
                             {{ item.palabra }}
                         </span>
                     </v-chip>

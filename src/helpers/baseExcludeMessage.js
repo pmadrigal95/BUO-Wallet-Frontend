@@ -5,15 +5,15 @@
  */
 
 const exclusionList = [
-    '/cards',
-    '/findBy',
-    'analytics',
+    'user/save',
     'menuUsuario',
-    'pda/getTestList',
     '/user/authenticate',
-    'createShareableLink',
+    'etapaUsuario/save',
     'misc/validateCaptcha',
-    'cualificacion/details',
+    'external_wallet/profile',
+    'user/createShareableLink',
+    'cualificacion/findAllByCategoriaIdIn',
+    'cualificacion/findAllByDefinicion/',
 ];
 
 const logOutExclusion = ['/user/authenticate'];

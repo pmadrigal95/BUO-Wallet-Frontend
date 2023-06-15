@@ -142,10 +142,10 @@ export default {
         >
             <div slot="Content">
                 <v-card flat>
-                    <v-card-title>
+                    <v-card-title class="BUO-Paragraph-Small-SemiBold">
                         Necesitamos conocerte un poco más...
                     </v-card-title>
-                    <v-card-text>
+                    <v-card-text class="BUO-Label-XSmall">
                         Vuelve a tomar el test seleccionando solamente las
                         palabras con las que realmente te identificas. <br />
                         Recuerda que debes responder en un lugar tranquilo y sin
@@ -159,7 +159,7 @@ export default {
                                         color="primary"
                                         block
                                         @click="$_retry"
-                                        class="no-uppercase rounded-lg"
+                                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                         elevation="0"
                                         >Continuar</v-btn
                                     >
@@ -171,7 +171,7 @@ export default {
                                         block
                                         outlined
                                         @click="$_cancel"
-                                        class="no-uppercase rounded-lg"
+                                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                         elevation="0"
                                         >Intentarlo más tarde</v-btn
                                     >
@@ -206,12 +206,12 @@ export default {
 
                             <v-list-item-content>
                                 <v-list-item-title
-                                    class="buo-white-space BUO-Paragraph-Large"
+                                    class="buo-white-space BUO-Paragraph-Large-SemiBold"
                                     >Cuéntanos un poco más de ti. Redacta una
                                     pequeña descripción tuya.</v-list-item-title
                                 >
                                 <v-list-item-subtitle
-                                    class="buo-white-space BUO-Paragraph-Medium"
+                                    class="buo-white-space BUO-Paragraph-Small"
                                 >
                                     Puedes hacerla tan corta o tan larga como
                                     quieras.
@@ -225,7 +225,7 @@ export default {
                             :method="$_sendTestPDA"
                             :enterSubmit="false"
                             labelBtn="Continuar"
-                            :login="true"
+                            block
                             color="black"
                         >
                             <div slot="body">

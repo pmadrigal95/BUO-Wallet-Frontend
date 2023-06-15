@@ -3,7 +3,7 @@
  */
 const routes = [
     {
-        path: '/PDA/Test-Taking',
+        path: '/PDA/TestTaking',
         name: 'TestTakingViewComponent',
         component: 'pda/test/TestTakingViewComponent',
         meta: {

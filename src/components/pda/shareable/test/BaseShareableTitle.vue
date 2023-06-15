@@ -38,20 +38,13 @@ export default {
 
 <template>
     <v-card flat color="transparent">
-        <v-card-title
-            class="black--text"
-            :class="[
-                $vuetify.breakpoint.smAndDown
-                    ? 'BUO-Paragraph-Small-SemiBold'
-                    : 'BUO-Paragrah-Large-SemiBold',
-            ]"
-        >
+        <v-card-title class="grey700--text BUO-Paragrah-Large-SemiBold">
             <v-layout justify-space-between v-if="$vuetify.breakpoint.mdAndUp">
-                <div>{{ title }}</div>
-                <div>
+                <span>{{ title }}</span>
+                <section>
                     <v-btn
                         elevation="0"
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         text
                         color="blue800"
                         @click="download"
@@ -60,7 +53,7 @@ export default {
                         <v-icon right>mdi-download</v-icon>
                     </v-btn>
                     <v-btn
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         text
                         color="blue800"
@@ -69,9 +62,9 @@ export default {
                         Compartir
                         <v-icon right>mdi-share-variant-outline</v-icon>
                     </v-btn>
-                </div>
+                </section>
             </v-layout>
-            <div v-else>
+            <section v-else>
                 <v-row justify="center" align-content="center">
                     <v-btn icon :disabled="!previousStep" style="bottom: 9px">
                         <v-icon color="black" v-if="previousStep === undefined"
@@ -94,7 +87,7 @@ export default {
                 <br />
                 <v-row justify="center" align-content="center">
                     <v-btn
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         text
                         color="blue800"
@@ -104,7 +97,7 @@ export default {
                         <v-icon right>mdi-download</v-icon>
                     </v-btn>
                     <v-btn
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         text
                         color="blue800"
@@ -114,7 +107,7 @@ export default {
                         <v-icon right>mdi-share-variant-outline</v-icon>
                     </v-btn>
                 </v-row>
-            </div>
+            </section>
         </v-card-title>
     </v-card>
 </template>

@@ -90,7 +90,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <BasePopUp
             ref="popUp"
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
@@ -100,8 +100,10 @@ export default {
         >
             <div slot="Content">
                 <v-card flat>
-                    <v-card-title> Lo sentimos </v-card-title>
-                    <v-card-text>
+                    <v-card-title class="BUO-Paragraph-Medium-SemiBold">
+                        Lo sentimos
+                    </v-card-title>
+                    <v-card-text class="BUO-Label-Small white--text">
                         La opción de compartir actualmente no es compatible con
                         este dispositivo.
                     </v-card-text>
@@ -113,7 +115,7 @@ export default {
                                         color="primary"
                                         elevation="0"
                                         block
-                                        class="no-uppercase rounded-lg"
+                                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                         @click="$_downloadPopUp"
                                         >Descargar resultado</v-btn
                                     >
@@ -144,9 +146,9 @@ export default {
                     >
                         <v-icon color="black">mdi-chevron-left</v-icon>
                     </v-btn>
-                    <div
+                    <section
                         ref="result"
-                        class="rounded-lg"
+                        class="white"
                         :class="[$vuetify.breakpoint.mdAndUp && 'shareable']"
                     >
                         <v-card
@@ -154,33 +156,34 @@ export default {
                             flat
                             :class="`pda-gradient-${entity.perfilPDA.toLowerCase()} bottom`"
                         >
-                            <div class="pda-gradient-base">
+                            <section class="pda-gradient-base pa-5">
                                 <v-card-subtitle
                                     class="buo-word-break text-center"
                                 >
-                                    <br />
-                                    <div class="BUO-Paragraph-Large">
+                                    <section
+                                        class="BUO-Paragraph-Large-SemiBold white--text"
+                                    >
                                         {{ entity.name + ', eres una persona' }}
-                                    </div>
-                                    <div class="BUO-Display-XSmall">
+                                    </section>
+                                    <div class="BUO-Display-XSmall white--text">
                                         {{ entity.perfilPDAVisual }}
                                     </div>
-                                    <br />
                                 </v-card-subtitle>
-                            </div>
+                            </section>
                         </v-card>
 
-                        <v-card light flat>
+                        <v-card flat color="transparent">
                             <v-card-subtitle
-                                class="BUO-Paragraph-Large buo-word-break text-center"
+                                class="BUO-Paragraph-Small buo-word-break text-center grey700--text"
                             >
                                 Tu superpoder es
-                                <b>{{ entity.superpoder }}</b
+                                <span class="BUO-Paragraph-Small-SemiBold">{{
+                                    entity.superpoder
+                                }}</span
                                 >.
                             </v-card-subtitle>
 
                             <v-card-text>
-                                <br />
                                 <v-layout justify-center>
                                     <v-img
                                         contain
@@ -191,17 +194,17 @@ export default {
                                         "
                                     />
                                 </v-layout>
-                                <br />
-                                <br />
                                 <v-alert
                                     icon="mdi-star"
                                     prominent
                                     dense
                                     outlined
+                                    class="mt-6 BUO-Label-Small grey700--text"
                                 >
-                                    <b>De más de 3 millones de PDAs</b>, solo el
-                                    {{ entity.benchmarkFormato }}% de la
-                                    población tiene tu mismo perfil
+                                    <span class="BUO-Label-Small-SemiBold"
+                                        >De más de 3 millones de PDAs</span
+                                    >, solo el {{ entity.benchmarkFormato }}% de
+                                    la población tiene tu mismo perfil
                                 </v-alert>
                             </v-card-text>
                         </v-card>
@@ -210,8 +213,7 @@ export default {
                             :dark="false"
                             copy="Descubre tu perfil"
                         />
-                        <br />
-                    </div>
+                    </section>
                     <v-btn
                         icon
                         x-large
@@ -222,7 +224,12 @@ export default {
                     </v-btn>
                 </v-layout>
 
-                <v-layout align-center justify-center v-if="btns">
+                <v-layout
+                    align-center
+                    justify-center
+                    v-if="btns"
+                    class="mr-5 mt-3"
+                >
                     <v-card-actions
                         :class="[$vuetify.breakpoint.mdAndUp && 'shareable']"
                     >
@@ -235,7 +242,7 @@ export default {
                 </v-layout>
             </div>
         </BaseCardViewComponent>
-    </div>
+    </section>
 </template>
 
 <style scoped>

@@ -63,19 +63,19 @@ export default {
         <BaseNotificationHelper ref="BaseNotificationHelper" :entity="entity" />
         <BaseCardViewComponent :btnAction="$_goBack">
             <div slot="card-text">
-                <br />
-                <BaseWordsListContainer :list="entity.peopleList" />
-                <br />
+                <BaseWordsListContainer
+                    :list="entity.peopleList"
+                    class="pt-5 pb-7"
+                />
                 <BasePDAWordsList
                     :list="wordList"
                     :containerList="entity.peopleList"
                 />
-                <br />
                 <v-btn
                     @click="$_nextStep"
                     block
                     dark
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold mt-3"
                     elevation="0"
                     >Continuar <v-icon right>mdi-arrow-right</v-icon></v-btn
                 >

@@ -118,7 +118,7 @@ export default {
             <v-layout justify-start align-center>
                 <v-btn
                     color="blue800"
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     text
                     @click="$_returnToWallet"
                 >

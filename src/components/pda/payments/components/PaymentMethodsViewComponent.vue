@@ -125,29 +125,26 @@ export default {
 <template>
     <BaseCardViewComponent :md="md" :offset="offset">
         <div slot="card-text">
-            <div class="BUO-Heading-Small black--text">Reporte completo PDA</div>
+            <section class="BUO-Heading-Small grey700--text">
+                Reporte completo PDA
+            </section>
         </div>
         <div slot="card-text">
             <v-radio-group v-model="card" @change="forceRerender">
-                <v-card flat>
+                <v-card flat color="transparent">
                     <v-card-text>
                         <v-card flat outlined class="rounded-lg">
                             <v-card-text>
                                 <v-radio :value="true">
                                     <template v-slot:label>
-                                        <div
-                                            class="black--text"
-                                            :class="[
-                                                $vuetify.breakpoint.smAndDown
-                                                    ? 'BUO-Paragraph-Small-SemiBold'
-                                                    : 'BUO-Paragraph-Large-SemiBold',
-                                            ]"
+                                        <section
+                                            class="grey700--text BUO-Paragraph-Large-SemiBold"
                                         >
                                             Comprar con tarjeta de crédito
-                                        </div>
+                                        </section>
                                     </template>
                                 </v-radio>
-                                <div v-if="card">
+                                <section v-if="card">
                                     <!-- @ Use Loanding... -->
                                     <BaseSkeletonLoader
                                         v-if="loading"
@@ -158,7 +155,7 @@ export default {
                                         ref="BaseStripeElement"
                                         :tokenCreated="tokenCreated"
                                     />
-                                </div>
+                                </section>
                             </v-card-text>
                         </v-card>
                     </v-card-text>
@@ -167,19 +164,14 @@ export default {
                             <v-card-text>
                                 <v-radio :value="false">
                                     <template v-slot:label>
-                                        <div
-                                            class="black--text"
-                                            :class="[
-                                                $vuetify.breakpoint.smAndDown
-                                                    ? 'BUO-Paragraph-Small-SemiBold'
-                                                    : 'BUO-Paragraph-Large-SemiBold',
-                                            ]"
+                                        <section
+                                            class="black--text BUO-Paragraph-Large-SemiBold"
                                         >
                                             Comprar con código promocional
-                                        </div>
+                                        </section>
                                     </template>
                                 </v-radio>
-                                <div v-if="!card">
+                                <section v-if="!card">
                                     <!-- @ Use Loanding... -->
                                     <BaseSkeletonLoader
                                         v-if="loading"
@@ -190,23 +182,23 @@ export default {
                                         :length="length"
                                         v-else
                                     ></v-otp-input>
-                                </div>
+                                </section>
                             </v-card-text>
                         </v-card>
                     </v-card-text>
                 </v-card>
             </v-radio-group>
             <v-layout justify-end v-if="card">
-                <div class="BUO-Paragraph-Medium black--text">
-                    Total: <b>$199 MXN</b>
-                </div>
+                <section class="BUO-Paragraph-Medium grey700--text">
+                    Total: <span class="BUO-Heading-XSmall">$199 MXN</span>
+                </section>
             </v-layout>
         </div>
 
         <div slot="body">
             <v-btn
                 v-if="showBtn"
-                class="no-uppercase rounded-lg"
+                class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                 elevation="0"
                 color="primary"
                 dark

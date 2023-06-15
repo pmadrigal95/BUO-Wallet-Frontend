@@ -96,7 +96,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <BasePopUp
             ref="popUp"
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
@@ -106,8 +106,10 @@ export default {
         >
             <div slot="Content">
                 <v-card flat>
-                    <v-card-title> Lo sentimos </v-card-title>
-                    <v-card-text>
+                    <v-card-title class="BUO-Paragraph-Medium-SemiBold">
+                        Lo sentimos
+                    </v-card-title>
+                    <v-card-text class="BUO-Label-Small white--text">
                         La opción de compartir actualmente no es compatible con
                         este dispositivo.
                     </v-card-text>
@@ -119,7 +121,7 @@ export default {
                                         color="primary"
                                         elevation="0"
                                         block
-                                        class="no-uppercase rounded-lg"
+                                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                         @click="$_downloadPopUp"
                                         >Descargar resultado</v-btn
                                     >
@@ -150,37 +152,39 @@ export default {
                     >
                         <v-icon color="black">mdi-chevron-left</v-icon>
                     </v-btn>
-                    <div
+                    <section
                         :class="`pda-gradient-${entity.perfilPDA.toLowerCase()} rounded-lg ${[
                             $vuetify.breakpoint.mdAndUp && 'shareable',
                         ]}`"
                     >
                         <v-card dark flat color="transparent">
-                            <div
+                            <section
                                 ref="result"
                                 :class="`pda-gradient-${entity.perfilPDA.toLowerCase()} rounded-lg`"
                             >
                                 <v-card dark flat color="transparent">
-                                    <div class="pda-gradient-base">
+                                    <section class="pda-gradient-base">
                                         <v-card-subtitle
-                                            class="buo-word-break text-center"
+                                            class="buo-word-break text-center pt-5"
                                         >
-                                            <br />
-                                            <div class="BUO-Paragraph-Large">
+                                            <span class="BUO-Paragraph-Medium">
+                                                Tus ejes de comportamiento
+                                            </span>
+                                            <section
+                                                class="BUO-Paragraph-Large-SemiBold pt-2"
+                                            >
                                                 {{ entity.nombreUI }}:
-                                            </div>
-                                            <br />
-                                            <div
-                                                class="BUO-Heading-Small text-center"
+                                            </section>
+                                            <section
+                                                class="BUO-Label-Small text-center pt-3"
                                                 v-html="entity.frase"
-                                            ></div>
+                                            />
                                         </v-card-subtitle>
-                                    </div>
+                                    </section>
 
-                                    <v-card-text>
-                                        <v-card class="rounded-lg">
+                                    <v-card-text class="pt-0">
+                                        <v-card class="rounded-lg pt-3">
                                             <v-card-text>
-                                                <br />
                                                 <BasePdaSlider
                                                     :value="
                                                         entity.valorEjeFormato
@@ -189,19 +193,23 @@ export default {
                                                         entity.type.toLowerCase()
                                                     "
                                                 />
-                                                <div
-                                                    class="d-flex flex-no-wrap justify-space-between BUO-Paragraph-Small buo-word-break"
+                                                <section
+                                                    class="d-flex flex-no-wrap justify-space-between buo-word-break"
                                                 >
-                                                    <span>
+                                                    <span
+                                                        class="BUO-Label-XSmall white--text"
+                                                    >
                                                         {{ entity.left }}
                                                     </span>
-                                                    <span>
+                                                    <span
+                                                        class="BUO-Label-XSmall white--text"
+                                                    >
                                                         {{ entity.right }}
                                                     </span>
-                                                </div>
-                                                <br />
-                                                <v-divider></v-divider>
-                                                <br />
+                                                </section>
+                                                <v-divider
+                                                    class="ma-4"
+                                                ></v-divider>
 
                                                 <v-row justify="center">
                                                     <v-col cols="12">
@@ -209,36 +217,38 @@ export default {
                                                             justify-center
                                                         >
                                                             <v-progress-circular
-                                                                size="116"
+                                                                class="BUO-Paragraph-Medium white--text"
+                                                                size="100"
                                                                 width="3"
                                                                 :value="
                                                                     entity.benchmarkEjeFormato
                                                                 "
-                                                                >{{
-                                                                    entity.benchmarkEjeFormato
-                                                                }}%
+                                                                color="white"
+                                                                rotate="90"
+                                                                ><span
+                                                                    class="BUO-Paragraph-Medium-SemiBold"
+                                                                    >{{
+                                                                        entity.benchmarkEjeFormato
+                                                                    }}</span
+                                                                >%
                                                             </v-progress-circular>
                                                         </v-layout>
                                                     </v-col>
                                                     <v-col cols="12">
-                                                        <div
-                                                            class="text-center buo-word-break"
-                                                            :class="[
-                                                                $vuetify
-                                                                    .breakpoint
-                                                                    .smAndDown
-                                                                    ? 'BUO-Paragraph-XSmall'
-                                                                    : 'BUO-Paragraph-Small',
-                                                            ]"
+                                                        <section
+                                                            class="text-center buo-word-break BUO-Label-Small white--text"
                                                         >
-                                                            <b>{{
-                                                                entity.name
-                                                            }}</b
+                                                            <span
+                                                                class="BUO-Label-Small-SemiBold"
+                                                                >{{
+                                                                    entity.name
+                                                                }}</span
                                                             >, el
-                                                            <b
+                                                            <span
+                                                                class="BUO-Label-Small-SemiBold"
                                                                 >{{
                                                                     entity.benchmarkEjeFormato
-                                                                }}%</b
+                                                                }}%</span
                                                             >
                                                             de la población
                                                             comparte tu misma
@@ -246,10 +256,9 @@ export default {
                                                             {{
                                                                 entity.nombreUI.toLowerCase()
                                                             }}.
-                                                        </div>
+                                                        </section>
                                                     </v-col>
                                                 </v-row>
-                                                <br />
                                             </v-card-text>
                                         </v-card>
                                     </v-card-text>
@@ -257,9 +266,9 @@ export default {
 
                                 <BaseShareableBrand
                                     copy="Descubre tus 5 ejes de comportamiento"
+                                    class="mb-1"
                                 />
-                                <br />
-                            </div>
+                            </section>
 
                             <v-card-actions v-if="btns">
                                 <v-layout align-center justify-center>
@@ -270,9 +279,8 @@ export default {
                                     />
                                 </v-layout>
                             </v-card-actions>
-                            <br />
                         </v-card>
-                    </div>
+                    </section>
                     <v-btn
                         icon
                         x-large
@@ -284,7 +292,7 @@ export default {
                 </v-layout>
             </div>
         </BaseCardViewComponent>
-    </div>
+    </section>
 </template>
 
 <style scoped>

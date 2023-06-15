@@ -80,15 +80,11 @@ export default {
                 <v-col cols="12" md="10">
                     <v-list class="list">
                         <template v-for="(item, index) in items">
-                            <v-subheader
-                                :class="[
-                                    $vuetify.breakpoint.smAndDown
-                                        ? 'BUO-Paragraph-Small'
-                                        : 'BUO-Paragraph-Medium',
-                                ]"
-                                v-if="item.header"
-                                :key="item.header"
-                                >{{ item.header }}</v-subheader
+                            <v-subheader v-if="item.header" :key="item.header"
+                                ><span
+                                    class="BUO-Paragraph-Small grey700--text"
+                                    >{{ item.header }}</span
+                                ></v-subheader
                             >
 
                             <v-divider
@@ -108,8 +104,10 @@ export default {
                                 </v-list-item-avatar>
                                 <v-list-item-content>
                                     <v-list-item-title
-                                        class="buo-white-space"
-                                        >{{ item.text }}</v-list-item-title
+                                        ><span
+                                            class="buo-white-space BUO-Paragraph-Small grey700--text"
+                                            >{{ item.text }}</span
+                                        ></v-list-item-title
                                     >
                                 </v-list-item-content>
                             </v-list-item>
@@ -134,7 +132,7 @@ export default {
                         depressed
                         color="black"
                         @click="$_nextStep"
-                        class="ma-2 no-uppercase rounded-lg"
+                        class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         v-if="pdaWallet.tipoMembrecia === freemium"
                     >
@@ -143,7 +141,7 @@ export default {
 
                     <v-btn
                         outlined
-                        class="ma-2 no-uppercase rounded-lg"
+                        class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         @click="$_buoWallet"
                     >

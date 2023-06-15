@@ -100,7 +100,6 @@ export default {
         dark
         max-width="100%"
         max-height="100%"
-        color="transparent"
         class="rounded-b-xl text-align-center"
         :class="[position == 'top' ? `top ${color}` : `bottom ${color}`]"
     >
@@ -125,7 +124,7 @@ export default {
 
                     <v-list-item-content>
                         <v-list-item-title
-                            class="buo-white-space BUO-Paragraph-Large"
+                            class="buo-white-space BUO-Paragraph-Large-SemiBold white--text"
                             >{{
                                 position == 'top'
                                     ? 'La gente dice que soy una persona:'
@@ -155,19 +154,16 @@ export default {
                                     :key="item.id"
                                     @click="$_delete(item.id)"
                                 >
-                                    <span>
+                                    <span class="BUO-Label-Small grey700--text">
                                         {{ item.palabra }}
                                     </span>
                                 </v-chip>
                             </v-chip-group>
                         </v-card>
                     </v-layout>
-
-                    <br />
-
                     <v-row justify="center" v-if="list.length > 6">
                         <v-btn
-                            class="no-uppercase rounded-lg"
+                            class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                             elevation="0"
                             text
                             small

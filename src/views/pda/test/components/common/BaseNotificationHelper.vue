@@ -105,23 +105,11 @@ export default {
         <div slot="Content">
             <v-card flat>
                 <v-card-title
-                    class="buo-word-break"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Medium'
-                            : 'BUO-Paragraph-Large',
-                    ]"
+                    class="buo-word-break BUO-Paragraph-Small-SemiBold"
                 >
                     Necesitamos conocerte más.
                 </v-card-title>
-                <v-card-text
-                    class="buo-word-break"
-                    :class="[
-                        $vuetify.breakpoint.smAndDown
-                            ? 'BUO-Paragraph-Small'
-                            : 'BUO-Paragraph-Medium',
-                    ]"
-                >
+                <v-card-text class="buo-word-break BUO-Label-XSmall">
                     {{ message }}
                 </v-card-text>
                 <v-card-actions>
@@ -133,7 +121,7 @@ export default {
                                     elevation="0"
                                     block
                                     @click="$_open"
-                                    class="no-uppercase rounded-lg"
+                                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                     >Seguir con selección</v-btn
                                 >
                             </v-layout>
@@ -144,7 +132,7 @@ export default {
                                     outlined
                                     block
                                     @click="$_continue"
-                                    class="no-uppercase rounded-lg"
+                                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                     elevation="0"
                                     >Continuar</v-btn
                                 >

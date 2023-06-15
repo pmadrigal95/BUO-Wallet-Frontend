@@ -52,7 +52,7 @@ export default {
                 >
                     <v-row justify="end">
                         <v-col :cols="imgSmall ? '4' : undefined">
-                            <v-avatar class="ma-3" :size="size" tile>
+                            <v-avatar class="ma-3 pb-4" :size="size" tile>
                                 <v-img
                                     contain
                                     max-width="100%"
@@ -65,7 +65,7 @@ export default {
                         <v-col>
                             <v-card flat text color="transparent">
                                 <v-card-title
-                                    class="BUO-Paragraph-Medium-SemiBold buo-none-word-break"
+                                    class="BUO-Paragraph-Medium-SemiBold buo-none-word-break pb-4"
                                     >{{ item.title }}</v-card-title
                                 >
 

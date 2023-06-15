@@ -22,16 +22,17 @@ export default {
             :cols="$vuetify.breakpoint.smAndDown ? 6 : 4"
             v-for="item in data"
             :key="item.cualificacionHabilidadId"
+            class="white--text"
         >
             <v-progress-circular
-                size="42"
-                width="3"
+                size="44"
+                width="2"
                 :value="item.porcentajeNaturalHabilidadFormato"
                 >{{ item.porcentajeNaturalHabilidadFormato }}%
             </v-progress-circular>
-            <div class="buo-word-break">
+            <section class="buo-word-break BUO-Paragraph-Large white--text">
                 {{ item.habilidad }}
-            </div>
+            </section>
         </v-col>
     </v-row>
 </template>

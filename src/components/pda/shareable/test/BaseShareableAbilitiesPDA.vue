@@ -102,7 +102,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <BasePopUp
             ref="popUp"
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '45%'"
@@ -112,8 +112,10 @@ export default {
         >
             <div slot="Content">
                 <v-card flat>
-                    <v-card-title> Lo sentimos </v-card-title>
-                    <v-card-text>
+                    <v-card-title class="BUO-Paragraph-Medium-SemiBold">
+                        Lo sentimos
+                    </v-card-title>
+                    <v-card-text class="BUO-Label-Small white--text">
                         La opción de compartir actualmente no es compatible con
                         este dispositivo.
                     </v-card-text>
@@ -125,7 +127,7 @@ export default {
                                         color="primary"
                                         elevation="0"
                                         block
-                                        class="no-uppercase rounded-lg"
+                                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                         @click="$_downloadPopUp"
                                         >Descargar resultado</v-btn
                                     >
@@ -162,20 +164,13 @@ export default {
                         class="buo-word-break text-center rounded-lg"
                         :class="[$vuetify.breakpoint.mdAndUp && 'shareable']"
                     >
-                        <div
+                        <section
                             ref="result"
-                            class="rounded-lg"
                             style="background-color: #1e1e1e !important"
                         >
-                            <v-card flat dark class="rounded-lg">
-                                <br />
+                            <v-card flat dark>
                                 <v-card-subtitle
-                                    class="Buo-White"
-                                    :class="[
-                                        $vuetify.breakpoint.smAndDown
-                                            ? 'BUO-Heading-Small'
-                                            : 'BUO-Display-XSmall',
-                                    ]"
+                                    class="BUO-Display-XSmall white--text"
                                 >
                                     Indicadores de {{ entity.name }}
                                 </v-card-subtitle>
@@ -184,14 +179,8 @@ export default {
                                         :data="entity.habilidadPDADTOSet"
                                         :profile="entity.profile.toLowerCase()"
                                     />
-                                    <br />
                                     <v-card-subtitle
-                                        class="Buo-White"
-                                        :class="[
-                                            $vuetify.breakpoint.smAndDown
-                                                ? 'BUO-Paragraph-Medium'
-                                                : 'BUO-Paragraph-Large',
-                                        ]"
+                                        class="white--text BUO-Heading-XSmall pa-6"
                                     >
                                         Indicadores principales
                                     </v-card-subtitle>
@@ -199,13 +188,11 @@ export default {
                                         :data="validatedAbilities"
                                     />
                                 </v-card-text>
-                                <br />
                                 <BaseShareableBrand
                                     copy="Descubre tus Indicadores"
                                 />
-                                <br />
                             </v-card>
-                        </div>
+                        </section>
                         <v-card
                             v-if="btns"
                             width="100%"
@@ -213,18 +200,16 @@ export default {
                             flat
                             :class="`pda-gradient-${entity?.perfilPDA} rounded-t-xl`"
                         >
-                            <div class="pda-gradient-base">
-                                <br />
-                                <br />
+                            <section class="pda-gradient-base">
                                 <v-card-actions>
                                     <BaseShareActions
+                                        class="ma-5"
                                         :nextStep="nextStep"
                                         :share="$_share"
                                         :download="$_download"
                                     />
                                 </v-card-actions>
-                                <br />
-                            </div>
+                            </section>
                         </v-card>
                     </v-card>
                     <v-btn
@@ -238,7 +223,7 @@ export default {
                 </v-layout>
             </div>
         </BaseCardViewComponent>
-    </div>
+    </section>
 </template>
 
 <style scoped>

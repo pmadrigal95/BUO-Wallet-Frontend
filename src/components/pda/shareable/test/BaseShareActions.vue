@@ -76,21 +76,19 @@ export default {
                         v-bind="attrs"
                         v-on="on"
                         elevation="0"
-                        class="ma-2 no-uppercase rounded-lg"
+                        class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     >
                         Compartir
                         <v-icon right>mdi-dots-vertical</v-icon>
                     </v-btn>
                 </template>
-                <v-list
-                    class="BUO-Paragraph-Small"
-                    v-for="(item, i) in options"
-                    :key="i"
-                >
+                <v-list v-for="(item, i) in options" :key="i">
                     <v-list-item @click="item.fn" v-if="item.fn">
                         <v-list-item-title
-                            class="buo-word-break buo-white-space"
-                            >{{ item.name }}</v-list-item-title
+                            ><span
+                                class="buo-word-break buo-white-space BUO-Label-Small-SemiBold"
+                                >{{ item.name }}</span
+                            ></v-list-item-title
                         >
                         <v-list-item-avatar>
                             <v-icon small>{{ 'mdi-' + item.icon }}</v-icon>
@@ -103,7 +101,7 @@ export default {
             <v-btn
                 v-if="nextStep"
                 outlined
-                class="ma-2 no-uppercase rounded-lg"
+                class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                 @click="nextStep"
                 elevation="0"
             >
@@ -120,6 +118,7 @@ export default {
                 elevation="2"
                 colored-border
                 icon="mdi-image-auto-adjust"
+                class="BUO-Label-XSmall"
             >
                 Recuerda que puedes encontrar la imagen de tu resultado en la
                 carpeta de descargas de tu dispositivo.

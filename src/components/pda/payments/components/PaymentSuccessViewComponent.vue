@@ -53,7 +53,7 @@ export default {
             <v-row>
                 <v-col cols="12">
                     <v-btn
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         color="primary"
                         dark

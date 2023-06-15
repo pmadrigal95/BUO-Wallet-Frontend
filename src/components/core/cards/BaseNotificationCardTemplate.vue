@@ -55,6 +55,7 @@ export default {
             :elevation="elevation"
             :width="$vuetify.breakpoint.mobile ? '100%' : '70%'"
             :height="$vuetify.breakpoint.mobile ? '100%' : '100%'"
+            class="rounded-t-xl"
         >
             <v-row justify="center" align-content="center">
                 <v-col cols="12">
@@ -67,7 +68,7 @@ export default {
                     ></v-img>
                 </v-col>
 
-                <div>
+                <section>
                     <v-card-title
                         :class="[
                             $vuetify.breakpoint.smAndDown
@@ -77,7 +78,7 @@ export default {
                     >
                         {{ title }}
                     </v-card-title>
-                </div>
+                </section>
 
                 <v-col cols="12">
                     <v-card-subtitle
@@ -103,8 +104,6 @@ export default {
                         {{ comment }}
                     </v-card-text>
                 </v-col>
-
-                <br />
 
                 <v-col cols="10">
                     <slot name="btns"></slot>

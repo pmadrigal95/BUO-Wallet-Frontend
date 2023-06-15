@@ -60,17 +60,16 @@ export default {
                     :list="wordList"
                     :containerList="entity.iamList"
                 />
-                <br />
                 <BaseWordsListContainer
                     position="bottom"
                     :list="entity.iamList"
+                    class="mt-6"
                 />
-                <br />
                 <v-btn
                     @click="$_nextStep"
                     block
                     dark
-                    class="no-uppercase rounded-lg"
+                    class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold mt-7"
                     elevation="0"
                     >Continuar <v-icon right>mdi-arrow-right</v-icon></v-btn
                 >

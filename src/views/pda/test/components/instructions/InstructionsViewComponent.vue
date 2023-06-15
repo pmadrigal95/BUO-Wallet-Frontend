@@ -65,15 +65,18 @@ export default {
 
 <template>
     <BaseCardViewComponent :btnAction="$_goBack" v-if="entity.pda">
-        <div slot="card-text" class="rounded-lg color">
-            <v-card dark flat color="transparent">
-                <v-card-title class="buo-word-break BUO-Paragraph-Large">
+        <div slot="card-text">
+            <v-card dark flat class="rounded-lg pda-gradient-colaboradora">
+                <v-card-title
+                    class="buo-word-break BUO-Paragraph-Large-SemiBold white--text pt-8"
+                >
                     El PDA Assessment ha sido diseñado para conocer a las
                     personas identificando los estilos naturales de
                     comportamiento.
                 </v-card-title>
-                <v-divider></v-divider>
-                <v-card-subtitle class="buo-word-break BUO-Paragraph-Medium">
+                <v-card-subtitle
+                    class="buo-word-break BUO-Paragraph-Medium white--text pt-6"
+                >
                     Fusionamos IA para descubrir tu perfil de comportamiento de
                     forma rápida, sencilla y científicamente validada con:
                 </v-card-subtitle>
@@ -84,28 +87,46 @@ export default {
                             <v-list color="transparent">
                                 <v-list-item class="buo-headerAbility-position"
                                     ><v-list-item-avatar>
-                                        <v-btn color="greenB700" fab x-small>
+                                        <v-btn
+                                            color="greenB700"
+                                            fab
+                                            x-small
+                                            elevation="0"
+                                        >
                                             <v-icon>mdi-check</v-icon>
                                         </v-btn>
                                     </v-list-item-avatar>
                                     <v-list-item-content class="ms-n3">
                                         <v-list-item-title
-                                            class="BUO-Paragraph-Medium buo-white-space"
-                                            >Solo <b>3 preguntas</b>.
+                                            class="BUO-Paragraph-Medium buo-white-space white--text"
+                                            >Solo
+                                            <span
+                                                class="BUO-Paragraph-Medium-SemiBold"
+                                                >3 preguntas</span
+                                            >.
                                         </v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
                                 <v-divider></v-divider>
                                 <v-list-item class="buo-headerAbility-position">
                                     <v-list-item-avatar>
-                                        <v-btn color="greenB700" fab x-small>
+                                        <v-btn
+                                            color="greenB700"
+                                            fab
+                                            x-small
+                                            elevation="0"
+                                        >
                                             <v-icon>mdi-timer-outline</v-icon>
                                         </v-btn>
                                     </v-list-item-avatar>
                                     <v-list-item-content class="ms-n3">
                                         <v-list-item-title
-                                            class="BUO-Paragraph-Medium buo-white-space"
-                                            >En menos de <b>10 minutos</b>.
+                                            class="BUO-Paragraph-Medium buo-white-space white--text"
+                                            >En menos de
+                                            <span
+                                                class="BUO-Paragraph-Medium-SemiBold"
+                                                >10 minutos</span
+                                            >.
                                         </v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
@@ -114,7 +135,9 @@ export default {
                     </v-card>
                 </v-card-text>
 
-                <v-card-title class="buo-word-break BUO-Heading-XSmall">
+                <v-card-title
+                    class="buo-word-break BUO-Heading-XSmall white--text"
+                >
                     Es importante...
                 </v-card-title>
 
@@ -126,7 +149,7 @@ export default {
                             </v-list-item-avatar>
                             <v-list-item-content class="ms-n3">
                                 <v-list-item-title
-                                    class="BUO-Paragraph-Medium buo-white-space"
+                                    class="BUO-Paragraph-Medium buo-white-space white--text"
                                     >Completar el análisis en un ambiente
                                     tranquilo, sin distracciones ni
                                     interrupciones.
@@ -140,7 +163,7 @@ export default {
                             </v-list-item-avatar>
                             <v-list-item-content class="ms-n3">
                                 <v-list-item-title
-                                    class="BUO-Paragraph-Medium buo-white-space"
+                                    class="BUO-Paragraph-Medium buo-white-space white--text"
                                     >Responder de manera honesta, sincera y
                                     espontánea.
                                 </v-list-item-title>
@@ -158,16 +181,14 @@ export default {
                     />
                 </v-layout>
 
-                <v-card-text>
-                    <br />
+                <v-card-text class="pt-6 pb-6">
                     <v-btn
                         @click="$_nextStep"
                         block
                         dark
-                        class="no-uppercase rounded-lg"
+                        class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         >Iniciar <v-icon right>mdi-arrow-right</v-icon></v-btn
                     >
-                    <br />
                 </v-card-text>
             </v-card>
         </div>
@@ -177,9 +198,3 @@ export default {
         </div>
     </BaseCardViewComponent>
 </template>
-
-<style scoped>
-.color {
-    background: linear-gradient(135deg, #68cb57 43.23%, #589f55 100%);
-}
-</style>

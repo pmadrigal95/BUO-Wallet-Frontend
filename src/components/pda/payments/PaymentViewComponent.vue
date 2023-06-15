@@ -72,9 +72,7 @@ export default {
         </v-window-item>
 
         <v-window-item :value="2">
-            <br />
             <PaymentSuccessViewComponent :fnClose="fnClose" />
-            <br />
         </v-window-item>
     </v-window>
 </template>

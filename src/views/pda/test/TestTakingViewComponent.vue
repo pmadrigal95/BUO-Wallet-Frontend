@@ -114,6 +114,7 @@ export default {
         $_getPDAWallet(entity) {
             this.$_set_pda_wallet(entity);
             this.$_returnToWallet();
+            // this.entity.step = 4;
         },
 
         $_reviewStatus() {
@@ -149,36 +150,29 @@ export default {
         <BaseSkeletonLoader v-if="loading" type="card, article" />
         <v-window v-model="entity.step" touchless v-else>
             <v-window-item :value="0">
-                <br />
                 <InstructionsViewComponent :entity="entity" />
             </v-window-item>
             <v-window-item :value="1">
-                <br />
                 <PeopleSayViewComponent :entity="entity" :wordList="wordList" />
             </v-window-item>
 
             <v-window-item :value="2">
-                <br />
                 <IamViewComponent :entity="entity" :wordList="wordList" />
             </v-window-item>
 
             <v-window-item :value="3">
-                <br />
                 <DescribeMeViewComponent :entity="entity" />
             </v-window-item>
 
             <v-window-item :value="4">
-                <br />
                 <ProfileViewComponent :entity="entity" />
             </v-window-item>
 
             <v-window-item :value="5">
-                <br />
                 <RiskAxisViewComponent :entity="entity" />
             </v-window-item>
 
             <v-window-item :value="6">
-                <br />
                 <AbilitiesPDAViewComponent
                     v-if="entity.step == 6"
                     :entity="entity"
@@ -186,7 +180,6 @@ export default {
             </v-window-item>
 
             <v-window-item :value="7">
-                <br />
                 <PreviewPurchaseViewComponent :entity="entity" />
             </v-window-item>
 
