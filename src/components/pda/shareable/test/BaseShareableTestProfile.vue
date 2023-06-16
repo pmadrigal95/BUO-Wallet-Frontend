@@ -5,6 +5,8 @@
  * @displayName BaseShareableTestProfile
  */
 
+import { mapGetters } from 'vuex';
+
 import html2canvas from '@/services/sharing/html2canvas.js';
 
 const BaseCardViewComponent = () =>
@@ -60,6 +62,8 @@ export default {
         BaseShareActions,
         BaseShareableTitle,
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 
     methods: {
         $_share() {
@@ -143,8 +147,9 @@ export default {
                         x-large
                         v-if="previousStep && $vuetify.breakpoint.mdAndUp"
                         @click="previousStep"
+                        :color="app ? 'blueProgress600' : 'black'"
                     >
-                        <v-icon color="black">mdi-chevron-left</v-icon>
+                        <v-icon>mdi-chevron-left</v-icon>
                     </v-btn>
                     <section
                         ref="result"
@@ -220,7 +225,9 @@ export default {
                         v-if="nextStep && $vuetify.breakpoint.mdAndUp"
                         @click="nextStep"
                     >
-                        <v-icon color="black">mdi-chevron-right</v-icon>
+                        <v-icon :color="app ? 'blueProgress600' : 'black'"
+                            >mdi-chevron-right</v-icon
+                        >
                     </v-btn>
                 </v-layout>
 

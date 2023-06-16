@@ -23,6 +23,8 @@ export default {
 
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'premium']),
+
+        ...mapGetters('theme', ['app']),
     },
 
     mounted() {
@@ -59,6 +61,7 @@ export default {
                     elevation="0"
                     text
                     @click="$_shareableLink"
+                    :color="app ? 'blueProgress600' : 'blue800'"
                 >
                     Compartir
                     <v-icon right dark>
@@ -80,16 +83,21 @@ export default {
                     />
                 </v-layout>
                 <v-card-subtitle
-                    class="BUO-Paragraph-Small buo-word-break text-center grey700--text"
+                    class="BUO-Paragraph-Small buo-word-break text-center"
+                    :class="[app ? 'white--text' : 'grey700--text']"
                 >
                     Tu Perfil:
-                    <section class="BUO-Heading-XSmall grey700--text">
+                    <section
+                        class="BUO-Heading-XSmall"
+                        :class="[app ? 'white--text' : 'grey700--text']"
+                    >
                         {{ pdaWallet.perfilPDAVisual }}
                     </section>
                 </v-card-subtitle>
 
                 <v-card-subtitle
-                    class="BUO-Paragraph-Small buo-word-break text-center black--text pt-0"
+                    class="BUO-Paragraph-Small buo-word-break text-center pt-0"
+                    :class="[app ? 'blueProgress600--text' : 'black--text']"
                 >
                     Tu superpoder es
                     <b>{{ pdaWallet.superpoder }}</b
@@ -99,12 +107,14 @@ export default {
                 <v-card-text>
                     <v-card flat class="pt-2">
                         <v-card-title
-                            class="BUO-Paragraph-Small-SemiBold buo-word-break black--text"
+                            class="BUO-Paragraph-Small-SemiBold buo-word-break"
+                            :class="[app ? 'white--text' : 'black--text']"
                         >
                             Descripción del perfil
                         </v-card-title>
                         <v-card-text
-                            class="BUO-Paragraph-Small buo-word-break black--text"
+                            class="BUO-Paragraph-Small buo-word-break"
+                            :class="[app ? 'white--text' : 'black--text']"
                         >
                             {{ pdaWallet.descripcion }}
                         </v-card-text>
@@ -113,7 +123,8 @@ export default {
             </v-card>
             <v-card flat class="mb-6" v-if="pdaWallet.caracteristicas">
                 <v-card-title
-                    class="buo-word-break BUO-Paragraph-Large-SemiBold grey700--text"
+                    class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                    :class="[app ? 'white--text' : 'grey700--text']"
                 >
                     Características del perfil
                 </v-card-title>
@@ -135,7 +146,12 @@ export default {
                         <v-list-item-content>
                             <v-list-item-title
                                 ><span
-                                    class="BUO-Paragraph-Small buo-word-break buo-white-space grey600--text"
+                                    class="BUO-Paragraph-Small buo-word-break buo-white-space"
+                                    :class="[
+                                        app
+                                            ? 'blueProgress600--text'
+                                            : 'grey600--text',
+                                    ]"
                                     >{{ item }}</span
                                 ></v-list-item-title
                             >
@@ -148,7 +164,8 @@ export default {
             </v-card>
             <v-card flat class="mb-6" v-if="pdaWallet.caracteristicas">
                 <v-card-title
-                    class="buo-word-break BUO-Paragraph-Large-SemiBold grey700--text"
+                    class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                    :class="[app ? 'white--text' : 'grey700--text']"
                 >
                     Motivadores
                 </v-card-title>
@@ -170,7 +187,12 @@ export default {
                         <v-list-item-content>
                             <v-list-item-title
                                 ><span
-                                    class="BUO-Paragraph-Small buo-word-break buo-white-space grey600--text"
+                                    class="BUO-Paragraph-Small buo-word-break buo-white-space"
+                                    :class="[
+                                        app
+                                            ? 'blueProgress600--text'
+                                            : 'grey600--text',
+                                    ]"
                                     >{{ item }}</span
                                 ></v-list-item-title
                             >

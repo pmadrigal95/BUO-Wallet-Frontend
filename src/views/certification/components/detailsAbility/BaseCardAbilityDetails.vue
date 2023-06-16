@@ -50,6 +50,7 @@ export default {
     computed: {
         ...mapGetters('authentication', ['user']),
         ...mapGetters('wallet', ['PDACompanyId']),
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -102,7 +103,7 @@ export default {
             <v-layout justify-start v-if="entity.type == 'new'">
                 <v-btn
                     @click="$_createRequestBody"
-                    color="blue800"
+                    :color="app ? 'blueProgress600' : 'blue800'"
                     class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     elevation="0"
                     text

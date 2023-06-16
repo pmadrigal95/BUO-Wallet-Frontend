@@ -22,6 +22,7 @@ export default {
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'premium']),
         ...mapGetters('authentication', ['user']),
+        ...mapGetters('theme', ['app']),
     },
 
     mounted() {
@@ -64,7 +65,7 @@ export default {
     <div v-if="pdaWallet">
         <v-layout justify-start align-center>
             <v-btn
-                color="blue800"
+                :color="app ? 'blueProgress600' : 'blue800'"
                 class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                 text
                 @click="$_returnToProfile"

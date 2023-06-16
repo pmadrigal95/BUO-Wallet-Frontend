@@ -4,6 +4,9 @@
  *
  * @displayName SelectedAbilitiesViewComponent
  */
+
+import { mapGetters } from 'vuex';
+
 const BaseCardViewComponent = () =>
     import('@/components/core/cards/BaseCardViewComponent');
 
@@ -18,6 +21,8 @@ export default {
             requiered: true,
         },
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 
     created() {
         if (
@@ -81,7 +86,8 @@ export default {
         <div slot="body">
             <v-card flat class="rounded-lg" color="transparent">
                 <v-card-title
-                    class="BUO-Paragraph-Large-SemiBold buo-word-break grey700--text"
+                    class="BUO-Paragraph-Large-SemiBold buo-word-break"
+                    :class="[app ? 'white--text' : 'grey700--text']"
                 >
                     Indicadores
                     <v-layout justify-end>
@@ -90,7 +96,7 @@ export default {
                             class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                             text
                             elevation="0"
-                            color="blue800"
+                            :color="app ? 'blueProgress600' : 'blue800'"
                             :block="$vuetify.breakpoint.mobile"
                         >
                             Añadir a mis objetivos

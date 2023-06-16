@@ -25,6 +25,7 @@ export default {
 
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'freemium']),
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -49,7 +50,7 @@ export default {
                 <v-btn
                     class="no-uppercase rounded-lg"
                     text
-                    color="blue800"
+                    :color="app ? 'blueProgress600' : 'blue800'"
                     elevation="0"
                     @click="$_open()"
                 >

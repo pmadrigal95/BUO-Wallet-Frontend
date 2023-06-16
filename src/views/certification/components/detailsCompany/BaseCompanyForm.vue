@@ -34,6 +34,8 @@ export default {
          */
         ...mapGetters('authentication', ['user']),
 
+        ...mapGetters('theme', ['app']),
+
         labelBtn() {
             return this.entity.labelBtn ? this.entity.labelBtn : 'Validar';
         },
@@ -261,7 +263,10 @@ export default {
                 align-center
                 v-if="user && user.companyId"
             >
-                <section class="BUO-Paragraph-Medium grey700--text">
+                <section
+                    class="BUO-Paragraph-Medium"
+                    :class="[app ? 'white--text' : 'grey700--text']"
+                >
                     Validar con mi empresa
                 </section>
 

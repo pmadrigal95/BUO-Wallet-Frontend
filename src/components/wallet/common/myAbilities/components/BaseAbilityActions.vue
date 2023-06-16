@@ -5,7 +5,7 @@
  * @displayName BaseAbilityActions
  */
 
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'BaseAbilityActions',
@@ -30,6 +30,8 @@ export default {
             menu: false,
         };
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 
     methods: {
         ...mapActions('wallet', ['$_wallet_deleteability']),
@@ -79,7 +81,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <!-- @Componente:  BaseDialog-->
         <BaseActionPopUp
             ref="popUp"
@@ -110,7 +112,9 @@ export default {
                         elevation="0"
                     >
                         {{ btnLabel ? btnLabel : '' }}
-                        <v-icon color="black"> mdi-dots-vertical </v-icon>
+                        <v-icon :color="app ? 'white' : 'black'">
+                            mdi-dots-vertical
+                        </v-icon>
                     </v-btn>
                 </v-avatar>
                 <v-btn
@@ -120,11 +124,13 @@ export default {
                     v-bind="attrs"
                     v-on="on"
                     class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
-                    :color="btnLabel ? 'blue800' : 'black'"
+                    :color="app ? 'blueProgress600' : 'blue800'"
                     elevation="0"
                 >
                     {{ btnLabel ? btnLabel : '' }}
-                    <v-icon color="black"> mdi-dots-vertical </v-icon>
+                    <v-icon :color="app ? 'white' : 'black'">
+                        mdi-dots-vertical
+                    </v-icon>
                 </v-btn>
             </template>
             <v-list class="BUO-Paragraph-Medium-SemiBold">
@@ -147,5 +153,5 @@ export default {
                 </v-list-item>
             </v-list>
         </v-menu>
-    </div>
+    </section>
 </template>

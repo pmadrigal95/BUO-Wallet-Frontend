@@ -5,6 +5,8 @@
  * @displayName BaseHeaderAbilityDetails
  */
 
+import { mapGetters } from 'vuex';
+
 import baseSharedFnHelper from '@/helpers/baseSharedFnHelper.js';
 
 export default {
@@ -16,6 +18,8 @@ export default {
             requiered: true,
         },
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 
     methods: {
         $_color(number) {
@@ -34,7 +38,9 @@ export default {
                 :value="Math.round(header.porcentajeCertificado * 100)"
                 :color="$_color(Math.round(header.porcentajeCertificado * 100))"
                 rotate="90"
-                ><span class="BUO-Label-XSmall grey700--text"
+                ><span
+                    class="BUO-Label-XSmall"
+                    :class="[app ? 'white--text' : 'grey700--text']"
                     >{{ Math.round(header.porcentajeCertificado * 100) }}%</span
                 >
             </v-progress-circular>

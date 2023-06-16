@@ -42,6 +42,8 @@ export default {
             'notValidatedCode',
         ]),
 
+        ...mapGetters('theme', ['app']),
+
         validatedList() {
             return this.buoWallet.habilidades
                 .filter((x) => x.estadoId == this.validatedCode)
@@ -86,7 +88,10 @@ export default {
 
 <template>
     <v-card flat max-width="100%" max-height="100%" class="rounded-t-xl">
-        <v-card-title class="BUO-Paragraph-Large-SemiBold grey700--text">
+        <v-card-title
+            class="BUO-Paragraph-Large-SemiBold grey700--text"
+            :class="[app ? 'white--text' : 'grey700--text']"
+        >
             Mis Indicadores
             <v-layout justify-end>
                 <v-btn
@@ -94,7 +99,7 @@ export default {
                     class="no-uppercase rounded-lg BUO-Label-XSmall-SemiBold"
                     elevation="0"
                     text
-                    color="blue900"
+                    :color="app ? 'clouds' : 'blue900'"
                     @click="$_goToModule('MyAbilitiesViewComponent')"
                 >
                     Descubre más
@@ -103,7 +108,7 @@ export default {
 
                 <v-btn
                     icon
-                    color="primary"
+                    :color="app ? 'clouds' : 'blue900'"
                     v-if="$route.name == 'MyAbilitiesViewComponent'"
                     @click="$_showSearchInput"
                 >
@@ -115,7 +120,8 @@ export default {
                     elevation="0"
                     depressed
                     small
-                    color="primary"
+                    dark
+                    color="blue900"
                     v-if="$route.name == 'MyAbilitiesViewComponent'"
                     @click="$_goToModule('CertificationViewComponent')"
                 >
@@ -148,7 +154,7 @@ export default {
                 v-if="!buoWallet || loadingWallet"
                 type="card-avatar"
             />
-            <div v-else>
+            <section v-else>
                 <v-tabs
                     v-model="step"
                     right
@@ -156,6 +162,7 @@ export default {
                     height="25"
                     class="pa-6 pt-5"
                     flat
+                    :color="app ? 'white' : 'primary'"
                 >
                     <v-tabs-slider color="transparent"></v-tabs-slider>
                     <v-tab
@@ -190,7 +197,7 @@ export default {
                         />
                     </v-tab-item>
                 </v-tabs-items>
-            </div>
+            </section>
         </v-card-text>
     </v-card>
 </template>

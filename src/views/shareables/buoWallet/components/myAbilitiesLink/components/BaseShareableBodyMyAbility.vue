@@ -41,6 +41,8 @@ export default {
             'notValidatedCode',
         ]),
 
+        ...mapGetters('theme', ['app']),
+
         totalPendingList() {
             this.ability.listaTotalPendientes.forEach((element) => {
                 let result = this.$_returnOrganizationChecklist(
@@ -87,7 +89,8 @@ export default {
 <template>
     <v-card flat>
         <v-card-text
-            class="BUO-Paragraph-Small buo-none-word-break black--text"
+            class="BUO-Paragraph-Small buo-none-word-break"
+            :class="[app ? 'white--text' : 'black--text']"
             v-if="ability.proposito"
         >
             {{ ability.proposito }}

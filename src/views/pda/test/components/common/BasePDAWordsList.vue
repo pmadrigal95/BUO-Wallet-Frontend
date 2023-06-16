@@ -5,10 +5,13 @@
  * @displayName BasePDAWordsList
  */
 
+import { mapGetters } from 'vuex';
+
 import baseSharedFnHelper from '@/helpers/baseSharedFnHelper.js';
 
 export default {
     name: 'BasePDAWordsList',
+
     props: {
         list: {
             type: Array,
@@ -28,6 +31,8 @@ export default {
     },
 
     computed: {
+        ...mapGetters('theme', ['app']),
+
         filtered() {
             return this.list.filter(function (e) {
                 return this.indexOf(e) < 0;
@@ -73,7 +78,12 @@ export default {
                         :key="item.id"
                         @click="$_insertIntoContainer(item.id)"
                     >
-                        <span class="BUO-Label-Small grey600--text">
+                        <span
+                            class="BUO-Label-Small"
+                            :class="[
+                                app ? 'blueProgress600--text' : 'grey600--text',
+                            ]"
+                        >
                             {{ item.palabra }}
                         </span>
                     </v-chip>

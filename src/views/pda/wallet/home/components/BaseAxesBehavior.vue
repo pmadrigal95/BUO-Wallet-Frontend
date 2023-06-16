@@ -27,6 +27,8 @@ export default {
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet', 'premium']),
 
+        ...mapGetters('theme', ['app']),
+
         riskAxis() {
             return this.pdaWallet.ejePDADTOSet.find(
                 (element) => element.nombre === 'Riesgo'
@@ -58,14 +60,15 @@ export default {
         <BaseSkeletonLoader v-if="loadingPdaWallet" type="image" />
         <section v-else-if="pdaWallet.ejePDADTOSet">
             <v-card-title
-                class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
+                class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                :class="[app ? 'white--text' : 'grey700--text']"
             >
                 Ejes de Comportamiento
                 <v-layout justify-end>
                     <v-btn
                         class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         text
-                        color="blue800"
+                        :color="app ? 'blueProgress600' : 'blue800'"
                         elevation="0"
                         @click="$_goToBehaviors"
                     >
@@ -77,15 +80,24 @@ export default {
             <v-card-text>
                 <v-card flat @click="$_goToBehaviors">
                     <v-card-subtitle class="text-center">
-                        <section class="BUO-Label-XSmall grey600--text pb-2">
+                        <section
+                            class="BUO-Label-XSmall pb-2"
+                            :class="[
+                                app ? 'blueProgress600--text' : 'grey600--text',
+                            ]"
+                        >
                             Eje de Riesgo
                         </section>
                         <section
-                            class="BUO-Heading-XSmall grey700--text"
+                            class="BUO-Heading-XSmall"
+                            :class="[app ? 'white--text' : 'grey700--text']"
                             v-html="riskAxis.fraseEje"
                         ></section>
                         <section
-                            class="BUO-Paragraph-Small grey600--text pb-4"
+                            class="BUO-Paragraph-Small pb-4"
+                            :class="[
+                                app ? 'blueProgress600--text' : 'grey600--text',
+                            ]"
                             v-html="riskAxis.descripcionEje"
                         ></section>
                     </v-card-subtitle>
@@ -95,10 +107,16 @@ export default {
                         <section
                             class="d-flex flex-no-wrap justify-space-between buo-word-break"
                         >
-                            <span class="BUO-Label-Small grey700--text">
+                            <span
+                                class="BUO-Label-Small"
+                                :class="[app ? 'white--text' : 'grey700--text']"
+                            >
                                 {{ riskAxis.etiquetaIzquierda }}
                             </span>
-                            <span class="BUO-Label-Small grey700--text">
+                            <span
+                                class="BUO-Label-Small"
+                                :class="[app ? 'white--text' : 'grey700--text']"
+                            >
                                 {{ riskAxis.etiquetaDerecha }}
                             </span>
                         </section>
@@ -116,6 +134,7 @@ export default {
                         :isSmall="false"
                         :fnMethod="$_goToBehaviors"
                         class="BUO-Paragraph-Small-SemiBold"
+                        :color="app ? 'blueProgress600' : 'blue800'"
                     />
                 </v-layout>
             </v-card-actions>

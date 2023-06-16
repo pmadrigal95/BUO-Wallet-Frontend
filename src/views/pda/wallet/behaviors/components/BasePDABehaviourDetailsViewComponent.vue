@@ -35,6 +35,8 @@ export default {
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'premium']),
 
+        ...mapGetters('theme', ['app']),
+
         entity() {
             return this.pdaWallet?.ejePDADTOSet.find(
                 (element) =>
@@ -78,6 +80,7 @@ export default {
                     class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     elevation="0"
                     text
+                    :color="app ? 'blueProgress600' : 'blue800'"
                     @click="$_goToDetails"
                 >
                     Compartir
@@ -97,32 +100,52 @@ export default {
                     <section
                         class="d-flex flex-no-wrap justify-space-between buo-word-break"
                     >
-                        <span class="BUO-Label-Small grey600--text">
+                        <span
+                            class="BUO-Label-Small"
+                            :class="[
+                                app ? 'blueProgress600--text' : 'grey600--text',
+                            ]"
+                        >
                             {{ entity.etiquetaIzquierda }}
                         </span>
-                        <span class="BUO-Label-Small grey600--text">
+                        <span
+                            class="BUO-Label-Small"
+                            :class="[
+                                app ? 'blueProgress600--text' : 'grey600--text',
+                            ]"
+                        >
                             {{ entity.etiquetaDerecha }}
                         </span>
                     </section>
                 </v-card-text>
                 <v-card-subtitle class="buo-word-break text-center">
-                    <section class="BUO-Heading-XSmall grey700--text pb-2">
+                    <section
+                        class="BUO-Heading-XSmall pb-2"
+                        :class="[app ? 'white--text' : 'grey700--text']"
+                    >
                         {{ entity.nombreUI }}
                     </section>
                     <section
-                        class="BUO-Label-Small grey600--text"
+                        class="BUO-Label-Small"
+                        :class="[
+                            app ? 'blueProgress600--text' : 'grey600--text',
+                        ]"
                         v-html="entity.fraseEje"
                     ></section>
                 </v-card-subtitle>
                 <v-spacer></v-spacer>
                 <v-card-text>
                     <section
-                        class="BUO-Paragraph-Small-SemiBold buo-word-break text-justify black--text"
+                        class="BUO-Paragraph-Small-SemiBold buo-word-break text-justify"
+                        :class="[app ? 'white--text' : 'black--text']"
                     >
                         Principales características
                     </section>
                     <section
-                        class="BUO-Paragraph-Small buo-word-break text-justify grey600--text"
+                        class="BUO-Paragraph-Small buo-word-break text-justify"
+                        :class="[
+                            app ? 'blueProgress600--text' : 'grey600--text',
+                        ]"
                     >
                         {{ entity.descripcionEje }}
                     </section>
@@ -136,7 +159,10 @@ export default {
                                 :key="item"
                             >
                                 <span
-                                    class="BUO-Label-Small-SemiBold grey700--text"
+                                    class="BUO-Label-Small-SemiBold"
+                                    :class="[
+                                        app ? 'white--text' : 'grey700--text',
+                                    ]"
                                 >
                                     {{ item }}
                                 </span>

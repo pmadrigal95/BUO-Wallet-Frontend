@@ -43,6 +43,8 @@ export default {
             'notValidatedCode',
             'PDACompanyId',
         ]),
+
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -78,19 +80,21 @@ export default {
         flat
         max-width="100%"
         max-height="100%"
-        color="grey200"
+        :color="app ? 'grey700' : 'grey200'"
         class="rounded-lg"
     >
         <div class="d-flex flex-no-wrap justify-space-between">
             <v-card-title class="buo-word-break">
                 <span
-                    class="BUO-Label-Small grey600--text"
+                    class="BUO-Label-Small"
+                    :class="[app ? 'blueProgress600--text' : 'grey600--text']"
                     v-if="ability.estadoId === notValidatedCode"
                     >Tienes {{ ability.totalDisponibles }} indicadores
                     disponibles</span
                 >
                 <span
-                    class="BUO-Label-Small grey600--text"
+                    class="BUO-Label-Small"
+                    :class="[app ? 'blueProgress600--text' : 'grey600--text']"
                     v-else-if="
                         ability.fechaEstadoFormato != null &&
                         ability.estadoId != notValidatedCode
@@ -110,7 +114,11 @@ export default {
                 ability.listaOrganizacionVerificacion.length > 0
             "
         >
-            <span class="BUO-Label-XSmall grey600--text">Validador: </span>
+            <span
+                class="BUO-Label-XSmall"
+                :class="[app ? 'blueProgress600--text' : 'grey600--text']"
+                >Validador:
+            </span>
             <BaseGroupAvatar
                 borderColor="white"
                 :avatars="$_avatarList(ability.listaOrganizacionVerificacion)"
@@ -122,7 +130,7 @@ export default {
                 <v-btn
                     class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     elevation="0"
-                    color="primary"
+                    :color="app ? 'white' : 'primary'"
                     outlined
                     @click="$_goToAbility(ability.cualificacionId)"
                 >

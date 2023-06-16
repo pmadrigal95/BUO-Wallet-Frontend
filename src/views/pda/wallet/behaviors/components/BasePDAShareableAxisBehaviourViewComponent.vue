@@ -30,6 +30,8 @@ export default {
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'premium']),
 
+        ...mapGetters('theme', ['app']),
+
         ...mapGetters('authentication', ['user']),
 
         entity() {
@@ -88,7 +90,7 @@ export default {
     <div v-if="pdaWallet">
         <v-layout justify-start align-center>
             <v-btn
-                color="blue800"
+                :color="app ? 'blueProgress600' : 'blue800'"
                 class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                 elevation="0"
                 text

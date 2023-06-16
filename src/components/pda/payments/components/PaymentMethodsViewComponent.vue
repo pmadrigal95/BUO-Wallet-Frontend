@@ -54,6 +54,8 @@ export default {
 
     computed: {
         ...mapGetters('authentication', ['user']),
+
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -125,7 +127,10 @@ export default {
 <template>
     <BaseCardViewComponent :md="md" :offset="offset">
         <div slot="card-text">
-            <section class="BUO-Heading-Small grey700--text">
+            <section
+                class="BUO-Heading-Small"
+                :class="[app ? 'white--text' : 'grey700--text']"
+            >
                 Reporte completo PDA
             </section>
         </div>
@@ -138,7 +143,12 @@ export default {
                                 <v-radio :value="true">
                                     <template v-slot:label>
                                         <section
-                                            class="grey700--text BUO-Paragraph-Large-SemiBold"
+                                            class="BUO-Paragraph-Large-SemiBold"
+                                            :class="[
+                                                app
+                                                    ? 'white--text'
+                                                    : 'grey700--text',
+                                            ]"
                                         >
                                             Comprar con tarjeta de crédito
                                         </section>
@@ -165,7 +175,12 @@ export default {
                                 <v-radio :value="false">
                                     <template v-slot:label>
                                         <section
-                                            class="black--text BUO-Paragraph-Large-SemiBold"
+                                            class="BUO-Paragraph-Large-SemiBold"
+                                            :class="[
+                                                app
+                                                    ? 'white--text'
+                                                    : 'black--text',
+                                            ]"
                                         >
                                             Comprar con código promocional
                                         </section>
@@ -189,7 +204,10 @@ export default {
                 </v-card>
             </v-radio-group>
             <v-layout justify-end v-if="card">
-                <section class="BUO-Paragraph-Medium grey700--text">
+                <section
+                    class="BUO-Paragraph-Medium"
+                    :class="[app ? 'white--text' : 'grey700--text']"
+                >
                     Total: <span class="BUO-Heading-XSmall">$199 MXN</span>
                 </section>
             </v-layout>

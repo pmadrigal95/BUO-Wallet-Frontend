@@ -17,6 +17,9 @@ export default {
 
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet', 'premium']),
+
+        ...mapGetters('theme', ['app']),
+
         color() {
             return baseSharedFnHelper.$_returnRandomPDAGradient();
         },
@@ -39,16 +42,11 @@ export default {
         <BasePDAPayment ref="popUp" />
         <v-card flat max-width="100%" max-height="100%">
             <BaseSkeletonLoader v-if="loadingPdaWallet" type="image" />
-            <v-card
-                flat
-                :color="
-                    pdaWallet.tipoMembrecia == premium ? 'white' : 'transparent'
-                "
-                v-else-if="pdaWallet.potencial"
-            >
+            <v-card flat v-else-if="pdaWallet.potencial">
                 <v-card-title
                     v-if="pdaWallet && pdaWallet.tipoMembrecia == premium"
-                    class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
+                    class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                    :class="[app ? 'white--text' : 'grey700--text']"
                 >
                     ¿Cómo maximizar mi potencial?
                 </v-card-title>
@@ -131,7 +129,12 @@ export default {
                             <v-list-item-content>
                                 <v-list-item-title
                                     ><span
-                                        class="buo-word-break buo-white-space grey700--text BUO-Paragraph-Small"
+                                        class="buo-word-break buo-white-space BUO-Paragraph-Small"
+                                        :class="[
+                                            app
+                                                ? 'white--text'
+                                                : 'grey700--text',
+                                        ]"
                                         >{{ item }}</span
                                     ></v-list-item-title
                                 >

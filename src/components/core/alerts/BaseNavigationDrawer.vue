@@ -5,6 +5,8 @@
  * @displayName BaseNavigationDrawer
  */
 
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'BaseNavigationDrawer',
 
@@ -27,6 +29,8 @@ export default {
             dialog: false,
         };
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 
     methods: {
         $_openModal() {
@@ -52,7 +56,7 @@ export default {
                 <v-btn
                     class="no-uppercase rounded-lg"
                     text
-                    color="blue800"
+                    :color="app ? 'blueProgress600' : 'blue800'"
                     @click="$_openModal()"
                 >
                     Cerrar

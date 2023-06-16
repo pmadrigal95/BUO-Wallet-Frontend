@@ -114,7 +114,6 @@ export default {
         $_getPDAWallet(entity) {
             this.$_set_pda_wallet(entity);
             this.$_returnToWallet();
-            // this.entity.step = 4;
         },
 
         $_reviewStatus() {

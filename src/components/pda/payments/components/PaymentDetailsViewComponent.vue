@@ -37,6 +37,7 @@ export default {
     computed: {
         ...mapGetters('authentication', ['user']),
         ...mapGetters('pda', ['pdaWallet']),
+        ...mapGetters('theme', ['app']),
 
         details() {
             return [
@@ -93,24 +94,31 @@ export default {
         </div>
         <div slot="card-text">
             <v-row>
-                <v-col cols="12" md="7" class="black--text">
+                <v-col cols="12" md="7">
                     <v-card-title
                         v-if="$vuetify.breakpoint.mdAndUp"
-                        class="BUO-Heading-Small buo-word-break grey700--text"
+                        class="BUO-Heading-Small buo-word-break"
+                        :class="[app ? 'white--text' : 'grey700--text']"
                         >Resumen de Compra</v-card-title
                     >
                     <v-card-subtitle
                         v-if="$vuetify.breakpoint.mdAndUp"
-                        class="BUO-Paragraph-Small buo-word-break grey700--text"
+                        class="BUO-Paragraph-Small buo-word-break"
+                        :class="[app ? 'white--text' : 'grey700--text']"
                         >Resultados Completos de tu PDA:</v-card-subtitle
                     >
-                    <v-list>
+                    <v-list color="transparent">
                         <template v-for="(item, index) in details">
                             <v-list-item v-if="!item.divider" :key="item.title">
                                 <v-list-item-content>
                                     <v-list-item-title
                                         ><span
-                                            class="buo-none-word-break buo-white-space grey700--text BUO-Paragraph-Medium"
+                                            class="buo-none-word-break buo-white-space BUO-Paragraph-Medium"
+                                            :class="[
+                                                app
+                                                    ? 'white--text'
+                                                    : 'grey700--text',
+                                            ]"
                                             >{{ item.title }}</span
                                         ></v-list-item-title
                                     >

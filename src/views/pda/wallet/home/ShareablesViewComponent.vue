@@ -37,6 +37,7 @@ export default {
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet']),
         ...mapGetters('authentication', ['user']),
+        ...mapGetters('theme', ['app']),
     },
 
     mounted() {
@@ -117,12 +118,12 @@ export default {
         <v-card flat tile color="transparent">
             <v-layout justify-start align-center>
                 <v-btn
-                    color="blue800"
+                    :color="app ? 'blueProgress600' : 'blue800'"
                     class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     text
                     @click="$_returnToWallet"
                 >
-                    <v-icon left dark> mdi-chevron-left </v-icon>Regresar</v-btn
+                    <v-icon left> mdi-chevron-left </v-icon>Regresar</v-btn
                 >
             </v-layout>
         </v-card>

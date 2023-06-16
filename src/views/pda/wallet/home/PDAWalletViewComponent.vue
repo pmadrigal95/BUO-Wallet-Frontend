@@ -52,6 +52,8 @@ export default {
             'freemium',
             'premium',
         ]),
+
+        ...mapGetters('theme', ['app']),
     },
 
     mounted() {
@@ -104,6 +106,7 @@ export default {
             <v-btn
                 v-if="pdaWallet && pdaWallet.tipoMembrecia == freemium"
                 class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                :color="app ? 'blueProgress600' : 'blue800'"
                 elevation="0"
                 text
                 @click="$_returnToShareables"

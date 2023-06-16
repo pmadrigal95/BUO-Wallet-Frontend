@@ -23,6 +23,7 @@ export default {
 
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet', 'premium']),
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -61,10 +62,18 @@ export default {
                     />
                 </v-layout>
                 <v-card-subtitle class="buo-word-break text-center">
-                    <section class="BUO-Heading-XSmall grey700--text">
+                    <section
+                        class="BUO-Heading-XSmall"
+                        :class="[
+                            app ? 'blueProgress600--text' : 'grey700--text',
+                        ]"
+                    >
                         {{ pdaWallet.perfilPDAVisual }}
                     </section>
-                    <section class="BUO-Paragraph-Small black--text">
+                    <section
+                        class="BUO-Paragraph-Small"
+                        :class="[app ? 'white--text' : 'black--text']"
+                    >
                         Tu superpoder es
                         <b>{{ pdaWallet.superpoder }}</b
                         >.

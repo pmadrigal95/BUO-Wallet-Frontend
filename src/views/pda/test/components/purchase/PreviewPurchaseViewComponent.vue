@@ -52,6 +52,8 @@ export default {
     },
 
     computed: {
+        ...mapGetters('theme', ['app']),
+
         ...mapGetters('pda', ['pdaWallet', 'freemium']),
     },
 
@@ -78,11 +80,14 @@ export default {
         <div slot="card-text">
             <v-row justify="center" align-content="center">
                 <v-col cols="12" md="10">
-                    <v-list class="list">
+                    <v-list class="list" color="transparent">
                         <template v-for="(item, index) in items">
                             <v-subheader v-if="item.header" :key="item.header"
                                 ><span
-                                    class="BUO-Paragraph-Small grey700--text"
+                                    class="BUO-Paragraph-Small"
+                                    :class="[
+                                        app ? 'white--text' : 'grey700--text',
+                                    ]"
                                     >{{ item.header }}</span
                                 ></v-subheader
                             >
@@ -105,7 +110,12 @@ export default {
                                 <v-list-item-content>
                                     <v-list-item-title
                                         ><span
-                                            class="buo-white-space BUO-Paragraph-Small grey700--text"
+                                            class="buo-white-space BUO-Paragraph-Small"
+                                            :class="[
+                                                app
+                                                    ? 'white--text'
+                                                    : 'grey700--text',
+                                            ]"
                                             >{{ item.text }}</span
                                         ></v-list-item-title
                                     >
@@ -130,7 +140,7 @@ export default {
                     <v-btn
                         dark
                         depressed
-                        color="black"
+                        :color="app ? 'blue800' : 'black'"
                         @click="$_nextStep"
                         class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"

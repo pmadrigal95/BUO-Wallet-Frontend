@@ -1,4 +1,6 @@
 <script>
+import { mapGetters } from 'vuex';
+
 import baseSharedFnHelper from '@/helpers/baseSharedFnHelper.js';
 
 const BaseNotificationCardTemplate = () =>
@@ -13,6 +15,8 @@ export default {
             requiered: true,
         },
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 
     components: {
         BaseNotificationCardTemplate,
@@ -121,7 +125,7 @@ export default {
                     <v-layout align-center justify-center>
                         <v-btn
                             @click="$_goToMyAbilities"
-                            color="primary"
+                            :color="app ? 'blueProgress600' : 'blue800'"
                             elevation="0"
                             text
                             :block="

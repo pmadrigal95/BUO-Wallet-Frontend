@@ -5,6 +5,8 @@
  * @displayName BaseAdGetPremium
  */
 
+import { mapGetters } from 'vuex';
+
 const BasePDAPayment = () =>
     import('@/views/pda/wallet/home/components/BasePDAPayment');
 
@@ -15,6 +17,8 @@ export default {
         BasePDAPayment,
     },
 
+    computed: { ...mapGetters('theme', ['app']) },
+
     methods: {
         $_open() {
             this.$refs['popUp'].$_open();
@@ -24,13 +28,19 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <BasePDAPayment ref="popUp" />
         <v-alert text outlined color="greenA600" class="rounded-lg">
-            <div class="black--text BUO-Label-Small-SemiBold">
+            <div
+                class="BUO-Label-Small-SemiBold"
+                :class="[app ? 'white--text' : 'black--text']"
+            >
                 ¡Conoce tus resultados completos!
             </div>
-            <div class="black--text BUO-Label-Small">
+            <div
+                class="BUO-Label-Small"
+                :class="[app ? 'white--text' : 'black--text']"
+            >
                 Desbloquea tus resultados completos y descubre como maximizar tu
                 potencial
             </div>
@@ -39,7 +49,7 @@ export default {
                 <v-col class="shrink">
                     <v-btn
                         class="no-uppercase rounded-lg"
-                        color="primary"
+                        :color="app ? 'blueProgress600' : 'blue800'"
                         elevation="0"
                         text
                         @click="$_open"
@@ -50,5 +60,5 @@ export default {
                 </v-col>
             </v-row>
         </v-alert>
-    </div>
+    </section>
 </template>

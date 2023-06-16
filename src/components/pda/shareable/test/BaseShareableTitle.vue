@@ -4,6 +4,9 @@
  *
  * @displayName BaseShareActions
  */
+
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'BaseShareActions',
 
@@ -33,12 +36,17 @@ export default {
             default: undefined,
         },
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 };
 </script>
 
 <template>
     <v-card flat color="transparent">
-        <v-card-title class="grey700--text BUO-Paragrah-Large-SemiBold">
+        <v-card-title
+            class="BUO-Paragrah-Large-SemiBold"
+            :class="[app ? 'white--text' : 'grey700--text']"
+        >
             <v-layout justify-space-between v-if="$vuetify.breakpoint.mdAndUp">
                 <span>{{ title }}</span>
                 <section>
@@ -46,7 +54,7 @@ export default {
                         elevation="0"
                         class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         text
-                        color="blue800"
+                        :color="app ? 'blueProgress600' : 'blue800'"
                         @click="download"
                     >
                         Descargar
@@ -56,7 +64,7 @@ export default {
                         class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         text
-                        color="blue800"
+                        :color="app ? 'blueProgress600' : 'blue800'"
                         @click="share"
                     >
                         Compartir
@@ -67,19 +75,29 @@ export default {
             <section v-else>
                 <v-row justify="center" align-content="center">
                     <v-btn icon :disabled="!previousStep" style="bottom: 9px">
-                        <v-icon color="black" v-if="previousStep === undefined"
+                        <v-icon
+                            :color="app ? 'blueProgress600' : 'black'"
+                            v-if="previousStep === undefined"
                             >mdi-chevron-left</v-icon
                         >
-                        <v-icon color="black" v-else @click="previousStep"
+                        <v-icon
+                            :color="app ? 'blueProgress600' : 'black'"
+                            v-else
+                            @click="previousStep"
                             >mdi-chevron-left</v-icon
                         >
                     </v-btn>
                     <div class="text-center">{{ title }}</div>
                     <v-btn icon :disabled="!nextStep" style="bottom: 9px">
-                        <v-icon color="black" v-if="nextStep === undefined"
+                        <v-icon
+                            :color="app ? 'blueProgress600' : 'black'"
+                            v-if="nextStep === undefined"
                             >mdi-chevron-right</v-icon
                         >
-                        <v-icon color="black" v-else @click="nextStep"
+                        <v-icon
+                            :color="app ? 'blueProgress600' : 'black'"
+                            v-else
+                            @click="nextStep"
                             >mdi-chevron-right</v-icon
                         >
                     </v-btn>
@@ -90,7 +108,7 @@ export default {
                         class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         text
-                        color="blue800"
+                        :color="app ? 'blueProgress600' : 'black'"
                         @click="download"
                     >
                         Descargar
@@ -100,7 +118,7 @@ export default {
                         class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         text
-                        color="blue800"
+                        :color="app ? 'blueProgress600' : 'black'"
                         @click="share"
                     >
                         Compartir

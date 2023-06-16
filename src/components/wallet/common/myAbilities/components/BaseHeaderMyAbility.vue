@@ -31,6 +31,8 @@ export default {
             'inProgressCode',
             'notValidatedCode',
         ]),
+
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -80,20 +82,27 @@ export default {
             <v-list-item-content class="ms-n3">
                 <v-list-item-title
                     ><span
-                        class="BUO-Paragraph-Medium-SemiBold buo-white-space grey700--text"
+                        class="BUO-Paragraph-Medium-SemiBold buo-white-space"
+                        :class="[app ? 'white--text' : 'grey700--text']"
                         >{{ ability.nombreCualificacion }}</span
                     >
                 </v-list-item-title>
                 <v-list-item-subtitle v-if="ability.estadoId != validatedCode"
                     ><section
                         v-if="ability.estadoId === notValidatedCode"
-                        class="BUO-Label-XSmall grey600--text"
+                        class="BUO-Label-XSmall"
+                        :class="[
+                            app ? 'blueProgress600--text' : 'grey600--text',
+                        ]"
                     >
                         Pendiente ({{ ability.totalDisponibles }})
                     </section>
                     <section
                         v-if="ability.estadoId === inProgressCode"
-                        class="BUO-Label-XSmall grey600--text"
+                        class="BUO-Label-XSmall"
+                        :class="[
+                            app ? 'blueProgress600--text' : 'grey600--text',
+                        ]"
                     >
                         Por Aprobar ({{ ability.totalPendientes }}) /
                         Disponibles ({{ ability.totalDisponibles }})

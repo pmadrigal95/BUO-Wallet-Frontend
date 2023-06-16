@@ -48,6 +48,8 @@ export default {
 
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'premium']),
+
+        ...mapGetters('theme', ['app']),
     },
 
     mounted() {
@@ -88,6 +90,7 @@ export default {
                     elevation="0"
                     class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                     text
+                    :color="app ? 'blueProgress600' : 'blue800'"
                     @click="$_shared"
                 >
                     Compartir
@@ -105,6 +108,7 @@ export default {
                         $vuetify.breakpoint.smAndDown
                             ? 'BUO-Heading-Small'
                             : 'BUO-Heading-Medium',
+                        app ? 'white--text' : 'grey700--text',
                     ]"
                 >
                     Mis indicadores PDA
@@ -114,25 +118,27 @@ export default {
                         $vuetify.breakpoint.smAndDown
                             ? 'BUO-Paragraph-Small'
                             : 'BUO-Paragraph-Medium',
+                        app ? 'white--text' : 'black--text',
                     ]"
                 >
-                    <div>
+                    <section>
                         Creamos tu radiografía más completa de indicadores con
                         base en tus resultados.
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <b
                             >Las más altas aparecerán validadas en tu Buo
                             Wallet.</b
                         >
-                    </div>
+                    </section>
                 </v-card-subtitle>
             </v-card>
         </div>
         <div slot="card-text">
             <v-card flat class="rounded-t-xl mb-6">
                 <v-card-title
-                    class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
+                    class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                    :class="[app ? 'white--text' : 'grey700--text']"
                 >
                     Gráfico de indicadores
                     <v-layout justify-end>

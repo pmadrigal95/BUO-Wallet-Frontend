@@ -18,6 +18,7 @@ export default {
 
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet', 'premium']),
+        ...mapGetters('theme', ['app']),
     },
 
     components: {
@@ -49,14 +50,15 @@ export default {
         <BaseSkeletonLoader v-if="loadingPdaWallet" type="image" />
         <section v-else>
             <v-card-title
-                class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
+                class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                :class="[app ? 'white--text' : 'grey700--text']"
             >
                 Mis indicadores
                 <v-layout justify-end>
                     <v-btn
                         class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                         text
-                        color="blue800"
+                        :color="app ? 'blueProgress600' : 'blue800'"
                         elevation="0"
                         :disabled="pdaWallet.tipoMembrecia != premium"
                         @click="$_goToAbilities"
@@ -76,13 +78,19 @@ export default {
                     <v-layout align-center justify-space-between>
                         <section>
                             <v-card-title
-                                class="buo-word-break grey600--text BUO-Paragraph-Large"
+                                class="buo-word-break BUO-Paragraph-Large"
+                                :class="[
+                                    app
+                                        ? 'blueProgress600--text'
+                                        : 'grey600--text',
+                                ]"
                                 >Conoce tus indicadores
                                 principales:</v-card-title
                             >
 
                             <v-card-text
-                                class="buo-word-break grey700--text BUO-Small-Large"
+                                class="buo-word-break BUO-Small-Large"
+                                :class="[app ? 'white--text' : 'grey700--text']"
                                 >Tus indicadores más fuertes están validadas en
                                 tu Buo Wallet.</v-card-text
                             >
@@ -108,11 +116,12 @@ export default {
             <v-card-actions>
                 <v-layout justify-center align-content-center>
                     <BaseCustomsButtonsGrid
-                        label="Ver todas los indicadores"
+                        label="Ver todos los indicadores"
                         icon="mdi-chevron-right"
                         :isSmall="false"
                         :fnMethod="$_goToAbilities"
                         class="BUO-Paragraph-Small-SemiBold"
+                        :color="app ? 'blueProgress600' : 'blue800'"
                     />
                 </v-layout>
             </v-card-actions>

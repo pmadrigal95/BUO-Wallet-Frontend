@@ -5,6 +5,8 @@
  * @displayName ContactCardViewComponent
  */
 
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'ContactCardViewComponent',
 
@@ -14,6 +16,8 @@ export default {
             default: undefined,
         },
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 };
 </script>
 
@@ -23,7 +27,8 @@ export default {
             <v-expansion-panel>
                 <v-expansion-panel-header>
                     <span
-                        class="buo-word-break BUO-Paragraph-Large-SemiBold grey700--text"
+                        class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                        :class="[app ? 'white--text' : 'grey700--text']"
                         >Contacto</span
                     >
                 </v-expansion-panel-header>

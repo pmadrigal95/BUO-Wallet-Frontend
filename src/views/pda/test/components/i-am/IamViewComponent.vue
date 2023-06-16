@@ -5,6 +5,8 @@
  * @displayName IamViewComponent
  */
 
+import { mapGetters } from 'vuex';
+
 const BaseCardViewComponent = () =>
     import('@/components/core/cards/BaseCardViewComponent');
 
@@ -39,6 +41,8 @@ export default {
         BaseNotificationHelper,
     },
 
+    computed: { ...mapGetters('theme', ['app']) },
+
     methods: {
         $_goBack() {
             this.entity.step = 1;
@@ -71,6 +75,7 @@ export default {
                     dark
                     class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold mt-7"
                     elevation="0"
+                    :color="app ? 'blue800' : 'black'"
                     >Continuar <v-icon right>mdi-arrow-right</v-icon></v-btn
                 >
             </div>

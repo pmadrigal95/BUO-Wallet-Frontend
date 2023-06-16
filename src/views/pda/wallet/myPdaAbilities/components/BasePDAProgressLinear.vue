@@ -19,6 +19,8 @@ export default {
 
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet']),
+
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -41,7 +43,8 @@ export default {
         />
         <v-card flat v-else>
             <v-card-title
-                class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
+                class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                :class="[app ? 'white--text' : 'grey700--text']"
             >
                 Descubre todos tus indicadores
             </v-card-title>

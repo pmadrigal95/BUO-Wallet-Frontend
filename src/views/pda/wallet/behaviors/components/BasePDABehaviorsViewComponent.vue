@@ -54,6 +54,8 @@ export default {
     methods: {
         ...mapActions('pda', ['$_request_pda_wallet']),
 
+        ...mapGetters('theme', ['app']),
+
         $_download() {
             html2canvas.$_download(
                 this.$refs['behaviors'],
@@ -153,6 +155,7 @@ export default {
                                 v-on="on"
                                 class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                                 elevation="0"
+                                :color="app ? 'blueProgress600' : 'blue800'"
                             >
                                 Compartir
                                 <v-icon right>mdi-share-variant-outline</v-icon>
@@ -182,7 +185,8 @@ export default {
             <div slot="card-text">
                 <v-card flat class="rounded-t-xl">
                     <v-card-title
-                        class="buo-word-break grey700--text BUO-Paragraph-Large-SemiBold"
+                        class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                        :class="[app ? 'white--text' : 'grey700--text']"
                     >
                         Ejes de comportamiento
                     </v-card-title>
@@ -195,12 +199,20 @@ export default {
                             >
                                 <v-card flat @click="$_goToDetails(item.id)">
                                     <v-card-title
-                                        class="buo-word-break black--text BUO-Paragraph-Small-SemiBold pb-5"
+                                        class="buo-word-break BUO-Paragraph-Small-SemiBold pb-5"
+                                        :class="[
+                                            app ? 'white--text' : 'black--text',
+                                        ]"
                                     >
                                         {{ item.nombreUI }}
                                     </v-card-title>
                                     <v-card-subtitle
-                                        class="buo-word-break grey600--text BUO-Paragraph-Small"
+                                        class="buo-word-break BUO-Paragraph-Small"
+                                        :class="[
+                                            app
+                                                ? 'blueProgress600--text'
+                                                : 'grey600--text',
+                                        ]"
                                     >
                                         {{ item.descripcionEje }}
                                     </v-card-subtitle>
@@ -214,12 +226,22 @@ export default {
                                             class="d-flex flex-no-wrap justify-space-between buo-word-break"
                                         >
                                             <span
-                                                class="BUO-Label-Small grey600--text"
+                                                class="BUO-Label-Small"
+                                                :class="[
+                                                    app
+                                                        ? 'blueProgress600--text'
+                                                        : 'grey600--text',
+                                                ]"
                                             >
                                                 {{ item.etiquetaIzquierda }}
                                             </span>
                                             <span
-                                                class="BUO-Label-Small grey600--text"
+                                                class="BUO-Label-Small"
+                                                :class="[
+                                                    app
+                                                        ? 'blueProgress600--text'
+                                                        : 'grey600--text',
+                                                ]"
                                             >
                                                 {{ item.etiquetaDerecha }}
                                             </span>

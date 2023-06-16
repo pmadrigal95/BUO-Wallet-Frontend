@@ -4,6 +4,9 @@
  *
  * @displayName BaseShareActions
  */
+
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'BaseShareActions',
 
@@ -31,6 +34,8 @@ export default {
     },
 
     computed: {
+        ...mapGetters('theme', ['app']),
+
         options() {
             return [
                 {
@@ -72,11 +77,11 @@ export default {
                     <v-btn
                         dark
                         depressed
-                        color="black"
                         v-bind="attrs"
                         v-on="on"
                         elevation="0"
                         class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                        color="black"
                     >
                         Compartir
                         <v-icon right>mdi-dots-vertical</v-icon>

@@ -27,6 +27,7 @@ export default {
 
     computed: {
         ...mapGetters('authentication', ['user']),
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -95,7 +96,10 @@ export default {
 
 <template>
     <section>
-        <section class="BUO-Paragraph-Large-SemiBold grey700--text pb-2">
+        <section
+            class="BUO-Paragraph-Large-SemiBold pb-2"
+            :class="[app ? 'white--text' : 'grey700--text']"
+        >
             Disponible para validar ({{ totalAvailableListClean.length }})
         </section>
 
@@ -109,7 +113,15 @@ export default {
                     <v-item v-slot="{ active, toggle }">
                         <v-card
                             flat
-                            :color="active ? 'clouds' : 'grey200'"
+                            :color="
+                                active
+                                    ? app
+                                        ? 'blue700'
+                                        : 'clouds'
+                                    : app
+                                    ? 'grey700'
+                                    : 'grey200'
+                            "
                             class="rounded-lg"
                             @click="toggle"
                         >
@@ -120,17 +132,23 @@ export default {
                                 "
                             >
                                 <v-card-title
-                                    class="BUO-Paragraph-Small buo-word-break grey700--text"
+                                    class="BUO-Paragraph-Small buo-word-break"
+                                    :class="[
+                                        app ? 'white--text' : 'grey700--text',
+                                    ]"
                                 >
                                     {{ microskill.definicion }}
                                 </v-card-title>
 
                                 <v-avatar class="ma-2" tile>
-                                    <v-icon v-if="!active" color="grey700">
+                                    <v-icon
+                                        v-if="!active"
+                                        :color="app ? 'white' : 'grey700'"
+                                    >
                                         mdi-radiobox-blank
                                     </v-icon>
 
-                                    <v-icon v-else color="primary">
+                                    <v-icon v-else color="blue800">
                                         mdi-check-circle
                                     </v-icon>
                                 </v-avatar>

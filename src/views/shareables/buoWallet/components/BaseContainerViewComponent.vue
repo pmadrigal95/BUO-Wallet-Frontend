@@ -59,6 +59,8 @@ export default {
     computed: {
         ...mapGetters('authentication', ['user']),
 
+        ...mapGetters('theme', ['app']),
+
         sharing() {
             return {
                 url: this.link,
@@ -117,11 +119,12 @@ export default {
                         :sharing="sharing"
                     />
                     <v-btn
-                        class="ma-1 no-uppercase rounded-lg Buo-White-Background BUO-Paragraph-Medium-SemiBold"
+                        class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                        :class="[app ? 'grey700' : 'Buo-White-Background']"
                         elevation="0"
                         depressed
                         outlined
-                        color="primary"
+                        :color="app ? 'white' : 'primary'"
                         @click="$_shareBuoWallet"
                     >
                         <span> Compartir </span>

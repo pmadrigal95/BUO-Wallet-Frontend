@@ -25,6 +25,8 @@ export default {
 
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet']),
+
+        ...mapGetters('theme', ['app']),
     },
 
     methods: {
@@ -103,7 +105,8 @@ export default {
                     >
                         <v-card flat>
                             <v-card-text
-                                class="BUO-Paragraph-Large-SemiBold text-center buo-word-break grey700--text"
+                                class="BUO-Paragraph-Large-SemiBold text-center buo-word-break"
+                                :class="[app ? 'white--text' : 'grey700--text']"
                             >
                                 {{ item.habilidad }}
                             </v-card-text>
@@ -147,12 +150,22 @@ export default {
                                     class="rounded-lg"
                                 >
                                     <section
-                                        class="BUO-Label-Small-SemiBold grey700--text"
+                                        class="BUO-Label-Small-SemiBold"
+                                        :class="[
+                                            app
+                                                ? 'white--text'
+                                                : 'grey700--text',
+                                        ]"
                                     >
                                         <b>Sabías que..</b>
                                     </section>
                                     <section
-                                        class="BUO-Label-Small grey700--text"
+                                        class="BUO-Label-Small"
+                                        :class="[
+                                            app
+                                                ? 'white--text'
+                                                : 'grey700--text',
+                                        ]"
                                     >
                                         {{ item.descripcion }}
                                     </section>
@@ -162,7 +175,8 @@ export default {
                         <br />
                         <v-card flat>
                             <v-card-text
-                                class="BUO-Heading-XSmall text-center buo-word-break grey700--text"
+                                class="BUO-Heading-XSmall text-center buo-word-break"
+                                :class="[app ? 'white--text' : 'grey700--text']"
                             >
                                 <section class="pb-3">
                                     <v-icon
@@ -178,12 +192,20 @@ export default {
 
                             <v-card flat class="rounded-lg">
                                 <v-card-title
-                                    class="buo-word-break black--text BUO-Paragraph-Small-SemiBold"
+                                    class="buo-word-break BUO-Paragraph-Small-SemiBold"
+                                    :class="[
+                                        app ? 'white--text' : 'black--text',
+                                    ]"
                                 >
                                     <b>Principales características</b>
                                 </v-card-title>
                                 <v-card-text
-                                    class="BUO-Paragraph-Small buo-word-break grey600--text"
+                                    class="BUO-Paragraph-Small buo-word-break"
+                                    :class="[
+                                        app
+                                            ? 'blueProgress600--text'
+                                            : 'grey600--text',
+                                    ]"
                                 >
                                     {{ item.caracteristicas }}
                                 </v-card-text>

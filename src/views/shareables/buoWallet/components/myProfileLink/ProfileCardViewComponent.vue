@@ -5,6 +5,8 @@
  * @displayName ProfileCardViewComponent
  */
 
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'ProfileCardViewComponent',
 
@@ -14,6 +16,8 @@ export default {
             default: undefined,
         },
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 };
 </script>
 
@@ -30,7 +34,8 @@ export default {
         </v-card-subtitle>
         <v-card-title
             v-if="entity.name"
-            class="buo-word-break BUO-Heading-Small grey700--text"
+            class="buo-word-break BUO-Heading-Small"
+            :class="[app ? 'white--text' : 'grey700--text']"
         >
             {{ entity.name }}
         </v-card-title>

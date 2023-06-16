@@ -13,8 +13,24 @@ export default {
     name: 'BasePDAGraph',
     components: { PDARadarChart },
 
+    data() {
+        return {
+            key: 0,
+        };
+    },
+
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'loadingPdaWallet']),
+
+        ...mapGetters('theme', ['app']),
+    },
+
+    watch: {
+        app: {
+            handler() {
+                this.key++;
+            },
+        },
     },
 
     methods: {
@@ -31,8 +47,9 @@ export default {
             :profile="
                 $vuetify.theme.themes.light[pdaWallet.perfilPDA.toLowerCase()]
             "
-            :dark="false"
+            :dark="app ? true : false"
             class="pb-4"
+            :key="key"
         />
 
         <v-card-text>
@@ -44,10 +61,16 @@ export default {
                 class="rounded-lg"
                 dismissible
             >
-                <section class="grey700--text BUO-Label-Small-SemiBold">
+                <section
+                    class="BUO-Label-Small-SemiBold"
+                    :class="[app ? 'white--text' : 'grey700--text']"
+                >
                     <b>Importante</b>
                 </section>
-                <span class="grey700--text BUO-Label-Small">
+                <span
+                    class="BUO-Label-Small"
+                    :class="[app ? 'white--text' : 'grey700--text']"
+                >
                     El porcentaje en cada indicador no indica la falta o
                     presencia de la misma, sino cuanto esfuerzo toma desempeñar
                     ese indicador.

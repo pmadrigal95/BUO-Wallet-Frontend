@@ -5,9 +5,13 @@
  * @displayName menuCardViewComponent
  */
 
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'menuCardViewComponent',
     computed: {
+        ...mapGetters('theme', ['app']),
+
         menuItems() {
             return [
                 {
@@ -49,19 +53,23 @@ export default {
                 :to="{ name: item.module }"
             >
                 <v-card-title
-                    ><v-icon color="primary" large style="padding-bottom: 7px"
+                    ><v-icon
+                        :color="app ? 'blueProgress600' : 'blue800'"
+                        large
+                        style="padding-bottom: 7px"
                         >mdi-{{ item.icon }}</v-icon
                     ></v-card-title
                 >
                 <v-card-subtitle
-                    class="BUO-Paragraph-Small-SemiBold black--text"
+                    class="BUO-Paragraph-Small-SemiBold"
+                    :class="[app ? 'white--text' : 'black--text']"
                     >{{ item.subtitle }}</v-card-subtitle
                 >
                 <v-card-actions
                     ><v-btn
                         class="no-uppercase rounded-lg BUO-Label-XSmall-SemiBold"
                         text
-                        color="blue800"
+                        :color="app ? 'blueProgress600' : 'blue800'"
                         elevation="0"
                     >
                         Ver más
@@ -86,21 +94,22 @@ export default {
                     >
                         <v-card-title
                             ><v-icon
-                                color="primary"
+                                :color="app ? 'blueProgress600' : 'blue800'"
                                 large
                                 style="padding-bottom: 7px"
                                 >mdi-{{ item.icon }}</v-icon
                             ></v-card-title
                         >
                         <v-card-subtitle
-                            class="BUO-Paragraph-Small-SemiBold black--text"
+                            class="BUO-Paragraph-Small-SemiBold"
+                            :class="[app ? 'white--text' : 'black--text']"
                             >{{ item.subtitle }}</v-card-subtitle
                         >
                         <v-card-actions
                             ><v-btn
                                 class="no-uppercase rounded-lg BUO-Label-XSmall-SemiBold"
                                 text
-                                color="blue800"
+                                :color="app ? 'blueProgress600' : 'blue800'"
                                 elevation="0"
                             >
                                 Ver más

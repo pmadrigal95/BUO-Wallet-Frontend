@@ -30,6 +30,8 @@ export default {
     computed: {
         ...mapGetters('security', ['permissionList', 'loadingSecurity']),
 
+        ...mapGetters('theme', ['app']),
+
         $_shareables() {
             return this.permissionList.find(
                 (x) => x.nombre === 'ShareablesView'
@@ -62,11 +64,14 @@ export default {
                     <v-menu offset-y rounded>
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn
-                                class="ma-1 no-uppercase rounded-lg Buo-White-Background"
+                                class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                                :class="[
+                                    app ? 'grey700' : 'Buo-White-Background',
+                                ]"
                                 elevation="0"
                                 depressed
                                 outlined
-                                color="primary"
+                                :color="app ? 'white' : 'primary'"
                                 v-bind="attrs"
                                 v-on="on"
                             >

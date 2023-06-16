@@ -5,6 +5,8 @@
  * @displayName myAbilitiesLinkViewComponent
  */
 
+import { mapGetters } from 'vuex';
+
 const BaseShareableMyAbilitiesList = () =>
     import(
         '@/views/shareables/buoWallet/components/myAbilitiesLink/components/BaseShareableMyAbilitiesList'
@@ -21,6 +23,8 @@ export default {
     },
 
     computed: {
+        ...mapGetters('theme', ['app']),
+
         abilitiesList() {
             return this.entity.habilidades.filter(
                 (x) => x.porcentajeCertificado >= 0.5
@@ -44,7 +48,8 @@ export default {
             <v-expansion-panel>
                 <v-expansion-panel-header>
                     <span
-                        class="buo-word-break BUO-Paragraph-Large-SemiBold grey700--text"
+                        class="buo-word-break BUO-Paragraph-Large-SemiBold"
+                        :class="[app ? 'white--text' : 'grey700--text']"
                         >Mis indicadores</span
                     >
                 </v-expansion-panel-header>
