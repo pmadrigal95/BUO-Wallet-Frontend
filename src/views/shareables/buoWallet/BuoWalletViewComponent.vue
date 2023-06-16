@@ -33,7 +33,7 @@ export default {
         },
     },
 
-    created() {
+    mounted() {
         this.$_reviewStatus();
 
         //TODO: How to implement on vue router the background config

@@ -32,7 +32,7 @@ export default {
 
         elevation: {
             type: String,
-            default: '20',
+            default: '0',
         },
     },
 
@@ -55,11 +55,10 @@ export default {
             :elevation="elevation"
             :width="$vuetify.breakpoint.mobile ? '100%' : '70%'"
             :height="$vuetify.breakpoint.mobile ? '100%' : '100%'"
-            class="rounded-t-xl"
+            class="rounded-t-xl pa-8"
         >
             <v-row justify="center" align-content="center">
                 <v-col cols="12">
-                    <br />
                     <v-img
                         contain
                         height="250"
@@ -70,6 +69,7 @@ export default {
 
                 <section>
                     <v-card-title
+                        class="pa-1"
                         :class="[
                             $vuetify.breakpoint.smAndDown
                                 ? 'BUO-Heading-Small text-center buo-word-break'
@@ -82,6 +82,7 @@ export default {
 
                 <v-col cols="12">
                     <v-card-subtitle
+                        class="pa-0"
                         :class="[
                             $vuetify.breakpoint.smAndDown
                                 ? 'BUO-Paragraph-Small text-center'
@@ -94,6 +95,7 @@ export default {
 
                 <v-col cols="12">
                     <v-card-text
+                        class="pa-0"
                         v-if="comment"
                         :class="[
                             $vuetify.breakpoint.smAndDown
@@ -109,7 +111,6 @@ export default {
                     <slot name="btns"></slot>
                 </v-col>
             </v-row>
-            <br />
         </v-card>
     </v-row>
 </template>

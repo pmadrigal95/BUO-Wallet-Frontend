@@ -88,55 +88,51 @@ export default {
 </script>
 
 <template>
-    <v-container>
-        <br />
-        <BaseNotificationCardTemplate
-            title="¡Felicidades!"
-            subtitle="Tu indicador está en camino..."
-            comment="Tu solicitud ha sido enviada. Una vez que sea aprobada, tu indicador aparecerá validada en tu Buo Wallet. ¡Sigue validando más indicadores!"
-        >
-            <div slot="btns">
-                <v-row>
-                    <v-col
-                        cols="12"
-                        v-if="entity.type == 'new' && entity.qualifications"
+    <BaseNotificationCardTemplate
+        title="¡Felicidades!"
+        subtitle="Tu indicador está en camino..."
+        comment="Tu solicitud ha sido enviada. Una vez que sea aprobada, tu indicador aparecerá validada en tu Buo Wallet. ¡Sigue validando más indicadores!"
+    >
+        <div slot="btns">
+            <v-row>
+                <v-col
+                    cols="12"
+                    v-if="entity.type == 'new' && entity.qualifications"
+                >
+                    <v-layout
+                        align-center
+                        justify-center
+                        v-if="entity.qualifications.length > 0"
                     >
-                        <v-layout
-                            align-center
-                            justify-center
-                            v-if="entity.qualifications.length > 0"
+                        <v-btn
+                            @click="$_continueCetification"
+                            class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                            color="primary"
+                            elevation="0"
+                            dark
+                            :block="
+                                $vuetify.breakpoint.smAndDown ? false : true
+                            "
+                            >Seguir validando</v-btn
                         >
-                            <v-btn
-                                @click="$_continueCetification"
-                                class="no-uppercase rounded-lg"
-                                color="primary"
-                                elevation="0"
-                                dark
-                                :block="
-                                    $vuetify.breakpoint.smAndDown ? false : true
-                                "
-                                >Seguir validando</v-btn
-                            >
-                        </v-layout>
-                    </v-col>
-                    <v-col cols="12">
-                        <v-layout align-center justify-center>
-                            <v-btn
-                                @click="$_goToMyAbilities"
-                                color="primary"
-                                elevation="0"
-                                text
-                                :block="
-                                    $vuetify.breakpoint.smAndDown ? false : true
-                                "
-                                class="no-uppercase rounded-lg"
-                                >Ir a mi Buo Wallet</v-btn
-                            >
-                        </v-layout>
-                    </v-col>
-                </v-row>
-            </div>
-        </BaseNotificationCardTemplate>
-        <br />
-    </v-container>
+                    </v-layout>
+                </v-col>
+                <v-col cols="12">
+                    <v-layout align-center justify-center>
+                        <v-btn
+                            @click="$_goToMyAbilities"
+                            color="primary"
+                            elevation="0"
+                            text
+                            :block="
+                                $vuetify.breakpoint.smAndDown ? false : true
+                            "
+                            class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                            >Ir a mi Buo Wallet</v-btn
+                        >
+                    </v-layout>
+                </v-col>
+            </v-row>
+        </div>
+    </BaseNotificationCardTemplate>
 </template>

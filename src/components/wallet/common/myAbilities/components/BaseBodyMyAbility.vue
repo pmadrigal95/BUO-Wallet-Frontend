@@ -117,7 +117,7 @@ export default {
             ></BaseGroupAvatar
         ></v-card-subtitle>
 
-        <v-card-actions>
+        <v-card-actions class="pb-3 pr-3">
             <v-layout justify-end>
                 <v-btn
                     class="no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"

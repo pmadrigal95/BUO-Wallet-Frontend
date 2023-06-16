@@ -44,13 +44,8 @@ export default {
             <v-expansion-panel>
                 <v-expansion-panel-header>
                     <span
-                        class="buo-word-break"
-                        :class="[
-                            $vuetify.breakpoint.smAndDown
-                                ? 'BUO-Paragraph-Medium'
-                                : 'BUO-Paragraph-Large',
-                        ]"
-                        >Mis habilidades</span
+                        class="buo-word-break BUO-Paragraph-Large-SemiBold grey700--text"
+                        >Mis indicadores</span
                     >
                 </v-expansion-panel-header>
 

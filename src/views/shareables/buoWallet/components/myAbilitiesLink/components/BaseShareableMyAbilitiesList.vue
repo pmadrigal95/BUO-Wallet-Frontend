@@ -40,7 +40,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <section>
         <!-- @ Use Loanding... -->
         <BaseSkeletonLoader v-if="!myAbilitiesList" type="list-item" />
 
@@ -60,5 +60,5 @@ export default {
         </v-expansion-panels>
 
         <BaseNotFoundContent v-else />
-    </div>
+    </section>
 </template>

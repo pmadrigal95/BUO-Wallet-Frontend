@@ -87,7 +87,7 @@ export default {
 <template>
     <v-card flat>
         <v-card-text
-            class="BUO-Paragraph-Medium buo-none-word-break black--text"
+            class="BUO-Paragraph-Small buo-none-word-break black--text"
             v-if="ability.proposito"
         >
             {{ ability.proposito }}

@@ -117,7 +117,7 @@ export default {
                         :sharing="sharing"
                     />
                     <v-btn
-                        class="ma-1 no-uppercase rounded-lg Buo-White-Background"
+                        class="ma-1 no-uppercase rounded-lg Buo-White-Background BUO-Paragraph-Medium-SemiBold"
                         elevation="0"
                         depressed
                         outlined
@@ -135,13 +135,9 @@ export default {
             <v-row justify="center" align-content="center">
                 <ProfileCardViewComponent :entity="entity" />
             </v-row>
-            <br />
-            <br />
-            <v-row justify="center" align-content="center">
+            <v-row justify="center" align-content="center" class="my-7">
                 <myAbilitiesLinkViewComponent :entity="entity" />
             </v-row>
-            <br />
-            <br />
             <v-row justify="center" align-content="center">
                 <ContactCardViewComponent :entity="entity" />
             </v-row>
