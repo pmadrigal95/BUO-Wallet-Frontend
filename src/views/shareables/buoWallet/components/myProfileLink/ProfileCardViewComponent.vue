@@ -30,12 +30,7 @@ export default {
         </v-card-subtitle>
         <v-card-title
             v-if="entity.name"
-            class="buo-word-break"
-            :class="[
-                $vuetify.breakpoint.smAndDown
-                    ? 'BUO-Heading-Small'
-                    : 'BUO-Heading-Medium',
-            ]"
+            class="buo-word-break BUO-Heading-Small grey700--text"
         >
             {{ entity.name }}
         </v-card-title>
