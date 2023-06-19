@@ -82,7 +82,7 @@ export default {
         },
 
         open() {
-            const url = `${window.location.origin}/TermsAndConditions`;
+            const url = `${window.location.origin}/termsandconditions`;
             window.open(url, '_blank');
         },
 
