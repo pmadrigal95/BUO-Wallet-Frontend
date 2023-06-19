@@ -49,6 +49,7 @@ export default {
         temporary
         :width="width"
         class="rounded-l-xl"
+        :color="app ? '#1e1e1e' : 'white'"
     >
         <v-card max-height="100%" max-width="100%" flat class="rounded-b-0">
             <v-toolbar dense flat class="fixed-bar" v-if="!persistent">
