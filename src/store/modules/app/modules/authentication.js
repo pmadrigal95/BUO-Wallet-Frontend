@@ -49,7 +49,6 @@ const $_setUserStatus = (decoded, isNewUser) => {
         email: decoded?.sub,
         name: decoded?.name,
         userId: decoded?.userId,
-        tokens: decoded?.tokens,
         photoUrl: undefined, //decoded?.photoUrl,
         companyId: decoded?.companyId,
         isNewUser: isNewUser ? isNewUser : decoded?.isNewUser,

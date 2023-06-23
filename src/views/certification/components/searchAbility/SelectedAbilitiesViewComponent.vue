@@ -10,8 +10,6 @@ import { mapGetters } from 'vuex';
 const BaseCardViewComponent = () =>
     import('@/components/core/cards/BaseCardViewComponent');
 
-const BaseCardTokens = () => import('@/components/wallet/BaseCardTokens');
-
 export default {
     name: 'SelectedAbilitiesViewComponent',
 
@@ -36,7 +34,6 @@ export default {
 
     components: {
         BaseCardViewComponent,
-        BaseCardTokens,
     },
 
     methods: {
@@ -76,13 +73,9 @@ export default {
 <template>
     <BaseCardViewComponent
         title="Valida tu primera indicador"
-        subtitle="¡Te regalamos tus primeros 20 tokens para que puedas empezar a validar tus indicadores! Selecciona que indicador quieres validar primero."
+        subtitle="Selecciona que indicador quieres validar primero."
         :btnAction="$_goBack"
     >
-        <div slot="card-text">
-            <BaseCardTokens />
-        </div>
-
         <div slot="body">
             <v-card flat class="rounded-lg" color="transparent">
                 <v-card-title
