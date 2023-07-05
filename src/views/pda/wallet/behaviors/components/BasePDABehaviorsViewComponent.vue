@@ -29,6 +29,8 @@ export default {
     computed: {
         ...mapGetters('pda', ['pdaWallet', 'premium']),
 
+        ...mapGetters('theme', ['app']),
+
         options() {
             return [
                 {
@@ -53,8 +55,6 @@ export default {
 
     methods: {
         ...mapActions('pda', ['$_request_pda_wallet']),
-
-        ...mapGetters('theme', ['app']),
 
         $_download() {
             html2canvas.$_download(
