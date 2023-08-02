@@ -5,6 +5,8 @@
  * @displayName BaseSearchCategory
  */
 
+import { mapGetters } from 'vuex';
+
 import httpService from '@/services/axios/httpService';
 
 import baseSharedFnHelper from '@/helpers/baseSharedFnHelper.js';
@@ -45,6 +47,8 @@ export default {
             componentKey: 0,
         };
     },
+
+    computed: { ...mapGetters('theme', ['app']) },
 
     methods: {
         forceRerender() {
@@ -182,92 +186,105 @@ export default {
             scrollable
         >
             <div slot="Content">
-                <br />
                 <BaseCardViewComponent
                     title="Filtra por categoría"
                     md="12"
                     offset="0"
                     :key="componentKey"
+                    class="pt-3"
                 >
-                    <div slot="card-text">
-                        <v-row align-content="center" justify="center">
-                            <v-col cols="12">
-                                <BaseInput
-                                    label="Buscar"
-                                    v-model="name"
-                                    :max="50"
-                                    hint="Ejemplo: Habilidades blandas"
-                                    persistent-hint
-                                    appendIcon="mdi-magnify"
-                                    clearable
-                                    @keydown.enter="$_sendToApi"
-                                    @click:append="$_sendToApi"
-                                    @click:clear="$_clearFilter"
-                                />
-                            </v-col>
-                            <v-col cols="12">
-                                <BaseSkeletonLoader
-                                    v-if="loading"
-                                    type="list-item-avatar"
-                                />
-                                <v-row
-                                    align-content="center"
-                                    v-else-if="categories.length > 0"
-                                >
-                                    <v-chip-group
-                                        multiple
-                                        column
-                                        v-model="categoriesSelected"
-                                        active-class="primary--text"
-                                    >
-                                        <v-chip
-                                            style="
-                                                height: auto;
-                                                white-space: normal;
-                                            "
-                                            small
-                                            v-for="category in categories"
-                                            :key="category.id"
-                                            filter
-                                            filter-icon="mdi-check-circle"
-                                            @click="
-                                                $_setCategoriesTemp(category.id)
-                                            "
-                                        >
-                                            <span>
-                                                {{ category.nombre }}
-                                            </span>
-                                        </v-chip>
-                                    </v-chip-group>
-                                </v-row>
-
-                                <BaseNotFoundContent
-                                    v-else-if="categories.length <= 0"
-                                    msg="No encontramos resultados."
-                                />
-                            </v-col>
-                        </v-row>
-                    </div>
-
                     <div slot="body">
-                        <v-btn
-                            elevation="0"
-                            block
-                            dark
-                            :color="
-                                categoriesTemp.length > 0
-                                    ? 'primary'
-                                    : 'grey500'
-                            "
-                            class="no-uppercase rounded-lg"
-                            @click="$_sendToSearchAbilities"
-                            >Agregar
-                            {{
-                                categoriesTemp.length > 0
-                                    ? '(' + categoriesTemp.length + ')'
-                                    : ''
-                            }}</v-btn
-                        >
+                        <v-card flat>
+                            <v-card-text>
+                                <v-row align-content="center" justify="center">
+                                    <v-col cols="12">
+                                        <BaseInput
+                                            label="Buscar"
+                                            v-model="name"
+                                            :max="50"
+                                            hint="Ejemplo: Habilidades blandas"
+                                            persistent-hint
+                                            appendIcon="mdi-magnify"
+                                            clearable
+                                            @keydown.enter="$_sendToApi"
+                                            @click:append="$_sendToApi"
+                                            @click:clear="$_clearFilter"
+                                        />
+                                    </v-col>
+                                    <v-col cols="12">
+                                        <BaseSkeletonLoader
+                                            v-if="loading"
+                                            type="list-item-avatar"
+                                        />
+                                        <v-row
+                                            align-content="center"
+                                            v-else-if="categories.length > 0"
+                                        >
+                                            <v-chip-group
+                                                multiple
+                                                column
+                                                v-model="categoriesSelected"
+                                                active-class="primary--text"
+                                            >
+                                                <v-chip
+                                                    style="
+                                                        height: auto;
+                                                        white-space: normal;
+                                                    "
+                                                    small
+                                                    v-for="category in categories"
+                                                    :key="category.id"
+                                                    filter
+                                                    filter-icon="mdi-check-circle"
+                                                    @click="
+                                                        $_setCategoriesTemp(
+                                                            category.id
+                                                        )
+                                                    "
+                                                >
+                                                    <span>
+                                                        {{ category.nombre }}
+                                                    </span>
+                                                </v-chip>
+                                            </v-chip-group>
+                                        </v-row>
+
+                                        <BaseNotFoundContent
+                                            v-else-if="categories.length <= 0"
+                                            msg="No encontramos resultados."
+                                        />
+                                    </v-col>
+                                </v-row>
+                            </v-card-text>
+
+                            <v-card-actions
+                                class="buo-footer pt-5 pb-5"
+                                :class="[app ? '#1e1e1e' : 'white']"
+                            >
+                                <v-layout align-end justify-center>
+                                    <v-btn
+                                        elevation="0"
+                                        block
+                                        dark
+                                        :color="
+                                            categoriesTemp.length > 0
+                                                ? 'primary'
+                                                : 'grey500'
+                                        "
+                                        class="no-uppercase rounded-lg"
+                                        @click="$_sendToSearchAbilities"
+                                        >Agregar
+                                        {{
+                                            categoriesTemp.length > 0
+                                                ? '(' +
+                                                  categoriesTemp.length +
+                                                  ')'
+                                                : ''
+                                        }}</v-btn
+                                    >
+                                </v-layout>
+                            </v-card-actions>
+                        </v-card>
                     </div>
                 </BaseCardViewComponent>
             </div>

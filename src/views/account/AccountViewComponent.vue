@@ -16,9 +16,15 @@ export default {
     components: {
         BaseAdvancedCropperDialog,
     },
+
+    methods: {
+        test() {
+            console.log('object');
+        },
+    },
 };
 </script>
 
 <template>
-    <BaseAdvancedCropperDialog />
+    <BaseAdvancedCropperDialog :callback="test" />
 </template>

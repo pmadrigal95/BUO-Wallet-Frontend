@@ -6,16 +6,32 @@ import 'vue-advanced-cropper/dist/style.css';
 import BaseNavigationCropper from '@/components/core/avatars/BaseNavigationCropper.vue';
 
 export default {
+    name: 'BaseAdvancedCropperDialog',
+
+    props: {
+        callback: {
+            type: Function,
+            requiered: true,
+        },
+
+        onCancel: {
+            type: Function,
+            default: undefined,
+        },
+    },
+
     components: {
         Cropper,
         BaseNavigationCropper,
     },
+
     data() {
         return {
             zoom: 0,
-            img: 'https://images.unsplash.com/photo-1485178575877-1a13bf489dfe?ixlib=rb-1.2.1&auto=format&fit=crop&w=991&q=80',
+            img: 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light',
         };
     },
+
     methods: {
         defaultSize({ imageSize }) {
             return {
@@ -82,33 +98,35 @@ export default {
 </script>
 
 <template>
-    <section>
-        <cropper
-            ref="cropper"
-            class="cropper"
-            background-class="cropper__background"
-            foreground-class="cropper__foreground"
-            image-restriction="stencil"
-            stencil-component="circle-stencil"
-            :stencil-size="stencilSize"
-            :stencil-props="{
-                lines: {},
-                handlers: {},
-                movable: false,
-                scalable: false,
-                aspectRatio: 1,
-            }"
-            :transitions="false"
-            :canvas="false"
-            :debounce="false"
-            :default-size="defaultSize"
-            :min-width="150"
-            :min-height="150"
-            :src="img"
-            @change="onChange"
-        />
-        <BaseNavigationCropper :zoom="zoom" @change="onZoom" />
-    </section>
+    <BaseForm :method="callback" :cancel="onCancel">
+        <div slot="body">
+            <cropper
+                ref="cropper"
+                class="cropper"
+                background-class="cropper__background"
+                foreground-class="cropper__foreground"
+                image-restriction="stencil"
+                stencil-component="circle-stencil"
+                :stencil-size="stencilSize"
+                :stencil-props="{
+                    lines: {},
+                    handlers: {},
+                    movable: false,
+                    scalable: false,
+                    aspectRatio: 1,
+                }"
+                :transitions="false"
+                :canvas="false"
+                :debounce="false"
+                :default-size="defaultSize"
+                :min-width="120"
+                :min-height="120"
+                :src="img"
+                @change="onChange"
+            />
+            <BaseNavigationCropper :zoom="zoom" @change="onZoom" />
+        </div>
+    </BaseForm>
 </template>
 
 <style lang="scss">
@@ -116,9 +134,11 @@ export default {
     height: auto;
     &__background {
         background-color: #edf2f4;
+        border-radius: 20px;
     }
     &__foreground {
         background-color: #edf2f4;
+        border-radius: 20px;
     }
 }
 </style>

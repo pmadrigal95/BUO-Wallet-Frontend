@@ -207,55 +207,52 @@ export default {
 
             <v-row align-content="center" justify="center">
                 <BaseSkeletonLoader v-if="loading" type="list-item-avatar" />
-                <v-row v-else-if="qualificationList.length > 0">
-                    <v-col cols="12">
-                        <v-card
-                            flat
-                            color="transparent"
-                            class="overflow-auto"
-                            :height="qualificationList.length > 5 ? 350 : 250"
-                        >
-                            <v-card-text>
-                                <v-list-item-group
-                                    multiple
-                                    v-model="qualificationSelected"
-                                >
-                                    <div
-                                        v-for="item in qualificationList"
-                                        :key="item.id"
-                                    >
-                                        <v-list-item
-                                            :key="item.id"
-                                            :value="item.id"
-                                            @click="$_setQualification(item)"
-                                        >
-                                            <template
-                                                v-slot:default="{ active }"
-                                            >
-                                                <v-list-item-action>
-                                                    <v-checkbox
-                                                        :input-value="active"
-                                                    ></v-checkbox>
-                                                </v-list-item-action>
 
-                                                <v-list-item-content>
-                                                    <v-list-item-title
-                                                        ><span
-                                                            class="buo-white-space BUO-Paragraph-Medium grey700--text"
-                                                        ></span
-                                                        >{{
-                                                            item.definicion
-                                                        }}</v-list-item-title
-                                                    >
-                                                </v-list-item-content>
-                                            </template>
-                                        </v-list-item>
-                                    </div>
-                                </v-list-item-group>
-                            </v-card-text>
-                        </v-card>
-                    </v-col>
-                </v-row>
+                <v-card
+                    flat
+                    color="transparent"
+                    class="overflow-auto"
+                    :height="qualificationList.length > 5 ? 350 : 250"
+                    width="100%"
+                    v-else-if="qualificationList.length > 0"
+                >
+                    <v-card-text>
+                        <v-list-item-group
+                            multiple
+                            v-model="qualificationSelected"
+                        >
+                            <div
+                                v-for="item in qualificationList"
+                                :key="item.id"
+                            >
+                                <v-list-item
+                                    :key="item.id"
+                                    :value="item.id"
+                                    @click="$_setQualification(item)"
+                                >
+                                    <template v-slot:default="{ active }">
+                                        <v-list-item-action>
+                                            <v-checkbox
+                                                :input-value="active"
+                                            ></v-checkbox>
+                                        </v-list-item-action>
+
+                                        <v-list-item-content>
+                                            <v-list-item-title
+                                                ><span
+                                                    class="buo-white-space BUO-Paragraph-Medium grey700--text"
+                                                ></span
+                                                >{{
+                                                    item.definicion
+                                                }}</v-list-item-title
+                                            >
+                                        </v-list-item-content>
+                                    </template>
+                                </v-list-item>
+                            </div>
+                        </v-list-item-group>
+                    </v-card-text>
+                </v-card>
 
                 <BaseNotFoundContent
                     v-else-if="qualificationList.length <= 0 && searchCount > 0"

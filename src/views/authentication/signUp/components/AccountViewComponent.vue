@@ -125,7 +125,7 @@ export default {
                                     labelBtn="Crear Cuenta"
                                     v-else
                                 >
-                                    <div
+                                    <section
                                         slot="body"
                                         class="BUO-Paragraph-Medium"
                                     >
@@ -178,10 +178,10 @@ export default {
                                                 </v-checkbox>
                                             </v-col>
                                         </v-row>
-                                    </div>
+                                    </section>
 
                                     <div slot="btns">
-                                        <div class="mb-4">
+                                        <section class="mb-4">
                                             <h5
                                                 class="text-center neutral--text mt-4 mb-3 BUO-Paragraph-Medium"
                                             >
@@ -200,7 +200,7 @@ export default {
                                                     :fn="$_facebookAuth"
                                                 />
                                             </v-row>
-                                        </div>
+                                        </section>
                                         <div
                                             class="BUO-Paragraph-Medium text-center"
                                             @click="
