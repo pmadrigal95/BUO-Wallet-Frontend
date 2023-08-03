@@ -9,6 +9,16 @@ export default {
     name: 'BaseAdvancedCropperDialog',
 
     props: {
+        blob: {
+            type: String,
+            requiered: true,
+        },
+
+        type: {
+            type: String,
+            requiered: true,
+        },
+
         callback: {
             type: Function,
             requiered: true,
@@ -28,7 +38,6 @@ export default {
     data() {
         return {
             zoom: 0,
-            img: 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light',
         };
     },
 
@@ -121,7 +130,7 @@ export default {
                 :default-size="defaultSize"
                 :min-width="120"
                 :min-height="120"
-                :src="img"
+                :src="blob"
                 @change="onChange"
             />
             <BaseNavigationCropper :zoom="zoom" @change="onZoom" />

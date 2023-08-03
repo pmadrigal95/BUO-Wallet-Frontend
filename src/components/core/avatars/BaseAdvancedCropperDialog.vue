@@ -1,4 +1,8 @@
 <script>
+import baseFnFile from '@/helpers/baseFnFile';
+
+import baseLocalHelper from '@/helpers/baseLocalHelper';
+
 const BaseAdvancedCropper = () =>
     import('@/components/core/avatars/BaseAdvancedCropper');
 
@@ -28,6 +32,7 @@ export default {
     data() {
         return {
             componentKey: 0,
+            image: this.$_object(),
         };
     },
 
@@ -37,13 +42,28 @@ export default {
                 {
                     title: 'Cargar foto',
                     icon: 'account',
-                    action: this.$_open,
+                    action: this.$_getFile,
                 },
             ];
         },
     },
 
+    destroyed() {
+        // Revoke the object URL, to allow the garbage collector to destroy the uploaded before file
+        if (this.image.src) {
+            URL.revokeObjectURL(this.image.src);
+        }
+    },
+
     methods: {
+        $_object() {
+            return {
+                src: undefined,
+                type: undefined,
+                file: undefined,
+            };
+        },
+
         forceRerender() {
             this.componentKey += 1;
         },
@@ -51,6 +71,57 @@ export default {
         $_open() {
             this.$refs['popUp'].$_openModal();
             this.forceRerender();
+        },
+
+        $_validateFile(file) {
+            if (
+                !baseFnFile.$_isCorrectExtension(
+                    file,
+                    baseFnFile.$_extensionsName.imagenes
+                )
+            ) {
+                console.log(
+                    baseLocalHelper.$_MsgFileAllowedExtensionInvalid(
+                        'Foto de perfil',
+                        'una fotografía'
+                    )
+                );
+                return false;
+            }
+
+            if (
+                !baseFnFile.$_isCorrectMime(
+                    this.image['file'],
+                    baseFnFile.$_extensionsName.imagenes
+                )
+            ) {
+                console.log(
+                    baseLocalHelper.$_MsgFileAllowedMimeInvalid(
+                        'Foto de perfil',
+                        'una fotografía'
+                    )
+                );
+                return false;
+            }
+
+            return true;
+        },
+
+        $_validateUpload(result) {
+            this.image = this.$_object();
+            this.image = baseFnFile.$_uploadCallback(result);
+
+            if (!this.$_validateFile(this.image['file'])) return;
+
+            this.$_open();
+        },
+
+        $_upload(event) {
+            baseFnFile.$_upload(event, this.$_validateUpload);
+        },
+
+        $_getFile() {
+            this.$refs.file.click();
         },
     },
 };
@@ -69,9 +140,12 @@ export default {
                     class="mx-auto"
                     md="12"
                     offset="0"
+                    v-if="image && image.src && image.type"
                 >
                     <div slot="card-text">
                         <BaseAdvancedCropper
+                            :blob="image.src"
+                            :type="image.type"
                             :onCancel="$_open"
                             :callback="callback"
                         />
@@ -112,5 +186,13 @@ export default {
                 </v-list>
             </v-menu>
         </v-layout>
+
+        <input
+            v-show="false"
+            type="file"
+            ref="file"
+            @change="$_upload($event)"
+            accept="image/*"
+        />
     </section>
 </template>
