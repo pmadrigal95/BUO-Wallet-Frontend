@@ -1,4 +1,6 @@
 <script>
+import { mapState } from 'vuex';
+
 import { Cropper } from 'vue-advanced-cropper';
 
 import 'vue-advanced-cropper/dist/style.css';
@@ -39,6 +41,10 @@ export default {
         return {
             zoom: 0,
         };
+    },
+
+    computed: {
+        ...mapState('theme', ['app']),
     },
 
     methods: {
@@ -102,38 +108,81 @@ export default {
                 }
             }
         },
+
+        flip(x, y) {
+            this.$refs.cropper.flip(x, y);
+        },
+
+        rotate90() {
+            this.$refs.cropper.rotate(90);
+        },
+
+        crop() {
+            const { canvas } = this.$refs.cropper.getResult();
+            if (canvas) {
+                console.log(canvas);
+                canvas.toBlob((blob) => {
+                    console.log(blob);
+                    // Perhaps you should add the setting appropriate file format here
+                }, 'image/jpeg');
+            }
+        },
     },
 };
 </script>
 
 <template>
-    <BaseForm :method="callback" :cancel="onCancel">
+    <BaseForm :method="crop" :cancel="onCancel">
         <div slot="body">
-            <cropper
-                ref="cropper"
-                class="cropper"
-                background-class="cropper__background"
-                foreground-class="cropper__foreground"
-                image-restriction="stencil"
-                stencil-component="circle-stencil"
-                :stencil-size="stencilSize"
-                :stencil-props="{
-                    lines: {},
-                    handlers: {},
-                    movable: false,
-                    scalable: false,
-                    aspectRatio: 1,
-                }"
-                :transitions="false"
-                :canvas="false"
-                :debounce="false"
-                :default-size="defaultSize"
-                :min-width="120"
-                :min-height="120"
-                :src="blob"
-                @change="onChange"
-            />
-            <BaseNavigationCropper :zoom="zoom" @change="onZoom" />
+            <div class="cropper-wrapper">
+                <div
+                    :style="{ backgroundImage: 'url(' + blob + ')' }"
+                    class="image-background"
+                ></div>
+                <cropper
+                    ref="cropper"
+                    class="cropper"
+                    background-class="cropper__background"
+                    foreground-class="cropper__foreground"
+                    image-restriction="stencil"
+                    stencil-component="circle-stencil"
+                    :stencil-size="stencilSize"
+                    :stencil-props="{
+                        lines: {},
+                        handlers: {},
+                        movable: false,
+                        scalable: false,
+                        aspectRatio: 1,
+                    }"
+                    :transitions="false"
+                    :canvas="true"
+                    :debounce="false"
+                    :default-size="defaultSize"
+                    :min-width="120"
+                    :min-height="120"
+                    :src="blob"
+                    @change="onChange"
+                />
+                <BaseNavigationCropper :zoom="zoom" @change="onZoom" />
+            </div>
+        </div>
+
+        <div slot="afterForm">
+            <v-layout justify-end>
+                <v-btn icon :color="app ? 'clouds' : 'black'">
+                    <v-icon large @click="rotate90" small>mdi-refresh</v-icon>
+                </v-btn>
+
+                <v-btn icon :color="app ? 'clouds' : 'black'">
+                    <v-icon @click="flip" small>mdi-flip-horizontal</v-icon>
+                </v-btn>
+
+                <v-btn icon :color="app ? 'clouds' : 'black'">
+                    <v-icon @click="flip(false, true)" small
+                        >mdi-flip-vertical</v-icon
+                    >
+                </v-btn>
+            </v-layout>
         </div>
     </BaseForm>
 </template>
@@ -148,6 +197,26 @@ export default {
     &__foreground {
         background-color: #edf2f4;
         border-radius: 20px;
+    }
+
+    .cropper-wrapper {
+        overflow: hidden;
+        position: relative;
+        height: 400px;
+        background: black;
+    }
+    .cropper-background {
+        background: none;
+    }
+    .image-background {
+        position: absolute;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        left: -10px;
+        top: -10px;
+        background-size: cover;
+        background-position: 50%;
+        filter: blur(5px);
     }
 }
 </style>

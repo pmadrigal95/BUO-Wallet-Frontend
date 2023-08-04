@@ -3,6 +3,8 @@ import baseFnFile from '@/helpers/baseFnFile';
 
 import baseLocalHelper from '@/helpers/baseLocalHelper';
 
+import baseNotificationsHelper from '@/helpers/baseNotificationsHelper';
+
 const BaseAdvancedCropper = () =>
     import('@/components/core/avatars/BaseAdvancedCropper');
 
@@ -22,6 +24,21 @@ export default {
             type: Function,
             required: true,
         },
+
+        avatarSize: {
+            type: [String, Number],
+            default: 120,
+        },
+
+        avatarColor: {
+            type: String,
+            default: 'grey400',
+        },
+
+        avatarDisplay: {
+            type: String,
+            default: undefined,
+        },
     },
 
     components: {
@@ -32,6 +49,7 @@ export default {
     data() {
         return {
             componentKey: 0,
+            errorMessage: undefined,
             image: this.$_object(),
         };
     },
@@ -80,12 +98,13 @@ export default {
                     baseFnFile.$_extensionsName.imagenes
                 )
             ) {
-                console.log(
+                this.errorMessage =
                     baseLocalHelper.$_MsgFileAllowedExtensionInvalid(
                         'Foto de perfil',
                         'una fotografía'
-                    )
-                );
+                    );
+
+                baseNotificationsHelper.Message(true, this.errorMessage);
                 return false;
             }
 
@@ -95,12 +114,11 @@ export default {
                     baseFnFile.$_extensionsName.imagenes
                 )
             ) {
-                console.log(
-                    baseLocalHelper.$_MsgFileAllowedMimeInvalid(
-                        'Foto de perfil',
-                        'una fotografía'
-                    )
+                this.errorMessage = baseLocalHelper.$_MsgFileAllowedMimeInvalid(
+                    'Foto de perfil',
+                    'una fotografía'
                 );
+                baseNotificationsHelper.Message(true, this.errorMessage);
                 return false;
             }
 
@@ -122,6 +140,7 @@ export default {
 
         $_getFile() {
             this.$refs.file.click();
+            this.errorMessage = undefined;
         },
     },
 };
@@ -155,7 +174,20 @@ export default {
         </BasePopUp>
 
         <v-layout class="align-end pb-5">
-            <v-avatar size="120" color="primary"> </v-avatar>
+            <v-avatar
+                :size="avatarSize + 5"
+                :color="errorMessage ? 'redError900' : 'transparent'"
+            >
+                <v-avatar :size="avatarSize" :color="avatarColor">
+                    <v-icon
+                        color="grey600"
+                        :size="(avatarSize * 50) / 100"
+                        v-if="!avatarDisplay"
+                    >
+                        mdi-account
+                    </v-icon>
+                </v-avatar>
+            </v-avatar>
 
             <v-menu bottom origin="center center" transition="scale-transition">
                 <template v-slot:activator="{ on, attrs }">
@@ -186,6 +218,11 @@ export default {
                 </v-list>
             </v-menu>
         </v-layout>
+        <section v-if="errorMessage" class="mt-n5">
+            <span class="BUO-Label-XSmall redError900--text text-center">{{
+                errorMessage
+            }}</span>
+        </section>
 
         <input
             v-show="false"
