@@ -35,6 +35,11 @@ export default {
             default: 'grey400',
         },
 
+        avatarCss: {
+            type: String,
+            default: 'BUO-Display-Small',
+        },
+
         avatarDisplay: {
             type: String,
             default: undefined,
@@ -186,6 +191,33 @@ export default {
                     >
                         mdi-account
                     </v-icon>
+
+                    <span
+                        :class="`white--text ${avatarCss}`"
+                        v-if="avatarDisplay.length == 2"
+                        >{{ avatarDisplay }}</span
+                    >
+
+                    <v-img
+                        v-else
+                        contain
+                        :src="`data:image/jpeg;base64,${avatarDisplay}`"
+                        :lazy-src="`data:image/jpeg;base64,${avatarDisplay}`"
+                        alt="photoUrl"
+                    >
+                        <template v-slot:placeholder>
+                            <v-row
+                                class="fill-height ma-0"
+                                align="center"
+                                justify="center"
+                            >
+                                <v-progress-circular
+                                    indeterminate
+                                    color="grey lighten-5"
+                                ></v-progress-circular>
+                            </v-row>
+                        </template>
+                    </v-img>
                 </v-avatar>
             </v-avatar>
 

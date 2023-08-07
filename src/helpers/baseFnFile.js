@@ -59,7 +59,7 @@ const extensionsName = {
 
 const isCorrectExtension = (file, fileType) => {
     try {
-        const extensionFile = `.${file.name.split('.').pop()}`;
+        const extensionFile = `.${file.name.split('.').pop()}`.toLowerCase();
         if (
             extensionsFile[fileType].extension.some(
                 (element) => element === extensionFile

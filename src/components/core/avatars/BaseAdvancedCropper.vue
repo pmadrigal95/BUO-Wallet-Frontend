@@ -5,6 +5,8 @@ import { Cropper } from 'vue-advanced-cropper';
 
 import 'vue-advanced-cropper/dist/style.css';
 
+import baseNotificationsHelper from '@/helpers/baseNotificationsHelper';
+
 import BaseNavigationCropper from '@/components/core/avatars/BaseNavigationCropper.vue';
 
 export default {
@@ -118,13 +120,17 @@ export default {
         },
 
         crop() {
-            const { canvas } = this.$refs.cropper.getResult();
-            if (canvas) {
-                console.log(canvas);
-                canvas.toBlob((blob) => {
-                    console.log(blob);
-                    // Perhaps you should add the setting appropriate file format here
-                }, 'image/jpeg');
+            try {
+                const { canvas } = this.$refs.cropper.getResult();
+                if (canvas) {
+                    const base64 = canvas
+                        .toDataURL('image/jpeg', 1.0)
+                        .split(';base64,')[1];
+                    this.callback(base64);
+                }
+            } catch (error) {
+                console.error(error);
+                baseNotificationsHelper.Message(true, error?.message);
             }
         },
     },
