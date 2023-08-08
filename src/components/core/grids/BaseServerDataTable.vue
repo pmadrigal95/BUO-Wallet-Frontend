@@ -8,6 +8,8 @@
  * @displayName BaseServerDataTable
  */
 
+import { mapGetters } from 'vuex';
+
 import httpService from '@/services/axios/httpService';
 
 import baseLocalHelper from '@/helpers/baseLocalHelper';
@@ -280,6 +282,11 @@ export default {
             showCancel: false,
 
             /**
+             * Mostrar btn cancelar del footer
+             */
+            showFooterBtn: false,
+
+            /**
              * Mostrar btn footer
              */
             showFooter: false,
@@ -294,6 +301,8 @@ export default {
     },
 
     computed: {
+        ...mapGetters('theme', ['app']),
+
         $_boolList() {
             return [
                 {
@@ -424,12 +433,14 @@ export default {
          */
         if (this.$props.cancel != undefined) {
             this.showCancel = true;
+            this.showFooter = true;
         }
 
         /**
          * Valida si es necesario el botón de Footer
          */
         if (this.$props.footerMethod != undefined) {
+            this.showFooterBtn = true;
             this.showFooter = true;
         }
     },
@@ -941,7 +952,7 @@ export default {
                 case x === 0:
                     return 'secondary50';
                 default:
-                    return 'secondary40';
+                    return 'transparent';
             }
         },
 
@@ -1258,7 +1269,10 @@ export default {
                                 :class="showSearch ? 'btnSearch' : undefined"
                                 icon
                             >
-                                <v-icon color="black">mdi-magnify</v-icon>
+                                <v-icon
+                                    :color="app ? 'blueProgress600' : 'blue800'"
+                                    >mdi-magnify</v-icon
+                                >
                             </v-btn>
                         </th>
                         <!-- @helper:  clean all the filters -->
@@ -1268,7 +1282,8 @@ export default {
                                 icon
                                 @click="$_cleanFilters"
                             >
-                                <v-icon color="black"
+                                <v-icon
+                                    :color="app ? 'blueProgress600' : 'blue800'"
                                     >mdi-close-circle-outline</v-icon
                                 >
                             </v-btn>
@@ -1641,7 +1656,7 @@ export default {
                 <v-btn
                     class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
                     elevation="0"
-                    :color="color"
+                    :color="app ? 'blueProgress600' : 'blue800'"
                     outlined
                     small
                     @click="$_CancelFooter"
@@ -1656,6 +1671,7 @@ export default {
                     dark
                     small
                     @click="$_SelectedFooter"
+                    v-if="showFooterBtn"
                     >{{ labelBtn }}</v-btn
                 >
 
