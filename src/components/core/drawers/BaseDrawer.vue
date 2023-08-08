@@ -92,8 +92,9 @@ export default {
         :temporary="$vuetify.breakpoint.smAndDown"
     >
         <v-list-item two-line class="px-2" v-if="user">
-            <v-list-item-avatar v-if="userAvatar">
-                <v-avatar :color="user.colorAvatar">
+            <v-list-item-avatar>
+                <BaseSkeletonLoader v-if="!userAvatar" type="avatar" />
+                <v-avatar :color="user.colorAvatar" v-else-if="userAvatar">
                     <span
                         class="white--text BUO-Paragraph-Medium-SemiBold"
                         v-if="userAvatar.length == 2"
