@@ -18,6 +18,9 @@ const UserContactViewComponent = () =>
         '@/views/account/components/account/display/UserContactViewComponent'
     );
 
+const UserBioViewComponent = () =>
+    import('@/views/account/components/account/display/UserBioViewComponent');
+
 export default {
     name: 'AccountViewComponent',
 
@@ -25,6 +28,7 @@ export default {
         UserInfoViewComponent,
         UserContactViewComponent,
         UserAvatarViewComponent,
+        UserBioViewComponent,
     },
 };
 </script>
@@ -37,5 +41,7 @@ export default {
         <UserInfoViewComponent />
         <!-- Contact -->
         <UserContactViewComponent />
+        <!-- Bio -->
+        <UserBioViewComponent />
     </section>
 </template>
