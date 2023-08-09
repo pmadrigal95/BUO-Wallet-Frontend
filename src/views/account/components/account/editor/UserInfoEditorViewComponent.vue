@@ -95,18 +95,18 @@ export default {
         $_sendToApi() {
             this.loading = true;
 
-            const data = this.$_setRequest();
+            httpService
+                .post('perfilUsuario/intro', this.$_setRequest())
+                .then((response) => {
+                    this.loading = false;
+                    if (response != undefined) {
+                        const resp = response.data;
 
-            httpService.post('perfilUsuario/intro', data).then((response) => {
-                this.loading = false;
-                if (response != undefined) {
-                    const resp = response.data;
+                        this.$_setToEntity(resp);
 
-                    this.$_setToEntity(resp);
-
-                    this.$_cancel();
-                }
-            });
+                        this.$_cancel();
+                    }
+                });
         },
 
         $_cancel() {

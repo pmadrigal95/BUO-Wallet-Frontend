@@ -12,8 +12,17 @@ import httpService from '@/services/axios/httpService';
 
 import BaseArrayHelper from '@/helpers/baseArrayHelper';
 
+const DisplaySectionViewComponent = () =>
+    import(
+        '@/views/account/components/account/shared/DisplaySectionViewComponent'
+    );
+
 export default {
     name: 'UserContactViewComponent',
+
+    components: {
+        DisplaySectionViewComponent,
+    },
 
     data() {
         return {
@@ -28,6 +37,7 @@ export default {
         ...mapGetters('authentication', ['user']),
 
         contactList() {
+            //TODO: Optimizar!!!
             let array = Object.entries(this.entity),
                 result = [];
 
@@ -117,6 +127,11 @@ export default {
                                 <v-icon>mdi-pencil</v-icon>
                             </v-btn>
                         </v-layout>
+                        <DisplaySectionViewComponent
+                            v-if="entity.mostrarContacto != undefined"
+                            section="CONTACTO"
+                            v-model="entity.mostrarContacto"
+                        />
                     </section>
 
                     <v-row dense>

@@ -99,7 +99,7 @@ export default {
                 </section>
                 <section
                     class="BUO-Paragraph-Small onHover"
-                    :class="[app ? 'blueProgress600--text' : 'grey700--text']"
+                    :class="[app ? 'blueProgress600--text' : 'grey600--text']"
                 >
                     {{ `${age} ${separator} ${country}` }}
                 </section>
