@@ -28,12 +28,14 @@ export default {
 
     data() {
         return {
-            loading: false,
             entity: {},
+            loading: false,
         };
     },
 
     computed: {
+        ...mapGetters('theme', ['app']),
+
         ...mapGetters('authentication', ['user']),
 
         age() {
@@ -56,11 +58,11 @@ export default {
     },
 
     created() {
-        this.$_getInformation();
+        this.$_sendToApi();
     },
 
     methods: {
-        $_getInformation() {
+        $_sendToApi() {
             this.loading = true;
             httpService
                 .get(`perfilUsuario/intro/${this.user.userId}`)
@@ -86,13 +88,19 @@ export default {
     <section class="mt-n3">
         <UserInfoEditorViewComponent ref="popUp" v-model="entity" />
 
-        <BaseSkeletonLoader v-if="loading" type="article" />
-        <v-layout justify-center v-else-if="entity.nombreCompleto">
-            <section @click="$_open">
-                <section class="BUO-Heading-Small grey700--text onHover">
+        <v-layout justify-center>
+            <BaseSkeletonLoader v-if="loading" type="list-item" />
+            <section @click="$_open" v-else-if="entity.nombreCompleto">
+                <section
+                    class="BUO-Heading-Small onHover"
+                    :class="[app ? 'white--text' : 'grey700--text']"
+                >
                     {{ entity.nombreCompleto }}
                 </section>
-                <section class="BUO-Paragraph-Small grey600--text onHover">
+                <section
+                    class="BUO-Paragraph-Small onHover"
+                    :class="[app ? 'blueProgress600--text' : 'grey600--text']"
+                >
                     {{ `${age} ${separator} ${country}` }}
                 </section>
             </section>

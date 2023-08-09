@@ -22,5 +22,9 @@ export default {
 </script>
 
 <template>
-    <UserAccountViewComponent />
+    <v-row>
+        <v-col cols="12" md="9" offset-md="1">
+            <UserAccountViewComponent />
+        </v-col>
+    </v-row>
 </template>

@@ -43,6 +43,8 @@ export default {
     },
 
     computed: {
+        ...mapGetters('theme', ['app']),
+
         ...mapGetters('authentication', ['user']),
     },
 
@@ -126,6 +128,14 @@ export default {
             <BaseSkeletonLoader v-if="loading" type="article" />
             <BaseForm :method="$_sendToApi" :cancel="$_cancel" v-else>
                 <div slot="body">
+                    <section class="pb-5">
+                        <span
+                            class="BUO-Heading-XSmall"
+                            :class="[app ? 'white--text' : 'grey700--text']"
+                        >
+                            Introducción
+                        </span>
+                    </section>
                     <v-row dense>
                         <v-col cols="12">
                             <BaseInput
