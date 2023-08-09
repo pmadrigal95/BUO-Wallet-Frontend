@@ -84,7 +84,7 @@ export default {
 <template>
     <v-layout
         justify-start
-        class="BUO-Paragraph-Medium"
+        class="BUO-Paragraph-Medium pl-2"
         :class="[app ? 'blueProgress600--text' : 'grey500--text']"
     >
         <BaseSkeletonLoader v-if="loading" type="avatar" />

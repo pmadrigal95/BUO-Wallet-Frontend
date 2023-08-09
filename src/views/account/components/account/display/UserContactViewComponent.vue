@@ -17,11 +17,17 @@ const DisplaySectionViewComponent = () =>
         '@/views/account/components/account/shared/DisplaySectionViewComponent'
     );
 
+const UserContactEditorViewComponent = () =>
+    import(
+        '@/views/account/components/account/editor/UserContactEditorViewComponent'
+    );
+
 export default {
     name: 'UserContactViewComponent',
 
     components: {
         DisplaySectionViewComponent,
+        UserContactEditorViewComponent,
     },
 
     data() {
@@ -45,7 +51,8 @@ export default {
                 if (
                     item[0] !== 'usuarioId' &&
                     item[0] !== 'mostrarContacto' &&
-                    item[1] !== null
+                    item[1] !== null &&
+                    item[1] !== ''
                 ) {
                     result.push({
                         key: item[0],
@@ -102,12 +109,18 @@ export default {
                     };
             }
         },
+
+        $_open() {
+            this.$refs['popUp'].$_open();
+        },
     },
 };
 </script>
 
 <template>
     <section class="mt-6">
+        <UserContactEditorViewComponent ref="popUp" v-model="entity" />
+
         <v-layout justify-center>
             <BaseSkeletonLoader v-if="loading" type="card" />
             <v-card flat class="rounded-t-xl" width="100%" height="100%" v-else>
@@ -123,7 +136,11 @@ export default {
                                 :class="[app ? 'white--text' : 'grey700--text']"
                                 >Contacto</span
                             >
-                            <v-btn icon :color="app ? 'clouds' : 'black'">
+                            <v-btn
+                                @click="$_open"
+                                icon
+                                :color="app ? 'clouds' : 'black'"
+                            >
                                 <v-icon>mdi-pencil</v-icon>
                             </v-btn>
                         </v-layout>

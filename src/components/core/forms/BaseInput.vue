@@ -458,6 +458,38 @@ export default {
                     ];
                     break;
 
+                case 'web':
+                    this.normalRules = [
+                        (v) =>
+                            !!v ||
+                            baseLocalHelper.$_MsgFieldRequired(
+                                this.label != undefined ? this.label : ''
+                            ),
+                        (v) =>
+                            /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/i.test(
+                                v
+                            ) ||
+                            baseLocalHelper.$_MsgWebSiteAllowedValueInvalid(
+                                this.label != undefined ? this.label : ''
+                            ),
+                    ];
+                    break;
+
+                case 'optionalWeb':
+                    this.normalRules = [
+                        (v) =>
+                            v === undefined ||
+                            v === null ||
+                            v === '' ||
+                            /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/i.test(
+                                v
+                            ) ||
+                            baseLocalHelper.$_MsgWebSiteAllowedValueInvalid(
+                                this.label != undefined ? this.label : ''
+                            ),
+                    ];
+                    break;
+
                 default:
                     this.normalRules = this.validate;
             }
@@ -532,6 +564,7 @@ export default {
                 @change="$_change"
                 outlined
                 clear-icon="mdi-close-circle"
+                clearable
                 :validate-on-blur="validateOnBlur"
             ></v-text-field>
         </div>
@@ -559,6 +592,7 @@ export default {
                 @change="$_change"
                 outlined
                 clear-icon="mdi-close-circle"
+                clearable
                 :validate-on-blur="validateOnBlur"
             ></v-text-field>
         </div>

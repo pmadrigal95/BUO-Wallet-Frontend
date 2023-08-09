@@ -284,6 +284,13 @@ export default {
 
     $_MsgUserBadBrowser: 'Navegador incompatible con este módulo o función.',
 
+    /**
+     * Descripción: Validación
+     */
+    $_MsgWebSiteAllowedValueInvalid(val) {
+        return `El WebSite ${val} no es no válido.`;
+    },
+
     //Segmento de Fechas
 
     /**
