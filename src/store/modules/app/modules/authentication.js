@@ -169,6 +169,10 @@ export const mutations = {
         }
     },
 
+    SET_USER_NAME(state, name) {
+        if (name) state.user.name = name;
+    },
+
     LOGOUT(state, error) {
         if (error)
             sessionStorage.setItem(baseConfigHelper.$_alert, state.alert);
@@ -248,5 +252,9 @@ export const actions = {
 
     set_user_avatar({ commit }, value) {
         commit('SET_USER_AVATAR', value);
+    },
+
+    set_user_name({ commit }, value) {
+        commit('SET_USER_NAME', value);
     },
 };

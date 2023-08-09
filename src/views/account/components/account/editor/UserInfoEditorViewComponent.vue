@@ -6,11 +6,15 @@
  *
  */
 
-import { mapGetters } from 'vuex';
+import { AES } from 'crypto-js';
+
+import { mapGetters, mapActions } from 'vuex';
 
 import httpService from '@/services/axios/httpService';
 
 import BaseArrayHelper from '@/helpers/baseArrayHelper';
+
+import baseConfigHelper from '@/helpers/baseConfigHelper';
 
 import baseSharedFnHelper from '@/helpers/baseSharedFnHelper';
 
@@ -20,7 +24,7 @@ export default {
     name: 'UserInfoEditorViewComponent',
 
     props: {
-        entity: {
+        value: {
             type: Object,
             required: true,
         },
@@ -43,8 +47,14 @@ export default {
     },
 
     methods: {
+        ...mapActions('authentication', ['set_user_name']),
+
+        $_updateValue(event) {
+            this.$emit('input', event);
+        },
+
         $_setToTemp() {
-            this.temp = BaseArrayHelper.SetObject({}, this.entity);
+            this.temp = BaseArrayHelper.SetObject({}, this.value);
             this.temp.fechaNacimiento =
                 baseSharedFnHelper.$_parseArrayToDateISOString(
                     this.temp.fechaNacimiento
@@ -62,21 +72,22 @@ export default {
                 fechaNacimiento: this.temp.fechaNacimiento,
                 paisId: this.temp.paisId,
                 usuarioId: this.user.userId,
-                mostrarIntro: true,
             };
         },
 
-        $_setToEntity(resp) {
-            this.entity.fechaNacimiento = resp.fechaNacimiento;
-            this.entity.fechaNacimientoFormato = resp.fechaNacimientoFormato;
-            this.entity.mostrarIntro = resp.mostrarIntro;
-            this.entity.nombreCompleto = resp.nombreCompleto;
-            this.entity.nombrePais = resp.nombrePais;
-            this.entity.paisId = resp.paisId;
-            this.entity.token = resp.token;
-            this.entity.usuarioId = resp.usuarioId;
+        $_updateJWT(value) {
+            if (value)
+                sessionStorage.setItem(
+                    baseConfigHelper.$_jwtToken,
+                    AES.encrypt(value, baseConfigHelper.$_encryptKey).toString()
+                );
+        },
 
-            //TODO: Actualizar JWT
+        $_setToEntity(resp) {
+            this.set_user_name(resp?.nombreCompleto);
+            this.$_updateJWT(resp?.token?.jwtToken);
+            delete resp?.token;
+            this.$_updateValue(resp);
         },
 
         $_sendToApi() {

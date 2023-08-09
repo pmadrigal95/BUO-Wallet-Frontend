@@ -84,7 +84,7 @@ export default {
 
 <template>
     <section class="mt-n3">
-        <UserInfoEditorViewComponent ref="popUp" :entity="entity" />
+        <UserInfoEditorViewComponent ref="popUp" v-model="entity" />
 
         <BaseSkeletonLoader v-if="loading" type="article" />
         <v-layout justify-center v-else-if="entity.nombreCompleto">
