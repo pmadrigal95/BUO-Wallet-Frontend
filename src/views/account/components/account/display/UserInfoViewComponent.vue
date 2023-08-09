@@ -88,7 +88,7 @@ export default {
     <section class="mt-n3">
         <UserInfoEditorViewComponent ref="popUp" v-model="entity" />
 
-        <v-layout justify-center>
+        <v-layout justify-center class="text-center">
             <BaseSkeletonLoader v-if="loading" type="list-item" />
             <section @click="$_open" v-else-if="entity.nombreCompleto">
                 <section
@@ -99,7 +99,7 @@ export default {
                 </section>
                 <section
                     class="BUO-Paragraph-Small onHover"
-                    :class="[app ? 'blueProgress600--text' : 'grey600--text']"
+                    :class="[app ? 'blueProgress600--text' : 'grey700--text']"
                 >
                     {{ `${age} ${separator} ${country}` }}
                 </section>
@@ -111,6 +111,6 @@ export default {
 <style scoped>
 .onHover:hover {
     cursor: pointer !important;
-    color: #01aa71 !important;
+    color: #005d8c !important;
 }
 </style>

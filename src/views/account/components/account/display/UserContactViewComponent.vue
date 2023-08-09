@@ -97,13 +97,17 @@ export default {
 </script>
 
 <template>
-    <section class="mt-5">
+    <section class="mt-6">
         <v-layout justify-center>
             <BaseSkeletonLoader v-if="loading" type="card" />
             <v-card flat class="rounded-t-xl" width="100%" height="100%" v-else>
                 <v-card-text>
                     <section class="mb-4">
-                        <v-layout justify-space-between align-center>
+                        <v-layout
+                            justify-space-between
+                            align-center
+                            class="pt-2"
+                        >
                             <span
                                 class="BUO-Paragraph-Large-SemiBold"
                                 :class="[app ? 'white--text' : 'grey700--text']"
@@ -120,7 +124,7 @@ export default {
                             cols="12"
                             v-for="(contact, i) in contactList"
                             :key="i"
-                            class="pl-4"
+                            class="pl-2"
                         >
                             <v-tooltip left>
                                 <template v-slot:activator="{ on, attrs }">
@@ -144,7 +148,7 @@ export default {
                                 <span>{{ contact.name }}</span>
                             </v-tooltip>
                             <v-divider
-                                v-if="contactList.length < i"
+                                v-if="i < contactList.length - 1"
                             ></v-divider>
                         </v-col>
                     </v-row>
