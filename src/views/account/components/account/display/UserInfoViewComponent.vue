@@ -90,27 +90,39 @@ export default {
 
         <v-layout justify-center class="text-center">
             <BaseSkeletonLoader v-if="loading" type="list-item" />
-            <section @click="$_open" v-else-if="entity.nombreCompleto">
+            <section style="cursor: pointer" v-else-if="entity.nombreCompleto">
                 <section
-                    class="BUO-Heading-Small onHover"
+                    @click="$_open"
+                    class="BUO-Heading-Small"
                     :class="[app ? 'white--text' : 'grey700--text']"
                 >
                     {{ entity.nombreCompleto }}
                 </section>
                 <section
-                    class="BUO-Paragraph-Small onHover"
+                    @click="$_open"
+                    class="BUO-Paragraph-Small"
                     :class="[app ? 'blueProgress600--text' : 'grey600--text']"
                 >
                     {{ `${age} ${separator} ${country}` }}
+                </section>
+
+                <section class="pt-2">
+                    <v-btn
+                        class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                        :class="[app ? 'grey700' : 'Buo-White-Background']"
+                        elevation="0"
+                        depressed
+                        outlined
+                        :color="app ? 'white' : 'primary'"
+                        @click="$_open"
+                    >
+                        <span class="BUO-Paragraph-Small-SemiBold">
+                            Editar
+                        </span>
+                        <v-icon small right dark> mdi-pencil </v-icon>
+                    </v-btn>
                 </section>
             </section>
         </v-layout>
     </section>
 </template>
-
-<style scoped>
-.onHover:hover {
-    cursor: pointer !important;
-    color: #005d8c !important;
-}
-</style>
