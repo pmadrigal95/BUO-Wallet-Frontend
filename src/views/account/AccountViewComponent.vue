@@ -13,6 +13,9 @@ const BaseCardViewComponent = () =>
 const UserAccountViewComponent = () =>
     import('@/views/account/components/account/UserAccountViewComponent');
 
+const UserPasswordViewComponent = () =>
+    import('@/views/account/components/password/UserPasswordViewComponent');
+
 export default {
     name: 'AccountViewComponent',
 
@@ -21,6 +24,7 @@ export default {
     components: {
         BaseCardViewComponent,
         UserAccountViewComponent,
+        UserPasswordViewComponent,
     },
 
     data() {
@@ -30,6 +34,21 @@ export default {
     },
 
     computed: { ...mapGetters('theme', ['app']) },
+
+    watch: {
+        /**
+         * Actualizar
+         */
+        step: {
+            handler(value) {
+                this.$vuetify.theme.themes.light.background =
+                    value === 0
+                        ? this.$vuetify.theme.themes.light.clouds
+                        : this.$vuetify.theme.themes.light.white;
+            },
+            immediate: true,
+        },
+    },
 
     methods: {
         $_goHome() {
@@ -67,7 +86,7 @@ export default {
                 </v-window-item>
 
                 <v-window-item :value="1">
-                    <p>hola</p>
+                    <UserPasswordViewComponent :callback="$_goAccount" />
                 </v-window-item>
             </v-window>
         </div>
