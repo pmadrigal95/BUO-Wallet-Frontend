@@ -44,6 +44,11 @@ export default {
             default: undefined,
         },
 
+        title: {
+            type: String,
+            default: undefined,
+        },
+
         positionSubtitle: {
             type: String,
             default: undefined,
@@ -55,6 +60,16 @@ export default {
         },
 
         positionDescription: {
+            type: String,
+            default: undefined,
+        },
+
+        footerDescription: {
+            type: String,
+            default: undefined,
+        },
+
+        positionFooterDescription: {
             type: String,
             default: undefined,
         },
@@ -119,6 +134,11 @@ export default {
             default: 'BUO-Label-XSmall black--text',
         },
 
+        fontTypeFooterDescription: {
+            type: String,
+            default: 'BUO-Label-XSmall black--text',
+        },
+
         large: {
             type: Boolean,
             default: false,
@@ -172,6 +192,7 @@ export default {
                     :justify-center="centerIcon"
                     :justify-end="endIcon"
                     :justify-start="startIcon"
+                    v-if="subtitle"
                 >
                     <v-icon
                         :color="iconColor === undefined ? 'blue' : iconColor"
@@ -187,19 +208,39 @@ export default {
 
             <v-card-subtitle
                 :class="`${fontTypeSubtitle} d-flex ${positionSubtitle} flex-column buo-word-break`"
+                v-if="subtitle"
                 >{{ subtitle }}</v-card-subtitle
             >
 
-            <v-card-text
-                :class="`${fontTypeDescription} d-flex ${positionDescription} flex-column buo-word-break`"
-                >{{ description }}</v-card-text
+            <v-card-subtitle
+                class="d-flex pb-0 justify-space-between buo-word-break"
+                v-else-if="title"
             >
+                <p :class="`${fontTypeSubtitle}  buo-word-break pr-2`">
+                    {{ title }}
+                </p>
+                <v-icon
+                    :color="iconColor === undefined ? 'blue' : iconColor"
+                    small
+                    class="pb-5"
+                    >{{ `mdi-${icon}` }}</v-icon
+                >
+            </v-card-subtitle>
 
-            <v-card-actions v-if="to != undefined">
+            <v-card-text>
+                <p
+                    :class="`${fontTypeDescription} d-flex ${positionDescription} flex-column buo-word-break`"
+                >
+                    {{ description }}
+                </p>
+            </v-card-text>
+
+            <v-card-actions>
                 <v-layout
                     :justify-center="centerBotton"
                     :justify-end="endBotton"
                     :justify-start="startBotton"
+                    v-if="to != undefined"
                 >
                     <v-btn
                         class="no-uppercase rounded-lg BUO-Label-XSmall-SemiBold lighten-2"
@@ -213,6 +254,12 @@ export default {
                         </div>
                     </v-btn>
                 </v-layout>
+
+                <p
+                    :class="`${fontTypeFooterDescription} d-flex ${positionFooterDescription} flex-column buo-word-break`"
+                >
+                    {{ footerDescription }}
+                </p>
             </v-card-actions>
         </v-card>
     </v-hover>

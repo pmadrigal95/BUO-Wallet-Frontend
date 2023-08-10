@@ -21,6 +21,16 @@ const UserContactViewComponent = () =>
 const UserBioViewComponent = () =>
     import('@/views/account/components/account/display/UserBioViewComponent');
 
+const UserWorkExperienceViewComponent = () =>
+    import(
+        '@/views/account/components/account/display/UserWorkExperienceViewComponent'
+    );
+
+const UserAcademicPreparationViewComponent = () =>
+    import(
+        '@/views/account/components/account/display/UserAcademicPreparationViewComponent'
+    );
+
 export default {
     name: 'AccountViewComponent',
 
@@ -29,6 +39,8 @@ export default {
         UserContactViewComponent,
         UserAvatarViewComponent,
         UserBioViewComponent,
+        UserWorkExperienceViewComponent,
+        UserAcademicPreparationViewComponent,
     },
 };
 </script>
@@ -43,5 +55,9 @@ export default {
         <UserContactViewComponent />
         <!-- Bio -->
         <UserBioViewComponent />
+        <!-- work Exp -->
+        <UserWorkExperienceViewComponent />
+        <!-- Academic Preparation -->
+        <UserAcademicPreparationViewComponent />
     </section>
 </template>

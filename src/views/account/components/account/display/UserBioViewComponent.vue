@@ -167,6 +167,21 @@ export default {
                             >{{ entity.objetivo }}</span
                         >
                     </section>
+                    <section
+                        class="mb-4 pl-2"
+                        v-else-if="
+                            !entity.biografia &&
+                            !entity.objetivo &&
+                            pdaList.length == 0
+                        "
+                    >
+                        <span
+                            class="BUO-Paragraph-Small"
+                            :class="[app ? 'white--text' : 'grey600--text']"
+                            >Regalanos una breve descripción sobre tí, tus
+                            intereses metas y objetivos profesionales</span
+                        >
+                    </section>
                     <section class="mb-1 pl-2">
                         <BaseSkeletonLoader v-if="loadingPda" type="card" />
                         <v-layout
@@ -174,7 +189,7 @@ export default {
                             align-center
                             class="pt-2 pb-2"
                             v-else-if="
-                                entity.mostrarHabilidades && pdaList.length
+                                entity.mostrarHabilidades && pdaList.length > 0
                             "
                         >
                             <span
