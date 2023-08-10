@@ -57,7 +57,7 @@ export default {
 
 <template>
     <BaseCardViewComponent
-        :title="step != 0 ? 'Cambiar mi contraseña' : undefined"
+        :title="step != 0 ? 'Cambiar mi contraseña' : 'Mi Perfil'"
         :btnAction="$_goBack"
     >
         <div slot="card-text">
@@ -83,7 +83,7 @@ export default {
                 >
                     <section>
                         <v-btn
-                            class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                            class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
                             :class="[app ? 'grey700' : 'Buo-White-Background']"
                             elevation="0"
                             depressed
@@ -98,7 +98,7 @@ export default {
                         >
 
                         <v-btn
-                            class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                            class="ma-2 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
                             elevation="0"
                             color="primary"
                             large

@@ -6,8 +6,6 @@
  *
  */
 
-//TODO: Mostrar mis habilidades PDA ???
-
 import { mapGetters } from 'vuex';
 
 import httpService from '@/services/axios/httpService';
@@ -20,6 +18,11 @@ export default {
     props: {
         value: {
             type: Object,
+            required: true,
+        },
+
+        callback: {
+            type: Function,
             required: true,
         },
     },
@@ -49,6 +52,7 @@ export default {
                 mostrarBio: resp?.mostrarBio,
                 biografia: resp?.biografia,
                 objetivo: resp?.objetivo,
+                mostrarHabilidades: resp?.mostrarHabilidades,
             };
         },
 
@@ -65,6 +69,7 @@ export default {
             return {
                 objetivo: this.temp.objetivo,
                 biografia: this.temp.biografia,
+                mostrarHabilidades: this.temp.mostrarHabilidades,
                 usuarioId: this.user.userId,
             };
         },
@@ -86,6 +91,8 @@ export default {
                         this.$_setToEntity(this.$_mapperEntity(resp));
 
                         this.$_cancel();
+
+                        this.callback();
                     }
                 });
         },
@@ -146,6 +153,12 @@ export default {
                                 rows="4"
                                 placeholder="Regálanos una breve descripción tus intereses metas y objetivos profesionales"
                                 clearable
+                            />
+                        </v-col>
+                        <v-col cols="12">
+                            <BaseSwitch
+                                v-model="temp.mostrarHabilidades"
+                                label="Mostrar mis indicadores PDA"
                             />
                         </v-col>
                     </v-row>

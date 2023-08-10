@@ -35,6 +35,7 @@ export default {
             entity: {},
             pdaList: [],
             loading: false,
+            loadingPda: false,
         };
     },
 
@@ -55,10 +56,12 @@ export default {
                 mostrarBio: resp?.mostrarBio,
                 biografia: resp?.biografia,
                 objetivo: resp?.objetivo,
+                mostrarHabilidades: resp?.mostrarHabilidades,
             };
         },
 
         $_userSendToApi() {
+            this.loading = true;
             httpService
                 .get(`perfilUsuario/${this.user.userId}`)
                 .then((response) => {
@@ -68,15 +71,25 @@ export default {
                             {},
                             this.$_mapperEntity(response.data)
                         );
+
+                        this.entity.mostrarHabilidades && this.$_pdaSendToApi();
                     }
                 });
         },
 
         $_pdaSendToApi() {
+            if (this.entity.mostrarHabilidades && this.pdaList.length > 0)
+                return;
+
+            this.pdaList = [];
+
+            if (!this.entity.mostrarHabilidades) return;
+
+            this.loadingPda = true;
             httpService
                 .get(`perfilUsuario/habilidadesPDA/${this.user.userId}`)
                 .then((response) => {
-                    this.loading = false;
+                    this.loadingPda = false;
                     if (response != undefined) {
                         this.pdaList = BaseArrayHelper.SetObject(
                             [],
@@ -88,7 +101,6 @@ export default {
 
         $_sendToApi() {
             this.$_userSendToApi();
-            this.$_pdaSendToApi();
         },
 
         $_open() {
@@ -100,7 +112,11 @@ export default {
 
 <template>
     <section class="mt-6">
-        <UserBioEditorViewComponent ref="popUp" v-model="entity" />
+        <UserBioEditorViewComponent
+            ref="popUp"
+            v-model="entity"
+            :callback="$_pdaSendToApi"
+        />
 
         <v-layout justify-center>
             <BaseSkeletonLoader v-if="loading" type="card" />
@@ -152,11 +168,19 @@ export default {
                         >
                     </section>
                     <section class="mb-1 pl-2">
-                        <v-layout justify-start align-center class="pt-2 pb-2">
+                        <BaseSkeletonLoader v-if="loadingPda" type="card" />
+                        <v-layout
+                            justify-start
+                            align-center
+                            class="pt-2 pb-2"
+                            v-else-if="
+                                entity.mostrarHabilidades && pdaList.length
+                            "
+                        >
                             <span
                                 class="BUO-Paragraph-Small-SemiBold"
                                 :class="[app ? 'white--text' : 'grey700--text']"
-                                >Habilidades PDA</span
+                                >Indicadores PDA</span
                             >
                         </v-layout>
                         <v-chip-group column>
