@@ -5,6 +5,11 @@
  * @displayName AccountViewComponent
  */
 
+import { mapGetters } from 'vuex';
+
+const BaseCardViewComponent = () =>
+    import('@/components/core/cards/BaseCardViewComponent');
+
 const UserAccountViewComponent = () =>
     import('@/views/account/components/account/UserAccountViewComponent');
 
@@ -14,17 +19,99 @@ export default {
     metaInfo: { title: 'Mi Cuenta' },
 
     components: {
+        BaseCardViewComponent,
         UserAccountViewComponent,
     },
 
-    methods: {},
+    data() {
+        return {
+            step: 0,
+        };
+    },
+
+    computed: { ...mapGetters('theme', ['app']) },
+
+    methods: {
+        $_goHome() {
+            this.$router.push({
+                name: 'HomeViewComponent',
+            });
+        },
+
+        $_goAccount() {
+            this.step = 0;
+        },
+
+        $_goChangePwd() {
+            this.step = 1;
+        },
+
+        $_goBack() {
+            if (this.step == 0) return this.$_goHome();
+
+            if (this.step == 1) return this.$_goAccount();
+        },
+    },
 };
 </script>
 
 <template>
-    <v-row>
-        <v-col cols="12" md="9" offset-md="1">
-            <UserAccountViewComponent />
-        </v-col>
-    </v-row>
+    <BaseCardViewComponent
+        :title="step != 0 ? 'Cambiar mi contraseña' : undefined"
+        :btnAction="$_goBack"
+    >
+        <div slot="card-text">
+            <v-window v-model="step">
+                <v-window-item :value="0">
+                    <UserAccountViewComponent />
+                </v-window-item>
+
+                <v-window-item :value="1">
+                    <p>hola</p>
+                </v-window-item>
+            </v-window>
+        </div>
+
+        <div slot="body" v-if="step == 0">
+            <section
+                class="buo-footer pt-1"
+                :class="[app ? '#1e1e1e' : '#EEF4F9']"
+            >
+                <v-layout
+                    :justify-end="!$vuetify.breakpoint.mobile"
+                    :justify-center="$vuetify.breakpoint.mobile"
+                >
+                    <section>
+                        <v-btn
+                            class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Medium-SemiBold"
+                            :class="[app ? 'grey700' : 'Buo-White-Background']"
+                            elevation="0"
+                            depressed
+                            outlined
+                            :color="app ? 'white' : 'primary'"
+                            large
+                            dark
+                            :block="$vuetify.breakpoint.mobile"
+                            @click="$_goChangePwd"
+                        >
+                            Cambiar mi contraseña</v-btn
+                        >
+
+                        <v-btn
+                            class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
+                            elevation="0"
+                            color="primary"
+                            large
+                            dark
+                            :block="$vuetify.breakpoint.mobile"
+                            depressed
+                            :to="{ name: 'LoginViewComponent' }"
+                        >
+                            Cerrar sesión</v-btn
+                        >
+                    </section>
+                </v-layout>
+            </section>
+        </div>
+    </BaseCardViewComponent>
 </template>
