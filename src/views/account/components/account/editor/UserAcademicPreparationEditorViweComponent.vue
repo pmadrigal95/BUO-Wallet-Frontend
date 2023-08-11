@@ -12,6 +12,8 @@ import httpService from '@/services/axios/httpService';
 
 import BaseArrayHelper from '@/helpers/baseArrayHelper';
 
+import baseSharedFnHelper from '@/helpers/baseSharedFnHelper';
+
 const BaseDatePicker = () => import('@/components/core/forms/BaseDatePicker');
 
 export default {
@@ -33,7 +35,7 @@ export default {
             componentKey: 0,
             loading: false,
             temp: {},
-            index: undefined,
+            isNew: undefined,
             isEducation: undefined,
         };
     },
@@ -71,6 +73,18 @@ export default {
                 return obj.id == id;
             });
 
+            if (result) {
+                result.fechaInicio =
+                    baseSharedFnHelper.$_parseArrayToDateISOString(
+                        result.fechaInicio
+                    );
+                result.fechaFinal =
+                    baseSharedFnHelper.$_parseArrayToDateISOString(
+                        result.fechaFinal
+                    );
+                result.continuaCursando = result.fechaFinal ? false : true;
+            }
+
             return result ? result : this.$_Object();
         },
 
@@ -83,25 +97,41 @@ export default {
                 : BaseArrayHelper.SetObject({}, this.$_Object());
         },
 
-        $_initConfig({ id, index, isEducation = true }) {
-            this.index = index ? index : -1;
+        $_initConfig({ id, isEducation = true }) {
+            this.isNew = id ? false : true;
 
             this.isEducation = isEducation;
 
             this.$_setToTemp({ id });
         },
 
-        $_open({ id, index, isEducation }) {
+        $_open({ id, isEducation }) {
             this.componentKey++;
-            this.$_initConfig({ id, index, isEducation });
+            this.$_initConfig({ id, isEducation });
             this.$refs['popUp'].$_openModal();
         },
 
         $_setToEntity(resp) {
-            if (this.index > 0) {
-                console.log(resp);
-            } else {
+            if (this.isNew) {
                 this.value?.preparacionAcademicaList.push(resp);
+            } else {
+                const index = this.value?.preparacionAcademicaList.findIndex(
+                    (object) => {
+                        return object?.id === resp?.id;
+                    }
+                );
+
+                if (index && index >= 0) {
+                    const tempArray = BaseArrayHelper.SetObject(
+                        [],
+                        this.value.preparacionAcademicaList
+                    );
+
+                    tempArray[index] = resp;
+
+                    this.value.preparacionAcademicaList =
+                        BaseArrayHelper.SetObject([], tempArray);
+                }
             }
         },
 
@@ -171,7 +201,7 @@ export default {
                         >
                             {{
                                 `${
-                                    index > 0 ? 'Editar' : 'Agregar'
+                                    isNew ? 'Agregar' : 'Editar'
                                 } Preparación Académica`
                             }}
                         </span>
@@ -242,7 +272,7 @@ export default {
                         </v-col>
                     </v-row>
                 </div>
-                <div slot="Betweenbtns" v-if="index > 0">
+                <div slot="Betweenbtns" v-if="!isNew">
                     <v-btn
                         class="no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
                         :class="[

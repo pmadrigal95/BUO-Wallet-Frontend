@@ -16,6 +16,11 @@ export default {
             type: Array,
             requiered: true,
         },
+
+        callback: {
+            type: Function,
+            required: true,
+        },
     },
 
     components: {
@@ -37,6 +42,12 @@ export default {
             };
         },
     },
+
+    methods: {
+        $_callToAction({ id }) {
+            this.callback({ id });
+        },
+    },
 };
 </script>
 
@@ -44,7 +55,11 @@ export default {
     <v-row dense>
         <v-slide-group>
             <v-slide-item v-for="(item, i) in list" :key="i">
-                <v-card class="transparent pt-4" elevation="0">
+                <v-card
+                    @click.stop="$_callToAction({ id: item.id })"
+                    class="transparent pt-4"
+                    elevation="0"
+                >
                     <BaseCardMenuViewComponent
                         :title="item.nombre"
                         :icon="componentProps.icon"

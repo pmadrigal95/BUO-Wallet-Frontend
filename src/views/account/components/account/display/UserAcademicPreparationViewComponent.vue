@@ -91,8 +91,8 @@ export default {
                 });
         },
 
-        $_open({ id, index, isEducation }) {
-            this.$refs['popUp'].$_open({ id, index, isEducation });
+        $_open({ id, isEducation }) {
+            this.$refs['popUp'].$_open({ id, isEducation });
         },
     },
 };

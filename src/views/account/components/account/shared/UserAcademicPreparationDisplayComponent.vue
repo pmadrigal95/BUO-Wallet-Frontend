@@ -73,7 +73,12 @@ export default {
             this.callback({ isEducation: this.entity.enum == 'EDUCACION' });
         },
 
-        $_edit() {},
+        $_edit({ id }) {
+            this.callback({
+                id,
+                isEducation: this.entity.enum == 'EDUCACION',
+            });
+        },
     },
 };
 </script>
@@ -111,6 +116,7 @@ export default {
 
                     <UserAcademicPreparationCardsComponent
                         :list="entity.list"
+                        :callback="$_edit"
                     />
                 </v-card-text>
             </v-card>
