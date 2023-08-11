@@ -144,6 +144,7 @@ export default {
         <div slot="Content">
             <!-- @Componente: BaseForm-->
             <BaseForm
+                :block="$vuetify.breakpoint.mobile"
                 :method="method"
                 :cancel="cancelMethod"
                 :icon="icon"

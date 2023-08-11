@@ -97,7 +97,12 @@ export default {
     >
         <div slot="Content">
             <BaseSkeletonLoader v-if="loading" type="article" />
-            <BaseForm :method="$_sendToApi" :cancel="$_cancel" v-else>
+            <BaseForm
+                :method="$_sendToApi"
+                :cancel="$_cancel"
+                v-else
+                :block="$vuetify.breakpoint.mobile"
+            >
                 <div slot="body">
                     <section class="pb-5">
                         <span

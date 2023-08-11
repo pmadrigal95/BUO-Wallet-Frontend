@@ -24,7 +24,6 @@ export default {
          */
         icon: {
             type: String,
-            required: true,
         },
 
         /**
@@ -85,6 +84,6 @@ export default {
         @click="$_Method"
     >
         {{ label }}
-        <v-icon right>{{ icon }}</v-icon>
+        <v-icon right v-if="icon">{{ icon }}</v-icon>
     </v-btn>
 </template>

@@ -22,7 +22,6 @@ export default {
 
     props: {
         value: {
-            type: Object,
             required: true,
         },
 
@@ -50,18 +49,13 @@ export default {
     },
 
     created() {
-        this.isPublic =
-            this.entity.enum == 'EDUCACION'
-                ? this.value.mostrarEducacion
-                : this.value.mostrarCertificaciones;
+        this.isPublic = this.value;
     },
 
     watch: {
-        isPublic(value) {
-            if (this.entity.enum == 'EDUCACION') {
-                this.value.mostrarEducacion = value;
-            } else {
-                this.value.mostrarCertificaciones = value;
+        isPublic(val, old) {
+            if (val != old && val != this.value) {
+                this.$_updateValue(val);
             }
         },
     },
@@ -71,8 +65,12 @@ export default {
     },
 
     methods: {
+        $_updateValue(event) {
+            this.$emit('input', event);
+        },
+
         $_new() {
-            this.callback({});
+            this.callback({ isEducation: this.entity.enum == 'EDUCACION' });
         },
 
         $_edit() {},
@@ -105,7 +103,7 @@ export default {
                             </v-btn>
                         </v-layout>
                         <DisplaySectionViewComponent
-                            v-if="entity.show != undefined"
+                            v-if="value != undefined"
                             :section="entity.enum"
                             v-model="isPublic"
                         />

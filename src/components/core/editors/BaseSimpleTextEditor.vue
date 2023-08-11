@@ -149,6 +149,7 @@ export default {
                         :labelBtn="formTitle"
                         :method="$_save"
                         :cancel="$_cancel"
+                        :block="$vuetify.breakpoint.mobile"
                     >
                         <div slot="body">
                             <v-row>

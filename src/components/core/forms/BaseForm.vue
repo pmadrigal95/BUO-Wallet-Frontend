@@ -244,6 +244,9 @@ export default {
                             icon
                         }}</v-icon></v-btn
                     >
+
+                    <slot name="Betweenbtns"></slot>
+
                     <v-btn
                         class="mt-5 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"
                         elevation="0"
@@ -289,6 +292,8 @@ export default {
                         >mdi-close-circle-outline</v-icon
                     >
                 </v-btn>
+
+                <slot name="Betweenbtns"></slot>
 
                 <v-btn
                     class="ma-1 no-uppercase rounded-lg BUO-Paragraph-Small-SemiBold"

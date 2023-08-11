@@ -91,8 +91,8 @@ export default {
                 });
         },
 
-        $_open({ id, index }) {
-            this.$refs['popUp'].$_open({ id, index });
+        $_open({ id, index, isEducation }) {
+            this.$refs['popUp'].$_open({ id, index, isEducation });
         },
     },
 };
@@ -110,14 +110,14 @@ export default {
             v-if="education.list.length"
             :entity="education"
             :callback="$_open"
-            v-model="entity"
+            v-model="entity.mostrarEducacion"
         />
 
         <UserAcademicPreparationDisplayComponent
             v-if="certification.list.length"
             :entity="certification"
             :callback="$_open"
-            v-model="entity"
+            v-model="entity.mostrarCertificaciones"
         />
     </section>
 </template>

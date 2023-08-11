@@ -138,7 +138,11 @@ export default {
 </script>
 
 <template>
-    <BaseForm :method="crop" :cancel="onCancel">
+    <BaseForm
+        :method="crop"
+        :cancel="onCancel"
+        :block="$vuetify.breakpoint.mobile"
+    >
         <div slot="body">
             <div class="cropper-wrapper">
                 <div

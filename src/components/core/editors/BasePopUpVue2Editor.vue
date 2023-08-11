@@ -129,6 +129,7 @@ export default {
                 <div slot="Content">
                     <!-- @BaseForm -->
                     <BaseForm
+                        :block="$vuetify.breakpoint.mobile"
                         :labelBtn="formTitle"
                         :method="$_save"
                         :cancel="$_cancel"
@@ -188,6 +189,7 @@ export default {
                             :labelBtn="formTitle"
                             :method="$_save"
                             :cancel="$_cancel"
+                            :block="$vuetify.breakpoint.mobile"
                         >
                             <div slot="body">
                                 <v-row>

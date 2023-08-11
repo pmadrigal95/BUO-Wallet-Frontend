@@ -1006,6 +1006,7 @@ export default {
                             :method="$_Delete"
                             icon="mdi-delete"
                             labelBtn="Eliminar"
+                            :block="$vuetify.breakpoint.mobile"
                         >
                             <div slot="body">
                                 <br />
@@ -1024,6 +1025,7 @@ export default {
                             icon="mdi-tune"
                             :label="formTitle"
                             :labelBtn="formTitle"
+                            :block="$vuetify.breakpoint.mobile"
                         >
                             <div slot="body">
                                 <v-expansion-panels flat multiple>
