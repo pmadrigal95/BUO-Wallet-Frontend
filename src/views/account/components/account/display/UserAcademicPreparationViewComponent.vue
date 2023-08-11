@@ -16,16 +16,22 @@ const UserAcademicPreparationDisplayComponent = () =>
         '@/views/account/components/account/shared/UserAcademicPreparationDisplayComponent'
     );
 
+const UserAcademicPreparationEditorViweComponent = () =>
+    import(
+        '@/views/account/components/account/editor/UserAcademicPreparationEditorViweComponent'
+    );
+
 export default {
     name: 'UserAcademicPreparationViewComponent',
 
     components: {
         UserAcademicPreparationDisplayComponent,
+        UserAcademicPreparationEditorViweComponent,
     },
 
     data() {
         return {
-            entity: [],
+            entity: {},
             loading: false,
         };
     },
@@ -36,7 +42,7 @@ export default {
         ...mapGetters('authentication', ['user']),
 
         education() {
-            const educationList = this.entity.filter(
+            const educationList = this.entity.preparacionAcademicaList.filter(
                 (item) => item.tituloAcademicoId != 2
             );
 
@@ -44,18 +50,21 @@ export default {
                 list: educationList,
                 enum: 'EDUCACION',
                 title: 'Educación',
+                show: this.entity.mostrarEducacion,
             };
         },
 
         certification() {
-            const educationList = this.entity.filter(
-                (item) => item.tituloAcademicoId == 2
-            );
+            const certificationList =
+                this.entity.preparacionAcademicaList.filter(
+                    (item) => item.tituloAcademicoId == 2
+                );
 
             return {
-                list: educationList,
-                enum: 'EDUCACION',
+                list: certificationList,
+                enum: 'CERTIFICACION',
                 title: 'Certificaciones',
+                show: this.entity.mostrarCertificaciones,
             };
         },
     },
@@ -75,15 +84,15 @@ export default {
                     this.loading = false;
                     if (response != undefined) {
                         this.entity = BaseArrayHelper.SetObject(
-                            [],
+                            {},
                             response.data
                         );
                     }
                 });
         },
 
-        $_open() {
-            this.$refs['popUp'].$_open();
+        $_open({ id, index }) {
+            this.$refs['popUp'].$_open({ id, index });
         },
     },
 };
@@ -92,15 +101,22 @@ export default {
 <template>
     <BaseSkeletonLoader v-if="loading" type="card" />
     <section v-else>
+        <UserAcademicPreparationEditorViweComponent
+            ref="popUp"
+            v-model="entity"
+        />
+
         <UserAcademicPreparationDisplayComponent
             v-if="education.list.length"
             :entity="education"
+            :callback="$_open"
             v-model="entity"
         />
 
         <UserAcademicPreparationDisplayComponent
             v-if="certification.list.length"
             :entity="certification"
+            :callback="$_open"
             v-model="entity"
         />
     </section>

@@ -12,12 +12,17 @@ const UserAcademicPreparationCardsComponent = () =>
         '@/views/account/components/account/shared/UserAcademicPreparationCardsComponent'
     );
 
+const DisplaySectionViewComponent = () =>
+    import(
+        '@/views/account/components/account/shared/DisplaySectionViewComponent'
+    );
+
 export default {
     name: 'UserAcademicPreparationDisplayComponent',
 
     props: {
         value: {
-            type: Array,
+            type: Object,
             required: true,
         },
 
@@ -25,16 +30,40 @@ export default {
             type: Object,
             required: true,
         },
+
+        callback: {
+            type: Function,
+            required: true,
+        },
     },
 
     components: {
         UserAcademicPreparationCardsComponent,
+        DisplaySectionViewComponent,
     },
 
     data() {
         return {
             loading: false,
+            isPublic: undefined,
         };
+    },
+
+    created() {
+        this.isPublic =
+            this.entity.enum == 'EDUCACION'
+                ? this.value.mostrarEducacion
+                : this.value.mostrarCertificaciones;
+    },
+
+    watch: {
+        isPublic(value) {
+            if (this.entity.enum == 'EDUCACION') {
+                this.value.mostrarEducacion = value;
+            } else {
+                this.value.mostrarCertificaciones = value;
+            }
+        },
     },
 
     computed: {
@@ -42,9 +71,11 @@ export default {
     },
 
     methods: {
-        $_open() {
-            this.$refs['popUp'].$_open();
+        $_new() {
+            this.callback({});
         },
+
+        $_edit() {},
     },
 };
 </script>
@@ -65,15 +96,19 @@ export default {
                                 :class="[app ? 'white--text' : 'grey700--text']"
                                 >{{ entity.title }}</span
                             >
-                            <v-btn icon :color="app ? 'clouds' : 'blue900'">
+                            <v-btn
+                                @click="$_new"
+                                icon
+                                :color="app ? 'clouds' : 'blue900'"
+                            >
                                 <v-icon>mdi-plus-circle</v-icon>
                             </v-btn>
                         </v-layout>
-                        <!-- <DisplaySectionViewComponent
-                            v-if="entity.mostrarExperiencia != undefined"
-                            section="EXPERIENCIA"
-                            v-model="entity.mostrarExperiencia"
-                        /> -->
+                        <DisplaySectionViewComponent
+                            v-if="entity.show != undefined"
+                            :section="entity.enum"
+                            v-model="isPublic"
+                        />
                     </section>
 
                     <UserAcademicPreparationCardsComponent
