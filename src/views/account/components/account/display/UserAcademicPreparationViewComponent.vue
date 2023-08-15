@@ -16,9 +16,9 @@ const UserAcademicPreparationDisplayComponent = () =>
         '@/views/account/components/account/shared/UserAcademicPreparationDisplayComponent'
     );
 
-const UserAcademicPreparationEditorViweComponent = () =>
+const UserAcademicPreparationEditorViewComponent = () =>
     import(
-        '@/views/account/components/account/editor/UserAcademicPreparationEditorViweComponent'
+        '@/views/account/components/account/editor/UserAcademicPreparationEditorViewComponent'
     );
 
 export default {
@@ -26,7 +26,7 @@ export default {
 
     components: {
         UserAcademicPreparationDisplayComponent,
-        UserAcademicPreparationEditorViweComponent,
+        UserAcademicPreparationEditorViewComponent,
     },
 
     data() {
@@ -101,20 +101,18 @@ export default {
 <template>
     <BaseSkeletonLoader v-if="loading" type="card" />
     <section v-else>
-        <UserAcademicPreparationEditorViweComponent
+        <UserAcademicPreparationEditorViewComponent
             ref="popUp"
             v-model="entity"
         />
 
         <UserAcademicPreparationDisplayComponent
-            v-if="education.list.length"
             :entity="education"
             :callback="$_open"
             v-model="entity.mostrarEducacion"
         />
 
         <UserAcademicPreparationDisplayComponent
-            v-if="certification.list.length"
             :entity="certification"
             :callback="$_open"
             v-model="entity.mostrarCertificaciones"

@@ -84,7 +84,7 @@ export default {
 </script>
 
 <template>
-    <section class="mt-6" v-if="entity.list.length > 0">
+    <section class="mt-6">
         <v-layout justify-center>
             <v-card flat class="rounded" width="100%" height="100%">
                 <v-card-text>
@@ -115,9 +115,26 @@ export default {
                     </section>
 
                     <UserAcademicPreparationCardsComponent
+                        v-if="entity.list.length > 0"
                         :list="entity.list"
                         :callback="$_edit"
                     />
+
+                    <v-alert
+                        v-else
+                        border="left"
+                        colored-border
+                        color="primary"
+                        elevation="0"
+                        class="ml-2"
+                    >
+                        <span
+                            class="BUO-Paragraph-Small"
+                            :class="[app ? 'white--text' : 'grey600--text']"
+                            >Agregar tu experiencia es fácil y solo llevará unos
+                            minutos.</span
+                        >
+                    </v-alert>
                 </v-card-text>
             </v-card>
         </v-layout>

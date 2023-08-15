@@ -175,12 +175,19 @@ export default {
                             pdaList.length == 0
                         "
                     >
-                        <span
-                            class="BUO-Paragraph-Small"
-                            :class="[app ? 'white--text' : 'grey600--text']"
-                            >Regalanos una breve descripción sobre tí, tus
-                            intereses metas y objetivos profesionales</span
+                        <v-alert
+                            border="left"
+                            colored-border
+                            color="primary"
+                            elevation="0"
                         >
+                            <span
+                                class="BUO-Paragraph-Small"
+                                :class="[app ? 'white--text' : 'grey600--text']"
+                                >Regalanos una breve descripción sobre tí, tus
+                                intereses metas y objetivos profesionales</span
+                            >
+                        </v-alert>
                     </section>
                     <section class="mb-1 pl-2">
                         <BaseSkeletonLoader v-if="loadingPda" type="card" />

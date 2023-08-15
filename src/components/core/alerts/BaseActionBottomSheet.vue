@@ -195,7 +195,7 @@ export default {
                     icon: 'mdi-delete-outline',
                     color: 'redError900',
                     item: this.item,
-                    desc: `¿Estás seguro que quieres eliminar esta ${this.item}? La información de tu indicador se perderá.`,
+                    desc: `¿Estás seguro que quieres eliminar esta ${this.item}? La información se perderá.`,
                 };
             } else if (this.action === 'info') {
                 result = {
@@ -287,7 +287,9 @@ export default {
                         </v-btn>
                     </v-layout>
 
-                    <v-card-title class="BUO-Heading-XSmall">
+                    <v-card-title
+                        class="BUO-Heading-XSmall buo-none-word-break"
+                    >
                         {{ $_Object.title + ' ' + $_Object.item }}
                     </v-card-title>
 
