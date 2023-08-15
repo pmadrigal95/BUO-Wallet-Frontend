@@ -61,11 +61,21 @@ export default {
                     elevation="0"
                 >
                     <BaseCardMenuViewComponent
-                        :title="item.nombre"
+                        :title="
+                            item.nombre ? item.nombre : item.nombreCualificacion
+                        "
                         :icon="componentProps.icon"
                         :iconColor="componentProps.iconColor"
-                        :description="item.nombreTituloAcademico"
-                        :footerDescription="item.nombreLugarCompleto"
+                        :description="
+                            item.nombreTituloAcademico
+                                ? item.nombreTituloAcademico
+                                : item.nombreOrganizacion
+                        "
+                        :footerDescription="
+                            item.nombreLugarCompleto
+                                ? item.nombreLugarCompleto
+                                : item.fechaFormato
+                        "
                         :fontTypeSubtitle="componentProps.fontTypeSubtitle"
                         :fontTypeDescription="
                             componentProps.fontTypeDescription

@@ -89,7 +89,13 @@ export default {
             this.loading = true;
 
             httpService
-                .delete(`preparacionAcademica/deleteById/${this.itemId}`)
+                .delete(
+                    `${
+                        this.arrayName == 'preparacionAcademicaList'
+                            ? 'preparacionAcademica'
+                            : 'experienciaLaboral'
+                    }/deleteById/${this.itemId}`
+                )
                 .then((response) => {
                     this.loading = false;
                     if (response != undefined) {
