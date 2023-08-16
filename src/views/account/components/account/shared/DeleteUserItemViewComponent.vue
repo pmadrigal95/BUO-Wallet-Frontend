@@ -58,7 +58,7 @@ export default {
     methods: {
         $_delete() {
             this.$_sendToApi();
-            console.log(this.itemId);
+            // console.log(this.itemId);
         },
 
         $_open() {
@@ -76,7 +76,9 @@ export default {
                     this.value[this.arrayName]
                 );
 
-                delete tempArray[index];
+                // delete tempArray[index];
+
+                tempArray.splice(index, 1);
 
                 this.value[this.arrayName] = BaseArrayHelper.SetObject(
                     [],

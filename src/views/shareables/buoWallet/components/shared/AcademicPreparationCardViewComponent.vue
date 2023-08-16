@@ -44,7 +44,9 @@ export default {
 
                 <v-expansion-panel-content>
                     <v-list three-line>
-                        <template v-for="(item, index, customKey) in entity.list">
+                        <template
+                            v-for="(item, index, customKey) in entity.list"
+                        >
                             <v-list-item :key="index">
                                 <v-list-item-avatar>
                                     <v-icon color="grey-500" large
