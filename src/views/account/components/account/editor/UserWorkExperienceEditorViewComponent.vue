@@ -136,7 +136,9 @@ export default {
                 continuaLaborando: this.temp.continuaLaborando,
                 cualificacionId: this.temp.cualificacionId,
                 descripcion: this.temp.descripcion,
-                fechaFinal: this.temp.fechaFinal,
+                fechaFinal: this.temp.continuaLaborando
+                    ? null
+                    : this.temp.fechaFinal,
                 fechaInicio: this.temp.fechaInicio,
                 id: this.temp.id,
                 nombreCualificacion: this.temp.nombreCualificacion,
@@ -244,7 +246,11 @@ export default {
                                     label="Fecha de inicio"
                                     appendIcon="mdi-calendar-month"
                                     v-model="temp.fechaInicio"
-                                    reqCurrentMaxDate
+                                    :max="temp.fechaFinal"
+                                    :reqCurrentMaxDate="
+                                        temp.continuaLaborando ||
+                                        temp.fechaFinal == undefined
+                                    "
                                     :validate="['text']"
                                 />
                             </v-col>
@@ -254,6 +260,7 @@ export default {
                                     appendIcon="mdi-calendar-month"
                                     v-model="temp.fechaFinal"
                                     reqCurrentMaxDate
+                                    :min="temp.fechaInicio"
                                     :validate="['text']"
                                     v-if="!temp.continuaLaborando"
                                 />

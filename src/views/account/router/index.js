@@ -7,7 +7,7 @@ const routes = [
         name: 'AccountViewComponent',
         component: 'account/AccountViewComponent',
         meta: {
-            module: 'HomeViewComponent',
+            module: 'AccountViewComponent',
         },
     },
 ];
