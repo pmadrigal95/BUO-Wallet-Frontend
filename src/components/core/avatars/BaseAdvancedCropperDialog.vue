@@ -67,6 +67,7 @@ export default {
                     icon: 'account',
                     action: this.$_getFile,
                 },
+                ...this.customActionList,
             ];
         },
     },
@@ -236,7 +237,7 @@ export default {
                     </v-btn>
                 </template>
 
-                <v-list v-for="(item, i) in actionList" :key="i">
+                <v-list dense v-for="(item, i) in actionList" :key="i">
                     <v-list-item @click="item.action">
                         <v-list-item-icon>
                             <v-icon>mdi-{{ item.icon }}</v-icon>

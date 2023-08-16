@@ -64,7 +64,7 @@ export default {
      * Método DELETE
      */
     delete(url, request) {
-        return httpRequest('delete', url, request);
+        return httpRequest('delete', url, { data: request });
     },
 
     /**

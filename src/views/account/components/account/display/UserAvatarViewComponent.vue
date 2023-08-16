@@ -27,6 +27,16 @@ export default {
 
     computed: {
         ...mapGetters('authentication', ['user', 'userAvatar']),
+
+        customActionList() {
+            return [
+                {
+                    title: 'Eliminar foto',
+                    icon: 'delete-outline',
+                    action: this.$_open,
+                },
+            ];
+        },
     },
 
     methods: {
@@ -51,17 +61,44 @@ export default {
                     }
                 });
         },
+
+        $_open() {
+            this.$refs.popUp.$_openModal();
+        },
+
+        $_delete() {
+            httpService
+                .delete('perfilUsuario/foto', {
+                    usuarioId: this.user.userId,
+                })
+                .then((response) => {
+                    if (response != undefined) {
+                        // this.$_updateModel();
+
+                        this.$_open();
+                    }
+                });
+        },
     },
 };
 </script>
 
 <template>
     <v-layout justify-center>
+        <!-- @Componente:  BaseDialog-->
+        <BaseActionPopUp
+            ref="popUp"
+            action="delete"
+            item="Foto de perfil"
+            inset
+            :fn="$_delete"
+        />
         <BaseSkeletonLoader v-if="loading" type="avatar" />
         <BaseAdvancedCropperDialog
             :callback="$_sendToApi"
             :avatarColor="user.colorAvatar"
             :avatarDisplay="userAvatar"
+            :customActionList="customActionList"
             v-else-if="userAvatar && user"
         />
     </v-layout>
