@@ -138,10 +138,13 @@ export default {
                             >
                             <BaseTextArea
                                 v-model="temp.biografia"
-                                counter
                                 rows="4"
                                 placeholder="Regálanos una breve descripción sobre tí"
                                 clearable
+                                :validate="['optionalText']"
+                                :max="500"
+                                :min="1"
+                                counter="500"
                             />
                         </v-col>
 
@@ -154,10 +157,13 @@ export default {
                             >
                             <BaseTextArea
                                 v-model="temp.objetivo"
-                                counter
                                 rows="4"
                                 placeholder="Regálanos una breve descripción tus intereses metas y objetivos profesionales"
                                 clearable
+                                :validate="['optionalText']"
+                                :max="500"
+                                :min="1"
+                                counter="500"
                             />
                         </v-col>
                         <v-col cols="12">
