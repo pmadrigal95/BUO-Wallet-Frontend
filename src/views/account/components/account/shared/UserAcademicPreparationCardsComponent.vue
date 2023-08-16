@@ -5,6 +5,8 @@
  * @displayName CardViewComponent
  *
  */
+import { mapGetters } from 'vuex';
+
 const BaseCardMenuViewComponent = () =>
     import('@/components/core/cards/BaseCardMenuViewComponent');
 
@@ -28,17 +30,23 @@ export default {
     },
 
     computed: {
+        ...mapGetters('theme', ['app']),
+
         componentProps() {
             return {
-                fontTypeSubtitle:
-                    'BUO-Paragraph-Small-SemiBold grey700--text pb-0 pt-0',
-                fontTypeDescription: 'BUO-Paragraph-Small grey700--text pb-0',
-                fontTypeFooterDescription:
-                    'BUO-Label-XSmall grey--text pb-0 pl-2',
+                fontTypeSubtitle: this.app
+                    ? 'BUO-Paragraph-Small-SemiBold white--text pb-0 pt-0'
+                    : 'BUO-Paragraph-Small-SemiBold grey700--text pb-0 pt-0',
+                fontTypeDescription: this.app
+                    ? 'BUO-Paragraph-Small white--text pb-0'
+                    : 'BUO-Paragraph-Small grey700--text pb-0',
+                fontTypeFooterDescription: this.app
+                    ? 'BUO-Label-XSmall blueProgress600--text pb-0 pl-2'
+                    : 'BUO-Label-XSmall grey--text pb-0 pl-2',
                 width: '235',
                 heigh: '160',
                 icon: 'pencil-outline',
-                iconColor: 'black',
+                iconColor: this.app ? 'blueProgress600' : 'black',
             };
         },
     },
