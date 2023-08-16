@@ -72,6 +72,7 @@ export default {
 
     methods: {
         $_sendToApi() {
+            this.loading = true;
             httpService
                 .get(`perfilUsuario/contacto/${this.user.userId}`)
                 .then((response) => {

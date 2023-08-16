@@ -31,6 +31,16 @@ const myAbilitiesLinkViewComponent = () =>
         '@/views/shareables/buoWallet/components/myAbilitiesLink/myAbilitiesLinkViewComponent'
     );
 
+const WorkExperienceCardViewComponent = () =>
+    import(
+        '@/views/shareables/buoWallet/components/myProfileLink/WorkExperienceCardViewComponent'
+    );
+
+const AcademicPreparationViewComponent = () =>
+    import(
+        '@/views/shareables/buoWallet/components/myProfileLink/AcademicPreparationViewComponent'
+    );
+
 export default {
     name: 'BaseContainerViewComponent',
 
@@ -47,6 +57,8 @@ export default {
         ProfileCardViewComponent,
         ContactCardViewComponent,
         myAbilitiesLinkViewComponent,
+        WorkExperienceCardViewComponent,
+        AcademicPreparationViewComponent,
     },
 
     data() {
@@ -138,12 +150,15 @@ export default {
             <v-row justify="center" align-content="center">
                 <ProfileCardViewComponent :entity="entity" />
             </v-row>
-            <v-row justify="center" align-content="center" class="my-7">
+            <v-row justify="center" align-content="center" class="pt-6">
                 <myAbilitiesLinkViewComponent :entity="entity" />
             </v-row>
-            <v-row justify="center" align-content="center">
-                <ContactCardViewComponent :entity="entity" />
-            </v-row>
+
+            <WorkExperienceCardViewComponent class="pb-6 pt-3" />
+
+            <AcademicPreparationViewComponent />
+
+            <ContactCardViewComponent class="pt-6" />
         </div>
     </BaseCardViewComponent>
 </template>
