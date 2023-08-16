@@ -152,7 +152,7 @@ export default {
 </script>
 
 <template>
-    <section>
+    <section class="text-center justify-center align-center">
         <BasePopUp
             ref="popUp"
             :maxWidth="$vuetify.breakpoint.mobile ? '100%' : '60%'"
@@ -178,7 +178,7 @@ export default {
             </div>
         </BasePopUp>
 
-        <v-layout class="align-end pb-5">
+        <v-layout justify-center class="align-end pb-5">
             <v-avatar
                 :size="avatarSize + 5"
                 :color="errorMessage ? 'redError900' : 'transparent'"
@@ -250,7 +250,7 @@ export default {
                 </v-list>
             </v-menu>
         </v-layout>
-        <section v-if="errorMessage" class="mt-n5">
+        <section v-if="errorMessage" class="mt-n5 mb-3">
             <span class="BUO-Label-XSmall redError900--text text-center">{{
                 errorMessage
             }}</span>
