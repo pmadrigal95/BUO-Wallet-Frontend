@@ -1,3 +1,19 @@
+/**
+ * This CSS code snippet defines various classes for setting background gradients and solid colors. These classes can be used to apply different color schemes to HTML elements.
+ * 
+ * Example Usage:
+ * <div class="pda-gradient-1"></div>
+ * 
+ * The classes starting with ".pda-gradient-" are used to set background gradients using the linear-gradient property. Each class has a unique name and specifies the colors and positions for the gradient.
+ * 
+ * The classes starting with ".pda-solid-" are used to set solid colors. Each class has a unique name and specifies a single color.
+ * 
+ * These classes can be applied to HTML elements by adding the class name to the class attribute of the element.
+ * 
+ * The code snippet also includes some commented out code, which suggests that there may be additional color options that are not currently being used. These commented out options can be uncommented and used if desired.
+ * 
+ * Overall, this code snippet provides a convenient way to apply predefined color schemes to HTML elements by using CSS classes.
+ */
 /*
 * PDA COLOR GUIDE
 */
@@ -50,7 +66,8 @@
 }
 
 .pda-gradient-cautivadora {
-    background: linear-gradient(135deg, #FFFA55 43.23%, #FEE577 100%) !important;
+    /* background: linear-gradient(135deg, #FFFA55 43.23%, #FEE577 100%) !important; */
+    background: linear-gradient(135deg, #EFEA51 43.23%, #D8C363 100%) !important;
 }
 
 .pda-gradient-colaboradora {
@@ -106,7 +123,8 @@
 }
 
 .pda-gradient-logica {
-    background: linear-gradient(135deg, #A4FFF2 43.23%, #6BDACA 100%) !important;
+    /* background: linear-gradient(135deg, #A4FFF2 43.23%, #6BDACA 100%) !important; */
+    background: linear-gradient(135deg, #9CF2E5 43.23%, #65CEBE 100%) !important;
 }
 
 .pda-gradient-paciente {
@@ -134,7 +152,8 @@
 }
 
 .pda-gradient-sensata {
-    background: linear-gradient(135deg, #62ECDD 43.23%, #A4FFF2 100%) !important;
+    /* background: linear-gradient(135deg, #62ECDD 43.23%, #A4FFF2 100%) !important; */
+      background: linear-gradient(135deg, #66DED0 43.23%, #98EEE2 100%) !important;
 }
 
 .pda-gradient-tenaz {
@@ -158,7 +177,8 @@
 }
 
 .pda-solid-cautivadora {
-    background: #FFFA55 !important;
+    /* background: #FFFA55 !important; */
+    background: #EFEA51 !important;
 }
 
 .pda-solid-colaboradora {
@@ -214,7 +234,8 @@
 }
 
 .pda-solid-logica {
-    background: #A4FFF2 !important;
+    /* background: #A4FFF2 !important; */
+    background: #9AEDE1 !important;
 }
 
 .pda-solid-paciente {
@@ -242,7 +263,8 @@
 }
 
 .pda-solid-sensata {
-    background: #62ECDD !important;
+    /* background: #62ECDD !important; */
+    background: #66DED0 !important;
 }
 
 .pda-solid-tenaz {
