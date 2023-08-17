@@ -44,6 +44,11 @@ export default {
             type: String,
             default: undefined,
         },
+
+        maxMBSize: {
+            type: Number,
+            default: 1,
+        },
     },
 
     components: {
@@ -124,6 +129,16 @@ export default {
                     'Foto de perfil',
                     'una fotografía'
                 );
+                baseNotificationsHelper.Message(true, this.errorMessage);
+                return false;
+            }
+
+            if (!baseFnFile.$_isMaxMBSize(this.image['file'], this.maxMBSize)) {
+                this.errorMessage =
+                    baseLocalHelper.$_MsgFileAllowedMBSizeInvalid(
+                        'Foto de perfil',
+                        this.maxMBSize
+                    );
                 baseNotificationsHelper.Message(true, this.errorMessage);
                 return false;
             }

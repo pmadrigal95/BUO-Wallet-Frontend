@@ -249,6 +249,13 @@ export default {
     /**
      * Descripción: Validación
      */
+    $_MsgFileAllowedMBSizeInvalid(val, maxMBSize) {
+        return `El campo ${val} no posee un tamaño valido ${maxMBSize} MB.`;
+    },
+
+    /**
+     * Descripción: Validación
+     */
     $_MsgFileAllowedSizeImagesInvalid(val, width, height) {
         const dimensions =
             width == undefined

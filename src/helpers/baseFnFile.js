@@ -108,6 +108,20 @@ const isCorrectSize = (file, widthProperty, heightProperty) => {
     }
 };
 
+const convertMegaBytesToBytes = (maxMBSize) => {
+    return maxMBSize * 1024 * 1024;
+};
+
+const isMaxMBSize = (file, maxMBSize) => {
+    const maxSizeBytes = convertMegaBytesToBytes(maxMBSize);
+    try {
+        if (file.size > maxSizeBytes) return false;
+        return true;
+    } catch (result) {
+        return false;
+    }
+};
+
 const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -227,6 +241,10 @@ export default {
 
     $_isCorrectSize(file, width, height) {
         return isCorrectSize(file, width, height);
+    },
+
+    $_isMaxMBSize(file, maxMBSize) {
+        return isMaxMBSize(file, maxMBSize);
     },
 
     $_getMimeType(file, fallback) {
