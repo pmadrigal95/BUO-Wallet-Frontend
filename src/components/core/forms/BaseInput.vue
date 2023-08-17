@@ -389,6 +389,12 @@ export default {
                                 this.label != undefined ? this.label : ''
                             ),
                         (v) =>
+                            (v && v.length <= this.max) ||
+                            baseLocalHelper.$_MsgFieldMaxlengthInvalid(
+                                this.label != undefined ? this.label : '',
+                                this.max
+                            ),
+                        (v) =>
                             // eslint-disable-next-line no-useless-escape
                             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
                                 v
@@ -466,6 +472,12 @@ export default {
                                 this.label != undefined ? this.label : ''
                             ),
                         (v) =>
+                            (v && v.length <= this.max) ||
+                            baseLocalHelper.$_MsgFieldMaxlengthInvalid(
+                                this.label != undefined ? this.label : '',
+                                this.max
+                            ),
+                        (v) =>
                             /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/i.test(
                                 v
                             ) ||
@@ -477,6 +489,15 @@ export default {
 
                 case 'optionalWeb':
                     this.normalRules = [
+                        (v) =>
+                            v === undefined ||
+                            v === null ||
+                            v === '' ||
+                            (v && v.length <= this.max) ||
+                            baseLocalHelper.$_MsgFieldMaxlengthInvalid(
+                                this.label != undefined ? this.label : '',
+                                this.max
+                            ),
                         (v) =>
                             v === undefined ||
                             v === null ||

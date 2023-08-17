@@ -260,7 +260,7 @@ export default {
                                     v-model="temp.url"
                                     :validate="['optionalWeb']"
                                     :min="1"
-                                    :max="500"
+                                    :max="255"
                                     v-if="!isEducation"
                                 />
                             </v-col>

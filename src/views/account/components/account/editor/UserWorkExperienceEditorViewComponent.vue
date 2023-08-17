@@ -222,6 +222,8 @@ export default {
                                     label="Puesto"
                                     v-model="temp.nombreCualificacion"
                                     :validate="['text']"
+                                    :min="1"
+                                    :max="255"
                                 />
                             </v-col>
                             <v-col cols="12">
@@ -229,6 +231,8 @@ export default {
                                     label="Empresa"
                                     v-model="temp.nombreOrganizacion"
                                     :validate="['text']"
+                                    :min="1"
+                                    :max="255"
                                 />
                             </v-col>
                             <v-col cols="12">
@@ -236,9 +240,9 @@ export default {
                                     label="Descripción"
                                     v-model.trim="temp.descripcion"
                                     :validate="['optionalText']"
-                                    :max="500"
+                                    :max="2000"
                                     :min="1"
-                                    counter="500"
+                                    counter="2000"
                                 />
                             </v-col>
                             <v-col cols="12">
