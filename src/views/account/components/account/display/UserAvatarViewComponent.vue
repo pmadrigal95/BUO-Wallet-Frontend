@@ -68,12 +68,10 @@ export default {
 
         $_delete() {
             httpService
-                .delete('perfilUsuario/foto', {
-                    usuarioId: this.user.userId,
-                })
+                .delete(`perfilUsuario/foto/${this.user.userId}`)
                 .then((response) => {
                     if (response != undefined) {
-                        // this.$_updateModel();
+                        this.set_user_avatar(undefined);
 
                         this.$_open();
                     }
@@ -98,7 +96,7 @@ export default {
             :callback="$_sendToApi"
             :avatarColor="user.colorAvatar"
             :avatarDisplay="userAvatar"
-            :customActionList="customActionList"
+            :customActionList="userAvatar.length > 2 ? customActionList : []"
             v-else-if="userAvatar && user"
         />
     </v-layout>

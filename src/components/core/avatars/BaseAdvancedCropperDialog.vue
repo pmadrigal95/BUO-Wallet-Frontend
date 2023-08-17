@@ -195,7 +195,7 @@ export default {
 
                     <span
                         :class="`white--text ${avatarCss}`"
-                        v-if="avatarDisplay.length == 2"
+                        v-if="avatarDisplay.length <= 2"
                         >{{ avatarDisplay }}</span
                     >
 
