@@ -34,7 +34,7 @@ export default {
                 <v-avatar :color="user.colorAvatar" size="70">
                     <span
                         class="white--text BUO-Paragraph-Medium-SemiBold"
-                        v-if="userAvatar.length == 2"
+                        v-if="userAvatar.length <= 2"
                         >{{ userAvatar }}</span
                     >
 
