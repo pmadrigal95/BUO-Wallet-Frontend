@@ -97,6 +97,7 @@ export default {
             :avatarColor="user.colorAvatar"
             :avatarDisplay="userAvatar"
             :customActionList="userAvatar.length > 2 ? customActionList : []"
+            :maxMBSize="6"
             v-else-if="userAvatar && user"
         />
     </v-layout>

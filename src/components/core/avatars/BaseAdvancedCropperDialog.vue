@@ -47,7 +47,7 @@ export default {
 
         maxMBSize: {
             type: Number,
-            default: 1,
+            default: undefined,
         },
     },
 
@@ -133,7 +133,10 @@ export default {
                 return false;
             }
 
-            if (!baseFnFile.$_isMaxMBSize(this.image['file'], this.maxMBSize)) {
+            if (
+                this.maxMBSize &&
+                !baseFnFile.$_isMaxMBSize(this.image['file'], this.maxMBSize)
+            ) {
                 this.errorMessage =
                     baseLocalHelper.$_MsgFileAllowedMBSizeInvalid(
                         'Foto de perfil',

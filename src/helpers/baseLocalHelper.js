@@ -250,7 +250,7 @@ export default {
      * Descripción: Validación
      */
     $_MsgFileAllowedMBSizeInvalid(val, maxMBSize) {
-        return `El campo ${val} no posee un tamaño valido ${maxMBSize} MB.`;
+        return `El campo ${val} posee un tamaño superior al permitido de ${maxMBSize} MB.`;
     },
 
     /**
