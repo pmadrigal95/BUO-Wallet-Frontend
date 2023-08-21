@@ -239,8 +239,9 @@ export default {
 
                                         <v-list-item-content>
                                             <v-list-item-title
+                                                class="buo-white-space"
                                                 ><span
-                                                    class="buo-white-space BUO-Paragraph-Medium grey700--text"
+                                                    class="BUO-Paragraph-Medium grey700--text"
                                                 ></span
                                                 >{{
                                                     item.definicion
