@@ -22,19 +22,19 @@
  * Test taking random gradients
 */
 .pda-gradient-1 {
-    background: linear-gradient(102.96deg, #9CE074 12.53%, #83CDAD 80.92%) !important;  
+    background: linear-gradient(102.96deg, #9CE074 12.53%, #83CDAD 80.92%) !important;
 }
 
 .pda-gradient-2 {
-    background: linear-gradient(102.96deg, #F9997D 12.53%, #FA7DC6 80.92%) !important;  
+    background: linear-gradient(102.96deg, #F9997D 12.53%, #FA7DC6 80.92%) !important;
 }
 
 .pda-gradient-3 {
-    background: linear-gradient(102.96deg, #FEB452 12.53%, #EF7637 80.92%) !important; 
+    background: linear-gradient(102.96deg, #FEB452 12.53%, #EF7637 80.92%) !important;
 }
 
 .pda-gradient-4 {
-    background: linear-gradient(102.96deg, #CC699B 12.53%, #6FA5ED 80.92%) !important; 
+    background: linear-gradient(102.96deg, #CC699B 12.53%, #6FA5ED 80.92%) !important;
 }
 
 .pda-gradient-5 {
@@ -42,11 +42,11 @@
 }
 
 .pda-gradient-6 {
-    background: linear-gradient(102.96deg, #8AE394 12.53%, #8FD4FC 80.92%) !important; 
+    background: linear-gradient(102.96deg, #8AE394 12.53%, #8FD4FC 80.92%) !important;
 }
 
 .pda-gradient-7 {
-    background: linear-gradient(102.96deg, #E58B99 12.53%, #A9A865 80.92%) !important;  
+    background: linear-gradient(102.96deg, #E58B99 12.53%, #A9A865 80.92%) !important;
 }
 
 /**
@@ -67,7 +67,7 @@
 
 .pda-gradient-cautivadora {
     /* background: linear-gradient(135deg, #FFFA55 43.23%, #FEE577 100%) !important; */
-    background: linear-gradient(135deg, #EFEA51 43.23%, #FFC300 100%) !important;
+    background: linear-gradient(135deg, #efea51 43.23%, #FFC300 100%) !important;
 }
 
 .pda-gradient-colaboradora {
@@ -87,7 +87,7 @@
 }
 
 .pda-gradient-detallista {
-    background: linear-gradient(135deg, #CF6358 43.23%, #8E2B21 100%) !important; 
+    background: linear-gradient(135deg, #CF6358 43.23%, #8E2B21 100%) !important;
 }
 
 .pda-gradient-determinada {
@@ -102,7 +102,7 @@
     background: linear-gradient(135deg, #589F55 43.23%, #569D97 100%) !important;
 }
 
-.pda-gradient-encantadora { 
+.pda-gradient-encantadora {
     background: linear-gradient(135deg, #FEE577 43.23%, #FFC759 100%) !important;
 }
 
@@ -153,7 +153,7 @@
 
 .pda-gradient-sensata {
     /* background: linear-gradient(135deg, #62ECDD 43.23%, #A4FFF2 100%) !important; */
-      background: linear-gradient(135deg, #66DED0 43.23%, #98EEE2 100%) !important;
+    background: linear-gradient(135deg, #66DED0 43.23%, #98EEE2 100%) !important;
 }
 
 .pda-gradient-tenaz {
@@ -198,7 +198,7 @@
 }
 
 .pda-solid-detallista {
-    background: #CF6358 !important; 
+    background: #CF6358 !important;
 }
 
 .pda-solid-determinada {
@@ -213,7 +213,7 @@
     background: #589F55 !important;
 }
 
-.pda-solid-encantadora { 
+.pda-solid-encantadora {
     background: #FEE577 !important;
 }
 
