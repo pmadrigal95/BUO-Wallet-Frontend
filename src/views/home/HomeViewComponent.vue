@@ -16,6 +16,9 @@ const BaseMyAbilities = () =>
 const ExploreBUOViewComponent = () =>
     import('@/components/wallet/ExploreBUOViewComponent');
 
+const LinkedlnCoverViewComponent = () =>
+    import('@/views/home/components/LinkedlnCoverViewComponent');
+
 export default {
     name: 'HomeViewComponent',
 
@@ -25,6 +28,7 @@ export default {
         MenuCardViewComponent,
         BaseMyAbilities,
         ExploreBUOViewComponent,
+        LinkedlnCoverViewComponent,
     },
 
     computed: {
@@ -92,7 +96,7 @@ export default {
                                     <v-list-item-title>{{
                                         item.nombreUI
                                     }}</v-list-item-title>
-                                </v-list-item>
+                                </v-list-item> 
                             </section>
                         </v-list>
                     </v-menu>
@@ -101,6 +105,10 @@ export default {
         </v-col>
         <v-col cols="12" md="9" offset-md="1">
             <MenuCardViewComponent />
+        </v-col>
+
+        <v-col cols="12" md="9" offset-md="1">
+            <LinkedlnCoverViewComponent />
         </v-col>
 
         <v-col cols="12" md="9" offset-md="1">
