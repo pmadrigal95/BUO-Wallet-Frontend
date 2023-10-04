@@ -59,6 +59,7 @@ export default {
                 username: undefined,
                 password: undefined,
                 aceptaTerminos: undefined,
+                signUpCode: undefined,
                 step: 1,
             };
         },
