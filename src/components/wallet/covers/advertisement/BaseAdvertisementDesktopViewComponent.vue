@@ -118,7 +118,6 @@ export default {
     },
 };
 </script>
-
 <template>
     <v-hover v-slot="{ hover }" open-delay="200" v-if="showAdvertisement">
         <v-card
