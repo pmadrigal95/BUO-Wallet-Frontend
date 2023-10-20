@@ -40,7 +40,7 @@ export default {
             return {
                 title: 'Comparte tu potencial',
                 description:
-                    'Descarga ahora, tus covers de Linkedin, muestra tus habilidades y destaca, lorem ipsum',
+                    'Descarga ahora, tus covers de Linkedin, muestra tus habilidades y destaca.',
                 icon: 'close',
                 fnButton: this.$_download,
                 fnIcon: this.$_inactiveAdvertisement,

@@ -15,11 +15,6 @@ export default {
             required: true,
         },
 
-        skills: {
-            type: Array,
-            required: true,
-        },
-
         icon: {
             type: String,
             required: true,
@@ -45,11 +40,16 @@ export default {
         <v-hover v-slot="{ hover }" open-delay="200">
             <v-card
                 :elevation="hover ? 8 : 3"
-                class="d-flex flex-row justify-space-between rounded-lg click"
-                :class="`pda-gradient-${profile}`"
+                class="d-flex flex-row justify-space-between rounded-lg click mt-4 scale-up-center"
+                :class="`pda-gradient-${profile.toLowerCase()}`"
+                min-height="250"
+                @click="$_fn"
             >
                 <section>
-                    <section class="circle" :class="`pda-gradient-${profile}`">
+                    <section
+                        class="circle"
+                        :class="`pda-gradient-${profile.toLowerCase()}`"
+                    >
                         <section class="py-5 px-5">
                             <v-img
                                 max-height="120"
@@ -60,70 +60,32 @@ export default {
                     </section>
                 </section>
 
-                <section class="d-flex flex-column justify-center py-2">
-                    <v-row>
-                        <section class="d-flex justify-center py-6">
-                            <section class="align-self-center px-2">
-                                <h1
-                                    class="BUO-Heading-Small white--text text-shadow"
-                                >
-                                    <strong>Mi perfil conductual es:</strong>
-                                </h1>
-                                <h2
-                                    class="BUO-Heading-Medium white--text text-shadow"
-                                >
-                                    <strong class="text-upper">{{
-                                        profile
-                                    }}</strong>
-                                </h2>
-                            </section>
-                            <section
-                                class="d-flex flex-column justify-center align-start pr-2"
-                            >
-                                <h2
-                                    class="BUO-Paragraph-Medium-SemiBold white--text pl-4 align-self-center py-2 text-shadow"
-                                >
-                                    MIS TOP SKILLS
-                                </h2>
-                                <section
-                                    v-for="(skill, index) in skills"
-                                    :key="index"
-                                    class="d-flex flex-row border-left pl-2"
-                                >
-                                    <v-img
-                                        height="20"
-                                        width="20"
-                                        contain
-                                        src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/vector-check.png"
-                                    >
-                                    </v-img>
-                                    <p
-                                        class="px-1 pl-1 BUO-Paragraph-Medium white--text text-shadow"
-                                    >
-                                        {{ skill.name }}
-                                    </p>
-                                </section>
-                            </section>
-                        </section>
+                <section
+                    class="d-flex flex-column justify-space-between py-2 px-4"
+                >
+                    <section class="align-self-end">
+                        <v-btn icon color="white">
+                            <v-icon>{{ icon }}</v-icon>
+                        </v-btn>
+                    </section>
 
-                        <section class="d-flex flex-column">
-                            <section class="align-self-end mr-3">
-                                <v-btn icon color="white" @click="$_fn">
-                                    <v-icon>{{ icon }}</v-icon>
-                                </v-btn>
-                            </section>
-                        </section>
-                    </v-row>
-                    <v-row>
-                        <v-layout justify-end class="px-8 pt-2">
-                            <p
-                                class="align-self-end white--text BUO-Label-XSmall text-shadow"
-                            >
-                                Descubre tu perfil en
-                                <strong>getbuo.com</strong>
-                            </p>
-                        </v-layout>
-                    </v-row>
+                    <section class="px-2 align-self-center">
+                        <h1 class="BUO-Heading-Medium white--text text-shadow">
+                            <strong>Mi perfil conductual es:</strong>
+                        </h1>
+                        <h2
+                            class="BUO-Heading-Large white--text text-shadow text-center"
+                        >
+                            <strong>{{ profile }}</strong>
+                        </h2>
+                    </section>
+
+                    <section class="pa-2 align-self-end">
+                        <p class="white--text BUO-Label-XSmall text-shadow">
+                            Descubre tu perfil en
+                            <strong>getbuo.com</strong>
+                        </p>
+                    </section>
                 </section>
             </v-card>
         </v-hover>
@@ -132,16 +94,53 @@ export default {
 
 <style scoped>
 .circle {
-    max-width: 300px;
+    max-width: 420px;
     position: absolute;
     z-index: 1;
     overflow: auto;
     width: 100%;
     height: 100%;
     clip-path: circle(95% at 0%);
+    border-top-left-radius: 10px;
+    border-end-start-radius: 10px;
 }
 
-.text-upper {
-    text-transform: uppercase;
+.scale-up-center:hover {
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-10-20 16:28:10
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation scale-up-center
+ * ----------------------------------------
+ */
+ @-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 </style>

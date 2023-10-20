@@ -4,6 +4,8 @@
  *
  * @displayName ShareableLinkedlnViewComponent
  */
+import { mapGetters } from 'vuex';
+
 const BaseCardViewComponent = () =>
     import('@/components/core/cards/BaseCardViewComponent');
 
@@ -25,7 +27,7 @@ const PDACardMobileViewComponent = () =>
         '@/views/shareables/linkedlnCover/components/PDA/PDACardMobileViewComponent'
     );
 
-    const PDACardDesktopViewComponent = () =>
+const PDACardDesktopViewComponent = () =>
     import(
         '@/views/shareables/linkedlnCover/components/PDA/PDACardDesktopViewComponent'
     );
@@ -39,7 +41,7 @@ export default {
         BUOCardMobileViewComponent,
         PDACardMobileViewComponent,
         BUOCardDesktopViewComponent,
-        PDACardDesktopViewComponent
+        PDACardDesktopViewComponent,
     },
 
     data() {
@@ -52,122 +54,90 @@ export default {
     },
 
     computed: {
-        skills() {
-            return [
-                {
-                    name: 'Gerencia de proyectos',
-                },
-                {
-                    name: 'Asistente de gerencia',
-                },
-                {
-                    name: 'Consultor financiero',
-                },
-                {
-                    name: 'Planificación de inventarios',
-                },
-            ];
-        },
-
-        skillsPDA() {
-            return [
-                {
-                    name: 'Solucionador problemas',
-                },
-                {
-                    name: 'Atento al detalle',
-                },
-                {
-                    name: 'Adaptarse a cambios',
-                },
-                {
-                    name: 'Crear oportunidades ',
-                },
-            ];
-        },
-
         profilePDA() {
             return [
                 {
-                    value: 'amable',
+                    value: 'AMABLE',
                 },
                 {
-                    value: 'amigable',
+                    value: 'AMIGABLE',
                 },
                 {
-                    value: 'audaz',
+                    value: 'AUDAZ',
                 },
                 {
-                    value: 'cautivadora',
+                    value: 'CAUTIVADORA',
                 },
                 {
-                    value: 'colaboradora',
+                    value: 'COLABORADORA',
                 },
                 {
-                    value: 'concreta',
+                    value: 'CONCRETA',
                 },
                 {
-                    value: 'convincente',
+                    value: 'CONVINCENTE',
                 },
                 {
-                    value: 'creativa',
+                    value: 'CREATIVA',
                 },
                 {
-                    value: 'detallista',
+                    value: 'DETALLISTA',
                 },
                 {
-                    value: 'determinada',
+                    value: 'DETERMINADA',
                 },
                 {
-                    value: 'dinamica',
+                    value: 'DINAMICA',
                 },
                 {
-                    value: 'diplomatica',
+                    value: 'DIPLOMATICA',
                 },
                 {
-                    value: 'encantadora',
+                    value: 'ENCANTADORA',
                 },
                 {
-                    value: 'indagadora',
+                    value: 'INDAGADORA',
                 },
                 {
-                    value: 'influyente',
+                    value: 'INFLUYENTE',
                 },
                 {
-                    value: 'intuitiva',
+                    value: 'INTUITIVA',
                 },
                 {
-                    value: 'investigadora',
+                    value: 'INVESTIGADORA',
                 },
                 {
-                    value: 'logica',
+                    value: 'LOGICA',
                 },
                 {
-                    value: 'paciente',
+                    value: 'PACIENTE',
                 },
                 {
-                    value: 'precisa',
+                    value: 'PRECISA',
                 },
                 {
-                    value: 'proactiva',
+                    value: 'PROACTIVA',
                 },
                 {
-                    value: 'promotora',
+                    value: 'PROMOTORA',
                 },
                 {
-                    value: 'receptiva',
+                    value: 'RECEPTIVA',
                 },
                 {
-                    value: 'resolutiva',
+                    value: 'RESOLUTIVA',
                 },
                 {
-                    value: 'sensata',
+                    value: 'SENSATA',
                 },
                 {
-                    value: 'tenaz',
+                    value: 'TENAZ',
                 },
             ];
         },
+
+        ...mapGetters('authentication', ['user']),
     },
 
     created() {
@@ -231,7 +201,6 @@ export default {
                         <v-col cols="12">
                             <BUOCardMobileViewComponent
                                 :fn="$_selectCoverBuo"
-                                :skills="skills"
                                 :icon="
                                     this.selectedBuo
                                         ? 'mdi-radiobox-marked'
@@ -241,7 +210,6 @@ export default {
                             />
                             <BUOCardDesktopViewComponent
                                 :fn="$_selectCoverBuo"
-                                :skills="skills"
                                 :icon="
                                     this.selectedBuo
                                         ? 'mdi-radiobox-marked'
@@ -252,11 +220,10 @@ export default {
                         </v-col>
                     </v-row>
 
-                    <v-row class="my-4">
+                    <v-row class="my-4" v-if="user.pdaCompleted">
                         <v-col cols="12">
                             <PDACardMobileViewComponent
                                 :fn="$_selectCoverPDA"
-                                :skills="skillsPDA"
                                 :icon="
                                     this.selectedPDA
                                         ? 'mdi-radiobox-marked'
@@ -268,7 +235,6 @@ export default {
                             />
                             <PDACardDesktopViewComponent
                                 :fn="$_selectCoverPDA"
-                                :skills="skillsPDA"
                                 :icon="
                                     this.selectedPDA
                                         ? 'mdi-radiobox-marked'

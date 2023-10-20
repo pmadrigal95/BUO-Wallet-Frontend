@@ -14,11 +14,6 @@ export default {
             required: true,
         },
 
-        skills: {
-            type: Array,
-            required: true,
-        },
-
         icon: {
             type: String,
             required: true,
@@ -39,7 +34,8 @@ export default {
         <v-hover v-slot="{ hover }" open-delay="200">
             <v-card
                 :elevation="hover ? 8 : 3"
-                class="d-flex flex-row justify-space-between rounded-lg bg-buo click"
+                class="d-flex flex-row justify-space-between rounded-lg bg-buo mt-4 rotate-scale-up" 
+                @click="$_fn"
             >
                 <section>
                     <v-img
@@ -58,63 +54,29 @@ export default {
                     </v-img>
                 </section>
 
-                <section class="d-flex flex-column justify-center py-2">
-                    <v-row>
-                        <section class="d-flex flex-row justify-center py-6">
-                            <section class="align-self-center px-4">
-                                <h1
-                                    class="BUO-Heading-Small white--text text-shadow"
-                                >
-                                    <strong>MIS TOP</strong>
-                                </h1>
-                                <h2
-                                    class="BUO-Heading-Medium white--text text-shadow"
-                                >
-                                    SKILLS
-                                </h2>
-                            </section>
-                            <section
-                                class="d-flex flex-column justify-center align-start pr-2"
-                            >
-                                <section
-                                    v-for="(skill, index) in skills"
-                                    :key="index"
-                                    class="d-flex flex-row border-left pl-2"
-                                >
-                                    <v-img
-                                        height="20"
-                                        width="20"
-                                        contain
-                                        src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/vector-item.png"
-                                    >
-                                    </v-img>
-                                    <p
-                                        class="px-1 pl-1 BUO-Paragraph-Medium white--text text-shadow"
-                                    >
-                                        {{ skill.name }}
-                                    </p>
-                                </section>
-                            </section>
-                        </section>
+                <section
+                    class="d-flex flex-column justify-space-between py-2 px-4"
+                >
+                    <section class="align-self-end">
+                        <v-btn icon color="white">
+                            <v-icon>{{ icon }}</v-icon>
+                        </v-btn>
+                    </section>
 
-                        <section class="d-flex flex-column">
-                            <section class="align-self-end mr-3">
-                                <v-btn icon color="white" @click="$_fn">
-                                    <v-icon>{{ icon }}</v-icon>
-                                </v-btn>
-                            </section>
-                        </section>
-                    </v-row>
-                    <v-row>
-                        <v-layout justify-end class="px-8 pt-2">
-                            <p
-                                class="align-self-end white--text BUO-Label-XSmall text-shadow"
-                            >
-                                Valida tus habilidades en
-                                <strong>getbuo.com</strong>
-                            </p>
-                        </v-layout>
-                    </v-row>
+                    <section class="px-2 align-self-center">
+                        <h2
+                            class="BUO-Heading-Large white--text text-shadow text-center"
+                        >
+                            MIS TOP SKILLS
+                        </h2>
+                    </section>
+
+                    <section class="pa-2 align-self-end">
+                        <p class="white--text BUO-Label-XSmall text-shadow">
+                            Valida tus habilidades en
+                            <strong>getbuo.com</strong>
+                        </p>
+                    </section>
                 </section>
             </v-card>
         </v-hover>
@@ -125,8 +87,54 @@ export default {
 .bg-buo {
     background: linear-gradient(0.25turn, #6dc629, #01aa71);
 }
-
 .border-left {
     border-left: #ffffff solid 2px;
 }
+
+.rotate-scale-up:hover {
+	-webkit-animation: rotate-scale-up 0.65s linear both;
+	        animation: rotate-scale-up 0.65s linear both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-10-20 16:24:49
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation rotate-scale-up
+ * ----------------------------------------
+ */
+ @-webkit-keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
+  }
+}
+@keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
+  }
+}
+
 </style>
