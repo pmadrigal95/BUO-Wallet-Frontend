@@ -229,7 +229,6 @@ export default {
                                         ? 'mdi-radiobox-marked'
                                         : 'mdi-radiobox-blank'
                                 "
-                                key="key"
                                 :profile="profile"
                                 v-if="$vuetify.breakpoint.mobile"
                             />

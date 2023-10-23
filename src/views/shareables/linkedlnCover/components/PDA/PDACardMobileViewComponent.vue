@@ -80,9 +80,6 @@ export default {
 </template>
 
 <style scoped>
-.text-upper {
-    text-transform: uppercase;
-}
 .border-left {
     border-left: #ffffff solid 2px;
 }

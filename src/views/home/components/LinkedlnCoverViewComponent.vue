@@ -1,6 +1,6 @@
 <script>
 /**
- * Descripción: Pantalla Card Linkedln Cover
+ * Descripción: Card Linkedln Cover
  *
  * @displayName LinkedlnCoverViewComponent
  */
