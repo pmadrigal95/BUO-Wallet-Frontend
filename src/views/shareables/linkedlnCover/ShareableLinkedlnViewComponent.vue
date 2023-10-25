@@ -180,20 +180,13 @@ export default {
         subtitle="Tu imagen de portada es la primera impresión que los demás tienen de ti."
     >
         <div slot="body">
-            <v-card flat class="rounded-t-xl">
+            <v-card flat class="rounded-t-xl mb-6">
                 <v-card-text>
                     <v-layout justify-end class="pa-3">
                         <BaseCustomsButtonsGrid
                             label="Descargar"
                             :fnMethod="$_download"
                             icon="mdi-download"
-                        />
-                        <BaseCustomsButtonsGrid
-                            label="Descargar todo"
-                            :outlined="false"
-                            :fnMethod="$_download"
-                            icon="mdi-download-multiple"
-                            v-if="selectedBuo && selectedPDA"
                         />
                     </v-layout>
 

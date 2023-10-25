@@ -26,7 +26,7 @@ export default {
 
         styleTitle: {
             type: String,
-            default: 'BUO-Heading-Small white--text',
+            default: 'BUO-Heading-Small white--text text-center',
         },
 
         description: {
@@ -36,7 +36,7 @@ export default {
 
         styleDescription: {
             type: String,
-            default: 'BUO-Paragraph-Medium white--text',
+            default: 'BUO-Paragraph-Medium white--text text-center',
         },
 
         nameButton: {
@@ -125,11 +125,14 @@ export default {
             class="d-flex flex-column justify-center rounded-lg"
             :class="`${color}`"
         >
-            <v-img height="233px" width="250px" :src="image" class="rounded-lg">
+            <v-img height="auto" width="250px" :src="image" class="rounded-lg">
             </v-img>
 
-            <v-row class="position-absolute pl-6 pr-10 d-flex" dense>
-                <v-col cols="12">
+            <v-row
+                class="position-absolute pl-6 pr-4 d-flex justify-center"
+                dense
+            >
+                <v-layout justify-end>
                     <v-btn icon :color="iconColor" @click="$_fnIcon">
                         <v-icon
                             :small="smallIcon"
@@ -138,8 +141,8 @@ export default {
                             >mdi-{{ icon }}</v-icon
                         >
                     </v-btn>
-                </v-col>
-                <v-col cols="12" class="align-self-center">
+                </v-layout>
+                <v-col cols="12">
                     <h2 :class="styleTitle">
                         {{ title }}
                     </h2>
