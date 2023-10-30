@@ -122,7 +122,7 @@ export default {
                 .get(`/pda/getTest/${this.user.email}`)
                 .then((response) => {
                     if (response != undefined) {
-                        if (response.data) {
+                        if (response.data && response.data?.pdaStatus == 3) {
                             this.$_getPDAWallet(response.data);
                         } else {
                             this.$_getWords();

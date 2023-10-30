@@ -227,7 +227,7 @@ export default {
                             labelBtn="Continuar"
                             block
                             color="black"
-                            actionsColor = transparent
+                            actionsColor="transparent"
                         >
                             <div slot="body">
                                 <v-card

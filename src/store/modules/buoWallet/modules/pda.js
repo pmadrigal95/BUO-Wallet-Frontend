@@ -4,6 +4,8 @@
  * @displayName BUO PDA Wallet
  */
 
+import router from '@/router';
+
 import httpService from '@/services/axios/httpService';
 
 export const namespaced = true;
@@ -63,6 +65,11 @@ export const actions = {
             httpService.get(`pda/getTest/${username}`).then((response) => {
                 if (response != undefined) {
                     // Encontro la entidad
+                    if (response?.data?.pdaStatus != 3) {
+                        router.push({
+                            name: 'TestTakingViewComponent',
+                        });
+                    }
                     commit('$_SET_PDA_WALLET', response.data);
                 }
                 commit('$_SET_PDA_LOADING', false);
