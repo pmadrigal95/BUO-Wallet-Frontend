@@ -73,7 +73,7 @@ export default {
         :title="$vuetify.breakpoint.mobile ? 'Resumen de Compra' : undefined"
         :subtitle="
             $vuetify.breakpoint.mobile
-                ? 'Resultados Completos de tu PDA:'
+                ? 'Resultados Completos de tu Buo Psychometric:'
                 : undefined
         "
         :md="md"
@@ -105,7 +105,8 @@ export default {
                         v-if="$vuetify.breakpoint.mdAndUp"
                         class="BUO-Paragraph-Small buo-word-break"
                         :class="[app ? 'white--text' : 'grey700--text']"
-                        >Resultados Completos de tu PDA:</v-card-subtitle
+                        >Resultados Completos de tu Buo
+                        Psychometric:</v-card-subtitle
                     >
                     <v-list color="transparent">
                         <template v-for="(item, index) in details">
@@ -165,7 +166,7 @@ export default {
                                         >
                                             <b>{{ user.name }}</b>
                                         </section>
-                                        Acceso completo PDA
+                                        Acceso completo Buo Psychometric
                                     </v-card-subtitle>
                                 </section>
                                 <v-layout justify-center align-center>
@@ -191,16 +192,15 @@ export default {
                                     <v-layout
                                         align-center
                                         align-content-end
-                                        class="pb-4"
+                                        class="pb-8"
                                     >
                                         <v-img
                                             contain
-                                            height="19px"
-                                            width="87px"
+                                            height="50px"
                                             src="
-                                                https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-brand.svg
+                                            https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png
                                             "
-                                            lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-brand.svg"
+                                            lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png"
                                         />
                                     </v-layout>
                                 </v-card-actions>

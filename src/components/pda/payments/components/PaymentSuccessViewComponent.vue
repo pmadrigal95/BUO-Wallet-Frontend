@@ -45,7 +45,7 @@ export default {
     <BaseNotificationCardTemplate
         v-else
         title="¡Listo!"
-        subtitle="Ahora tienes acceso completo a tu perfil PDA. Accede a tus resultados."
+        subtitle="Ahora tienes acceso completo a tu perfil Buo Psychometric. Accede a tus resultados."
         img="https://buo-resources.s3.us-east-2.amazonaws.com/invite.png"
         elevation="0"
     >

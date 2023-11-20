@@ -13,7 +13,7 @@ const BasePDAProfileViewComponent = () =>
 export default {
     name: 'PDAProfileViewComponent',
 
-    metaInfo: { title: 'Mi Perfil PDA' },
+    metaInfo: { title: 'Mi Perfil Buo Psychometric' },
 
     components: {
         BasePDAProfileViewComponent,

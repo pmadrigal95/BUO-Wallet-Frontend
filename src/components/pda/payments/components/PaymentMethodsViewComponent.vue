@@ -131,7 +131,7 @@ export default {
                 class="BUO-Heading-Small"
                 :class="[app ? 'white--text' : 'grey700--text']"
             >
-                Reporte completo PDA
+                Reporte completo Buo Psychometric
             </section>
         </div>
         <div slot="card-text">

@@ -43,7 +43,7 @@ const PDAPaymentViewComponent = () =>
 export default {
     name: 'TestTakingViewComponent',
 
-    metaInfo: { title: 'PDA Test Taking' },
+    metaInfo: { title: 'Buo Psychometric Test Taking' },
 
     components: {
         PeopleSayViewComponent,
