@@ -180,23 +180,21 @@ export default {
                             </v-card>
                             <v-card flat dark width="326px" height="174px">
                                 <v-card-subtitle
-                                    class="BUO-Heading-Medium text-center buo-word-break py-6"
+                                    class="BUO-Heading-Medium text-center buo-word-break pt-8"
                                 >
-                                    <h6
-                                        class="BUO-Heading-Medium py-12 pb-0 Price"
-                                    >
+                                    <h6 class="BUO-Heading-Medium Price pt-10">
                                         $199 MXN
                                     </h6>
                                 </v-card-subtitle>
                                 <v-card-actions>
                                     <v-layout
                                         align-center
-                                        align-content-end
-                                        class="pb-8"
+                                        align-content-center
+                                        class=""
                                     >
                                         <v-img
                                             contain
-                                            height="50px"
+                                            height="40px"
                                             src="
                                             https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png
                                             "
