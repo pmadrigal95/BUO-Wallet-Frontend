@@ -146,7 +146,7 @@ export default {
         <BaseCardViewComponent v-if="entity" :md="md" :offset="offset">
             <div slot="card-text">
                 <BaseShareableTitle
-                    title="Tu perfil PDA"
+                    title="Tu perfil Buo Psychometric"
                     :share="$_share"
                     :download="$_download"
                     :nextStep="nextStep"

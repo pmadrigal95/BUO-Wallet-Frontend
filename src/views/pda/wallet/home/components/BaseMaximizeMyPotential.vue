@@ -81,9 +81,9 @@ export default {
                     <v-card-text>
                         <v-img
                             contain
-                            height="30px"
-                            src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-brandDark.svg"
-                            lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-brandDark.svg"
+                            height="70px"
+                            src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png"
+                            lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png"
                         />
                     </v-card-text>
                     <v-card-subtitle

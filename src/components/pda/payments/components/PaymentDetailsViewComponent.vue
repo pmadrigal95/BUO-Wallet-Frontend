@@ -73,7 +73,7 @@ export default {
         :title="$vuetify.breakpoint.mobile ? 'Resumen de Compra' : undefined"
         :subtitle="
             $vuetify.breakpoint.mobile
-                ? 'Resultados Completos de tu PDA:'
+                ? 'Resultados Completos de tu Buo Psychometric:'
                 : undefined
         "
         :md="md"
@@ -105,7 +105,8 @@ export default {
                         v-if="$vuetify.breakpoint.mdAndUp"
                         class="BUO-Paragraph-Small buo-word-break"
                         :class="[app ? 'white--text' : 'grey700--text']"
-                        >Resultados Completos de tu PDA:</v-card-subtitle
+                        >Resultados Completos de tu Buo
+                        Psychometric:</v-card-subtitle
                     >
                     <v-list color="transparent">
                         <template v-for="(item, index) in details">
@@ -165,7 +166,7 @@ export default {
                                         >
                                             <b>{{ user.name }}</b>
                                         </section>
-                                        Acceso completo PDA
+                                        Acceso completo Buo Psychometric
                                     </v-card-subtitle>
                                 </section>
                                 <v-layout justify-center align-center>
@@ -179,28 +180,25 @@ export default {
                             </v-card>
                             <v-card flat dark width="326px" height="174px">
                                 <v-card-subtitle
-                                    class="BUO-Heading-Medium text-center buo-word-break py-6"
+                                    class="BUO-Heading-Medium text-center buo-word-break pt-8"
                                 >
-                                    <h6
-                                        class="BUO-Heading-Medium py-12 pb-0 Price"
-                                    >
+                                    <h6 class="BUO-Heading-Medium Price pt-10">
                                         $199 MXN
                                     </h6>
                                 </v-card-subtitle>
                                 <v-card-actions>
                                     <v-layout
                                         align-center
-                                        align-content-end
-                                        class="pb-4"
+                                        align-content-center
+                                        class=""
                                     >
                                         <v-img
                                             contain
-                                            height="19px"
-                                            width="87px"
+                                            height="40px"
                                             src="
-                                                https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-brand.svg
+                                            https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png
                                             "
-                                            lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-brand.svg"
+                                            lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png"
                                         />
                                     </v-layout>
                                 </v-card-actions>
