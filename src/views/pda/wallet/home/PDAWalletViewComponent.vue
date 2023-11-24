@@ -98,7 +98,7 @@ export default {
 
 <template>
     <BaseCardViewComponent
-        title="Mi PDA"
+        title="Mi Buo Psychometric"
         :btnAction="$_returnToWallet"
         v-if="pdaWallet"
     >

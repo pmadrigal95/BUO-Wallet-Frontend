@@ -18,7 +18,7 @@ const ExploreBUOViewComponent = () =>
 export default {
     name: 'BasePDABehaviourDetailsViewComponent',
 
-    metaInfo: { title: 'Mis Comportamientos PDA' },
+    metaInfo: { title: 'Mis Comportamientos Buo Psychometric' },
 
     components: {
         BaseCardViewComponent,
