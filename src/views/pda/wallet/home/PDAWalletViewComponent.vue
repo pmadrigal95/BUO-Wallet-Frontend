@@ -99,6 +99,7 @@ export default {
 <template>
     <BaseCardViewComponent
         title="Mi Buo Psychometric"
+        subtitle="Powered by PDA International"
         :btnAction="$_returnToWallet"
         v-if="pdaWallet"
     >

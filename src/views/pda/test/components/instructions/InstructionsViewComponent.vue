@@ -190,6 +190,12 @@ export default {
                         >Iniciar <v-icon right>mdi-arrow-right</v-icon></v-btn
                     >
                 </v-card-text>
+
+                <v-layout justify-end>
+                    <p class="BUO-Label-XSmall pt-4 px-4">
+                        Powered by PDA International
+                    </p></v-layout
+                >
             </v-card>
         </div>
 
