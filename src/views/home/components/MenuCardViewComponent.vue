@@ -50,7 +50,7 @@ export default {
                 },
                 {
                     src: 'https://buo-resources.s3.us-east-2.amazonaws.com/wallet/test.svg',
-                    title: 'Prueba Sychometric',
+                    title: 'Prueba Psychometric',
                     subtitle: this.user.pdaCompleted
                         ? 'Ver resultados'
                         : 'Descubre tu perfil',
