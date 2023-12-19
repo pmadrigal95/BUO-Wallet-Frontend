@@ -70,8 +70,8 @@ export default {
                 <v-card-title
                     class="buo-word-break BUO-Paragraph-Large-SemiBold white--text pt-8"
                 >
-                    El PDA Assessment ha sido diseñado para conocer a las
-                    personas identificando los estilos naturales de
+                    El Buo Psychometric Assessment ha sido diseñado para conocer
+                    a las personas identificando los estilos naturales de
                     comportamiento.
                 </v-card-title>
                 <v-card-subtitle
@@ -175,9 +175,9 @@ export default {
                 <v-layout align-center justify-center>
                     <v-img
                         contain
-                        height="30px"
-                        src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-brand.svg"
-                        lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/pda-brand.svg"
+                        height="50px"
+                        src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png"
+                        lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png"
                     />
                 </v-layout>
 
@@ -190,6 +190,12 @@ export default {
                         >Iniciar <v-icon right>mdi-arrow-right</v-icon></v-btn
                     >
                 </v-card-text>
+
+                <v-layout justify-end>
+                    <p class="BUO-Label-XSmall pt-4 px-4">
+                        Powered by PDA International
+                    </p></v-layout
+                >
             </v-card>
         </div>
 

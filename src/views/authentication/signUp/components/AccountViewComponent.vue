@@ -55,6 +55,8 @@ export default {
     },
 
     mounted() {
+        this.$_reviewSignUpCode();
+
         this.$vuetify.theme.themes.light.background =
             this.$vuetify.theme.themes.light.white;
 
@@ -66,6 +68,10 @@ export default {
     },
 
     methods: {
+        $_reviewSignUpCode() {
+            this.value.signUpCode = this.$router.currentRoute.params.Id;
+        },
+
         $_sendToApi() {
             this.loading = true;
             httpService.post('user/save', this.value).then((response) => {

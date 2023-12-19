@@ -43,7 +43,7 @@ const PDAPaymentViewComponent = () =>
 export default {
     name: 'TestTakingViewComponent',
 
-    metaInfo: { title: 'PDA Test Taking' },
+    metaInfo: { title: 'Buo Psychometric Test Taking' },
 
     components: {
         PeopleSayViewComponent,
@@ -122,7 +122,7 @@ export default {
                 .get(`/pda/getTest/${this.user.email}`)
                 .then((response) => {
                     if (response != undefined) {
-                        if (response.data) {
+                        if (response.data && response.data?.pdaStatus == 3) {
                             this.$_getPDAWallet(response.data);
                         } else {
                             this.$_getWords();

@@ -83,6 +83,11 @@ export default {
 
             <v-card-text v-if="pdaWallet && pdaWallet.tipoMembrecia == premium">
                 <MenuCardViewComponent />
+                <v-layout justify-end>
+                    <p class="BUO-Label-XSmall pt-4 px-4">
+                        Powered by PDA International
+                    </p></v-layout
+                >
             </v-card-text>
         </section>
     </v-card>

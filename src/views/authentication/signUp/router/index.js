@@ -3,7 +3,7 @@
  */
 const routes = [
     {
-        path: '/SignUp',
+        path: '/SignUp/:Id?',
         name: 'SignUpViewComponent',
         component: 'authentication/signUp/SignUpViewComponent',
         meta: {

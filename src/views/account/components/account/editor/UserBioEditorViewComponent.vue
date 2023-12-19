@@ -169,7 +169,7 @@ export default {
                         <v-col cols="12">
                             <BaseSwitch
                                 v-model="temp.mostrarHabilidades"
-                                label="Mostrar mis indicadores PDA"
+                                label="Mostrar mis indicadores Buo Psychometric"
                             />
                         </v-col>
                     </v-row>

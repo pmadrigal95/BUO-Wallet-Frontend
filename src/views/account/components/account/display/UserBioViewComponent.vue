@@ -202,7 +202,7 @@ export default {
                             <span
                                 class="BUO-Paragraph-Small-SemiBold"
                                 :class="[app ? 'white--text' : 'grey700--text']"
-                                >Indicadores PDA</span
+                                >Indicadores Buo Psychometric</span
                             >
                         </v-layout>
                         <v-chip-group column>
