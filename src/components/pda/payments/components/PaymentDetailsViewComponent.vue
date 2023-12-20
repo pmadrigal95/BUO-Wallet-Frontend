@@ -194,7 +194,7 @@ export default {
                                     >
                                         <v-img
                                             contain
-                                            height="40px"
+                                            height="25px"
                                             src="
                                             https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png
                                             "

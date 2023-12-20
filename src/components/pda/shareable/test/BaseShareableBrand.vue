@@ -27,7 +27,7 @@ export default {
             <v-img
                 class="mt-2"
                 contain
-                height="60px"
+                height="30px"
                 :src="`https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_${
                     dark ? 'clear' : 'dark'
                 }.png`"

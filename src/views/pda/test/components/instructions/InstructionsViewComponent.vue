@@ -175,7 +175,7 @@ export default {
                 <v-layout align-center justify-center>
                     <v-img
                         contain
-                        height="50px"
+                        height="30px"
                         src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png"
                         lazy-src="https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png"
                     />
