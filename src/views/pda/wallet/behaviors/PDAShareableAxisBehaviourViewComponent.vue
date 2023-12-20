@@ -15,7 +15,7 @@ const BasePDAShareableAxisBehaviourViewComponent = () =>
 export default {
     name: 'PDAShareableAxisBehaviourViewComponent',
 
-    metaInfo: { title: 'Mis Comportamientos Buo Psychometric' },
+    metaInfo: { title: 'Mis Comportamientos Psychometric' },
 
     components: {
         BasePDAShareableAxisBehaviourViewComponent,

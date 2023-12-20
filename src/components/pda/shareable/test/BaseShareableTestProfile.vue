@@ -207,7 +207,8 @@ export default {
                                     class="mt-6 BUO-Label-Small grey700--text"
                                 >
                                     <span class="BUO-Label-Small-SemiBold"
-                                        >De más de 3 millones de Buo Psychometrics</span
+                                        >De más de 3 millones de
+                                        Psychometrics</span
                                     >, solo el {{ entity.benchmarkFormato }}% de
                                     la población tiene tu mismo perfil
                                 </v-alert>

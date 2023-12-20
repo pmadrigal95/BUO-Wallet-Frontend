@@ -111,7 +111,7 @@ export default {
                         app ? 'white--text' : 'grey700--text',
                     ]"
                 >
-                    Mis indicadores Buo Psychometric
+                    Mis indicadores Psychometric
                 </v-card-title>
                 <v-card-subtitle
                     :class="[

@@ -131,7 +131,7 @@ const userSetting = ({ companyId, departmentId, singleSelect }) => {
                 show: true,
             },
             {
-                text: 'Buo Psychometric',
+                text: 'Psychometric',
                 type: 'bool',
                 align: 'center',
                 value: 'conPda',

@@ -70,8 +70,8 @@ export default {
                 <v-card-title
                     class="buo-word-break BUO-Paragraph-Large-SemiBold white--text pt-8"
                 >
-                    El Buo Psychometric Assessment ha sido diseñado para conocer
-                    a las personas identificando los estilos naturales de
+                    El Psychometric Assessment ha sido diseñado para conocer a
+                    las personas identificando los estilos naturales de
                     comportamiento.
                 </v-card-title>
                 <v-card-subtitle
