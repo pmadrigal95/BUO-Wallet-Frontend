@@ -141,7 +141,7 @@ export default {
         <BaseCardViewComponent
             :btnAction="$_returnToWallet"
             title="Comportamientos"
-            subtitle="El Buo Psychometric Assessment analiza 5 comportamientos básicos. Descubre tu tendencia conductual en cada eje. "
+            subtitle="El Psychometric Assessment analiza 5 comportamientos básicos. Descubre tu tendencia conductual en cada eje. "
             v-if="pdaWallet"
         >
             <div slot="top-actions">

@@ -73,7 +73,7 @@ export default {
         :title="$vuetify.breakpoint.mobile ? 'Resumen de Compra' : undefined"
         :subtitle="
             $vuetify.breakpoint.mobile
-                ? 'Resultados Completos de tu Buo Psychometric:'
+                ? 'Resultados Completos de tu Psychometric:'
                 : undefined
         "
         :md="md"
@@ -166,7 +166,7 @@ export default {
                                         >
                                             <b>{{ user.name }}</b>
                                         </section>
-                                        Acceso completo Buo Psychometric
+                                        Acceso completo Psychometric
                                     </v-card-subtitle>
                                 </section>
                                 <v-layout justify-center align-center>
@@ -194,7 +194,7 @@ export default {
                                     >
                                         <v-img
                                             contain
-                                            height="40px"
+                                            height="25px"
                                             src="
                                             https://buo-resources.s3.us-east-2.amazonaws.com/wallet/buo_psycometric_clear.png
                                             "

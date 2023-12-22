@@ -15,7 +15,7 @@ const BasePDABehaviourDetailsViewComponent = () =>
 export default {
     name: 'PDABehaviourDetailsViewComponent',
 
-    metaInfo: { title: 'Mis Comportamientos Buo Psychometric' },
+    metaInfo: { title: 'Mis Comportamientos Psychometric' },
 
     components: {
         BasePDABehaviourDetailsViewComponent,

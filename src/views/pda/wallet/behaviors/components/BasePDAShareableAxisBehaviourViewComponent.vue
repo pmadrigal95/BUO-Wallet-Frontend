@@ -15,7 +15,7 @@ const BaseShareableTestAxis = () =>
 export default {
     name: 'BasePDABehaviourDetailsViewComponent',
 
-    metaInfo: { title: 'Mis Comportamientos Buo Psychometric' },
+    metaInfo: { title: 'Mis Comportamientos Psychometric' },
 
     components: {
         BaseShareableTestAxis,
