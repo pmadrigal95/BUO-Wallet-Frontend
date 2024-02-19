@@ -167,31 +167,21 @@ export default {
                     <v-tabs-slider color="transparent"></v-tabs-slider>
                     <v-tab
                         class="rounded-pill no-uppercase mr-3"
-                        active-class="tab-active-blue"
+                        active-class="tab-active-white"
                     >
-                    <p class="BUO-Label-Small pt-4">
-                        Aprobadas
-                    </p>
-
-                        
+                        <p class="BUO-Label-Small pt-4">Aprobadas</p>
                     </v-tab>
                     <v-tab
-                    class="rounded-pill no-uppercase mr-3"
-                    active-class="tab-active-blue"
+                        class="rounded-pill no-uppercase mr-3"
+                        active-class="tab-active-white"
                     >
-                    <p class="BUO-Label-Small pt-4">
-                        Pendientes
-                    </p>
-                        
+                        <p class="BUO-Label-Small pt-4">Pendientes</p>
                     </v-tab>
                     <v-tab
-                    class="rounded-pill no-uppercase mr-3"
-                    active-class="tab-active-blue"
+                        class="rounded-pill no-uppercase mr-3"
+                        active-class="tab-active-white"
                     >
-                    <p class="BUO-Label-Small pt-4">
-                        Asignadas
-                    </p>
-                        
+                        <p class="BUO-Label-Small pt-4">Asignadas</p>
                     </v-tab>
                 </v-tabs>
 
