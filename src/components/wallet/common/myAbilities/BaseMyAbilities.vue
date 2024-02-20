@@ -159,7 +159,7 @@ export default {
                     v-model="step"
                     right
                     show-arrows
-                    height="25"
+                    height="34"
                     class="pa-6 pt-5"
                     flat
                     :color="app ? 'white' : 'primary'"
@@ -172,7 +172,7 @@ export default {
                         <p class="BUO-Label-Small pt-4">Aprobadas</p>
                     </v-tab>
                     <v-tab
-                        class="rounded-pill no-uppercase mr-3"
+                        class="rounded-pill no-uppercase mr-3 pa-2"
                         active-class="tab-active-white"
                     >
                         <p class="BUO-Label-Small pt-4">Pendientes</p>
